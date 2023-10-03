@@ -1,0 +1,54 @@
+<div class="navbar">
+  <div class="menu-item">
+    <a
+      routerLink="/welcome"
+      routerLinkActive="active"
+      (mouseenter)="showTooltip('Descripción de QUIENES SOMOS')"
+      (mouseleave)="hideTooltip()"
+      title="Aqui nos presentamos para que sepas a que nos dedicamos"
+    >QUIENES SOMOS
+    </a>
+  </div>
+  <span class="separator">|</span>
+  <div class="menu-item">
+    <a
+    (mouseenter)="showTooltip('Descripción de talleres y cursos')"
+    (mouseleave)="hideTooltip()"
+    title="Aqui podras acceder a cursos y talleres para aprovechar tu tiempo libre"
+    >TALLERES Y CURSOS
+  </a>
+  </div>
+  <span class="separator">|</span>
+  <div class="menu-item">
+    <a
+    routerLink="/salud"
+      routerLinkActive="active"
+    (mouseenter)="showTooltip('Descripción de salud')"
+    (mouseleave)="hideTooltip()"
+    title ="los mejores consejos para estar siempre en optimas condiciones"
+    >SALUD
+  </a>
+
+  </div>
+  <span class="separator">|</span>
+  <div class="menu-item">
+    <a
+    (mouseenter)="showTooltip('Descripción de pasea conmigo')"
+    (mouseleave)="hideTooltip()"
+    title="aqui podras quedar con gente para pasear en compañía"
+    >PASEA CONMIGO
+  </a>
+  </div>
+  <span class="separator">|</span>
+  <div class="menu-item">
+    <a
+    (mouseenter)="showTooltip('Descripción de acompañame')"
+    (mouseleave)="hideTooltip()"
+    title="aqui podras encontrar los mejores cuidadores y cuidadoras"
+    >ACOMPAÑAME
+  </a>
+  </div>
+</div>
+
+
+

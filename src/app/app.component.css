@@ -1,0 +1,45 @@
+.main-container{
+
+  background-color: rgb(144, 250, 195);
+
+}
+
+.logo{
+  margin-bottom:-120px;
+  width: 450px;
+  height: 200px;
+
+}
+
+.login-signup-container {
+  margin-left: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+
+.login-button,
+.signup-button {
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+
+}
+.logged-in-username {
+  color: black;
+  font-size: 18px;
+
+}
+.btn-primary {
+  font-size: 25px;
+  padding: 20px 40px;
+}

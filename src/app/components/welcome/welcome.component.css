@@ -1,0 +1,29 @@
+.main-container {
+  background-image: url(../../../assets/images/imagen_welcome.png);
+  height: 750px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  padding: 50px;
+  font-style: oblique;
+
+}
+.welcome{
+color: black;
+font-style:inherit;
+background-color: rgba(248, 240, 240, 0.7);
+
+
+}
+
+h1 {
+  font-size: 50px;
+}
+
+
+#content {
+  background-color: rgba(69, 68, 68, 0.7);
+  padding: 20px;
+}
