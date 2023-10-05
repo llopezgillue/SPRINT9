@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,10 +14,11 @@ export class RegisterComponent {
   isRegistrationFailed: boolean = false;
   showError:boolean = false;
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private Router: Router ) {}
 
   register(): void {
     if (this.authService.register(this.username, this.password)) {
+      this.Router.navigate(['/welcome']);
 
       this.isUserLoggedIn = true;
 

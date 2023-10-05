@@ -13,6 +13,7 @@ import { FollowmeComponent } from './components/followme/followme.component';
 import { SaludParentComponent } from './components/salud-parent/salud-parent.component';
 import { SaludChildComponent } from './components/salud-child/salud-child.component';
 import { AuthService } from './services/auth.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -37,6 +38,7 @@ import { AuthService } from './services/auth.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

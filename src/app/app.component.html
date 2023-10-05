@@ -1,4 +1,4 @@
-<div class></div>
+<div class>
 <div class="mx-1">
   <img src="../assets/images/logo_mayormente.png" class="logo">
 </div>
@@ -6,7 +6,7 @@
 <div class="text-end mt-1 pt-1 ps-3 my-1">
   <ng-container *ngIf="isLoggedIn; else loggedOutButtons">
     <span class="logged-in-username">{{ loggedInUserName }}&nbsp;&nbsp;</span>
-    <a (click)="logout()" class="btn btn-primary">SAL DE LA SESION</a>
+    <a (click)="logout()" class="btn btn-primary">CIERRA SESION</a>
   </ng-container>
   <ng-template #loggedOutButtons>
     <a routerLink="/login" class="btn btn-primary me-2 my-0">INICIA SESION</a>
@@ -18,4 +18,5 @@
   <app-navbar *ngIf="!isWelcomePage"></app-navbar>
   <br>
   <router-outlet></router-outlet>
+</div>
 </div>

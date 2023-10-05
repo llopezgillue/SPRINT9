@@ -1,6 +1,8 @@
 .container-con-video {
   position: relative;
   overflow: hidden;
+  background: linear-gradient(to bottom, #7cf07c, #71e1f5, rgb(243, 142, 142));
+
 }
 
 .video-bg {

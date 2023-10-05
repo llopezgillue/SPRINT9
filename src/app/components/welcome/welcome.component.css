@@ -5,25 +5,36 @@
   background-position: center;
   color: white;
   text-align: center;
-  font-size: 36px;
-  padding: 50px;
+  padding: 30px;
   font-style: oblique;
-
-}
-.welcome{
-color: black;
-font-style:inherit;
-background-color: rgba(248, 240, 240, 0.7);
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  font-size: 50px;
+.welcome-container {
+  background-color: rgba(248, 240, 240, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.welcome {
+  font-size: 40px;
+  color: black;
+  font-weight: bold;
+}
 
 #content {
   background-color: rgba(69, 68, 68, 0.7);
   padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-size: 36px;
+  line-height: 1.5;
 }

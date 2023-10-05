@@ -1,6 +1,7 @@
-html, body, app-root {
-  background-color: rgba(109, 250, 166, 0.735);
+html, body, app-root{
+  background: linear-gradient(to bottom, #7cf07c, #71e1f5, rgb(243, 142, 142));
   margin: 0;
   padding: 0;
   color: #fff;
+  height: 100%;
 }
