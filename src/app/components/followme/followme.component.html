@@ -1,6 +1,8 @@
 <div>
-  <label for="poblacion">Buscar por Población:</label>
-  <input type="text" id="poblacion" [(ngModel)]="poblacion" />
+  <select [(ngModel)]="poblacion" (change)="buscarPorPoblacion()">
+    <option value="">Todas las poblaciones</option>
+    <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion">{{ poblacion }}</option>
+  </select>
   <button (click)="buscarPorPoblacion()">Buscar</button>
 </div>
 <br>
@@ -11,5 +13,4 @@
   <p>Edad: {{ cuidador.edad }}</p>
   <p>Horario: {{ cuidador.horario }}</p>
   <p>Población: {{ cuidador.poblacion }}</p>
-
 </div>

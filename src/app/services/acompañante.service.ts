@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -16,5 +17,16 @@ export class AcompanantesService {
     return this.firestore
       .collection('cuidadores', (ref) => ref.where('poblacion', '==', poblacion))
       .valueChanges();
+  }
+  obtenerPoblacionesDisponibles(): Observable<string[]> {
+    return this.firestore.collection('cuidadores').valueChanges()
+      .pipe(
+        map((cuidadores: any[]) => {
+          // Extraer poblaciones únicas de la colección
+          const poblaciones = [...new Set(cuidadores.map(cuidadores => cuidadores.poblacion))];
+          return poblaciones;
+        })
+      );
+
   }
 }

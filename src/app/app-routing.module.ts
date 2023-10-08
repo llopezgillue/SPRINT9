@@ -13,9 +13,9 @@ import { FollowMeComponent } from './components/followme/followme.component';
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent},
-  { path: 'salud', component: SaludParentComponent, canActivate: [AuthGuard]},
-  { path: 'followme', component: FollowMeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'salud', component: SaludParentComponent, canActivate: [AuthGuard] },
+  { path: 'followme', component: FollowMeComponent, canActivate: [AuthGuard] },
 
 ];
 
