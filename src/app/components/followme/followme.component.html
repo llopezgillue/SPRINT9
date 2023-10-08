@@ -1,1 +1,15 @@
-<p>followme works!</p>
+<div>
+  <label for="poblacion">Buscar por Población:</label>
+  <input type="text" id="poblacion" [(ngModel)]="poblacion" />
+  <button (click)="buscarPorPoblacion()">Buscar</button>
+</div>
+
+<!-- Mostrar los resultados de la búsqueda -->
+<div *ngIf="resultados.length > 0">
+  <h2>Resultados de la Búsqueda</h2>
+  <ul>
+    <li *ngFor="let acompanante of resultados">
+      {{ acompanante.nombre }} - {{ acompanante.poblacion }}
+    </li>
+  </ul>
+</div>

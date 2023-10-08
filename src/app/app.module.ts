@@ -1,19 +1,21 @@
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FollowMeComponent } from './components/followme/followme.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
-import { SocialComponent } from './components/social/social.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FollowmeComponent } from './components/followme/followme.component';
 import { SaludParentComponent } from './components/salud-parent/salud-parent.component';
 import { SaludChildComponent } from './components/salud-child/salud-child.component';
 import { AuthService } from './services/auth.service';
-import { RouterModule } from '@angular/router';
+import { environment } from '../environments/environment';
+import { AcompanantesService } from './services/acompañante.service';
+import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 
@@ -24,23 +26,23 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    SocialComponent,
     WelcomeComponent,
-    FollowmeComponent,
     SaludParentComponent,
     SaludChildComponent,
-
-
+    FollowMeComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+
+
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+  providers: [AuthService, AcompanantesService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

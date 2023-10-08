@@ -11,15 +11,6 @@ export class NavbarComponent {
 
   mostrarConsejosSalud = false;
 
-
-  showTooltip(text: string) {
-    this.titleService.setTitle(text);
-  }
-
-  hideTooltip() {
-    this.titleService.setTitle('');
-  }
-
   mostrarConsejos() {
     this.mostrarConsejosSalud = true;
   }

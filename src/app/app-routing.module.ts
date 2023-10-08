@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SaludParentComponent } from './components/salud-parent/salud-parent.component';
 import { AuthGuard } from './guard/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { FollowMeComponent } from './components/followme/followme.component';
 
 
 
@@ -14,8 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'salud', component: SaludParentComponent, canActivate: [AuthGuard]},
-
-
+  { path: 'followme', component: FollowMeComponent },
 
 ];
 
