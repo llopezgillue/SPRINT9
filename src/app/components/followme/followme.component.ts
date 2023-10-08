@@ -1,5 +1,5 @@
-import { AcompanantesService } from './../../services/acompañante.service';
 import { Component } from '@angular/core';
+import { AcompanantesService } from '../../services/acompañante.service';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class FollowMeComponent {
             this.resultados = data;
           },
           (error) => {
-            console.error('Error al buscar:', error); // Agrega esta línea para manejar errores.
+            console.error('Error al buscar:', error);
             this.resultados = [];
           }
         );

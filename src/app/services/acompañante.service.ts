@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore'; 
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,12 +9,12 @@ export class AcompanantesService {
   constructor(private firestore: AngularFirestore) {}
 
   obtenerAcompanantes(): Observable<any[]> {
-    return this.firestore.collection('acompanantes').valueChanges();
+    return this.firestore.collection('cuidadores').valueChanges();
   }
 
   buscarAcompanantesPorPoblacion(poblacion: string): Observable<any[]> {
     return this.firestore
-      .collection('acompanantes', (ref) => ref.where('poblacion', '==', poblacion))
+      .collection('cuidadores', (ref) => ref.where('poblacion', '==', poblacion))
       .valueChanges();
   }
 }
