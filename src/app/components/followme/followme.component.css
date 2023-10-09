@@ -1,0 +1,41 @@
+.description-3-lines {
+  font-size: 20px; /* Tamaño de fuente más grande */
+  color: #333;
+  max-height: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.card {
+  background:linear-gradient(to bottom, #ffd700, #ffffcc, #ffcc00);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #e91e63;
+  font-size: 28px;
+}
+
+.age, .timetable, .poblacion {
+  font-size: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+}
