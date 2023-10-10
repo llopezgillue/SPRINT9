@@ -5,32 +5,33 @@
   background-position: center;
   color: white;
   text-align: center;
-  padding: 30px;
+  padding: 60px;
   font-style: oblique;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .welcome-container {
   background-color: rgba(248, 240, 240, 0.7);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 }
 
 .welcome {
   font-size: 40px;
   color: black;
   font-weight: bold;
+  margin-top:10px;
 }
 
 #content {
   background-color: rgba(69, 68, 68, 0.7);
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

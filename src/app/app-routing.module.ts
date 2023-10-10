@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -6,6 +7,8 @@ import { SaludParentComponent } from './components/salud-parent/salud-parent.com
 import { AuthGuard } from './guard/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { FollowMeComponent } from './components/followme/followme.component';
+import { FormularioComponent } from './components/formulario/formulario.component';
+
 
 
 
@@ -16,6 +19,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'salud', component: SaludParentComponent, canActivate: [AuthGuard] },
   { path: 'followme', component: FollowMeComponent },
+  { path: 'formulario', component: FormularioComponent },
+
 
 ];
 

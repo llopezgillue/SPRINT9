@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2 class="text-center">Formulario de Solicitud de Acompañante</h2>
+  <form #formulario="ngForm" (ngSubmit)="enviarFormulario()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" class="form-control" [(ngModel)]="solicitud.nombre" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos:</label>
+      <input type="text" id="apellidos" name="apellidos" class="form-control" [(ngModel)]="solicitud.apellidos" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="edad" class="form-label">Edad:</label>
+      <input type="number" id="edad" name="edad" class="form-control" [(ngModel)]="solicitud.edad" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="horasDeseadas" class="form-label">Horas Deseadas:</label>
+      <input type="number" id="horasDeseadas" name="horasDeseadas" class="form-control" [(ngModel)]="solicitud.horasDeseadas" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="comentarios" class="form-label">Comentarios:</label>
+      <textarea id="comentarios" name="comentarios" class="form-control" [(ngModel)]="solicitud.comentarios"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+  </form>
+</div>

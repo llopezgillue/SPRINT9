@@ -1,23 +1,20 @@
-<br>
-<div class="container align-items-center">
+<div class="container align-items-center pt-5">
   <h2 class="signup">REGISTRO DE NUEVO USUARIO</h2>
-  <br>
-  <br>
   <form class="form" (ngSubmit)="register()" #registerForm="ngForm">
-    <div class="form-group">
-      <label for="username" class="mx-2">Nombre de Usuario:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="username" required>
-    </div>
     <br>
     <div class="form-group">
-      <label for="password" class="mx-2">Contraseña:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+      <label for="username" class="form-label">Nombre de Usuario:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required class="form-control shorter-input">
     </div>
     <br>
-    <br>
-    <button class="btn btn-primary btn-lg" type="submit">Confirmar</button>
-  </form>
 
+    <div class="form-group">
+      <label for="password" class="form-label">Contraseña:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required class="form-control shorter-input">
+    </div>
+
+    <button class="btn btn-primary btn-lg mt-3" type="submit">Registrar</button>
+  </form>
 
   <div class="text-center alert alert-danger mt-3" *ngIf="authService.errorMessage">
     {{ authService.errorMessage }}

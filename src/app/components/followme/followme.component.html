@@ -14,12 +14,14 @@
 </div>
 
 <div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div *ngFor="let cuidador of resultados" class="card mb-4">
+  <div class="row">
+    <div *ngFor="let cuidador of resultados" class="col-md-6">
+      <div class="card mb-4">
         <div class="card-body">
-          <h2 class="nombre card-title">{{ cuidador.nombre }} {{ cuidador.apellido }}</h2>
-          <div class="description-3-lines card-text">{{ cuidador.descripcion }}</div>
+          <h2 class="nombre card-title">
+            <a [routerLink]="['/formulario']">{{ cuidador.nombre }} {{ cuidador.apellido }}</a>
+          </h2>
+          <div class="description card-text">{{ cuidador.descripcion }}</div>
           <hr>
           <p class="card-text age"><strong>Edad:</strong> {{ cuidador.edad }}</p>
           <p class="card-text timetable"><strong>Horario:</strong> {{ cuidador.horario }}</p>

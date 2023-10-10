@@ -1,41 +1,46 @@
-.description-3-lines {
-  font-size: 20px; /* Tamaño de fuente más grande */
-  color: #333;
-  max-height: 90px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+.description {
+  font-size: 20px;
+  color: #0d0d0d;
+  font-family: 'Montserrat', sans-serif; /* Aplicar la fuente Montserrat */
 }
 
 .card {
-  background:linear-gradient(to bottom, #ffd700, #ffffcc, #ffcc00);
-  border: 1px solid #ccc;
+  background: linear-gradient(to bottom, #71e1f5, #7cf07c);
+  border: 1px solid rgb(194, 239, 250);
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(11, 11, 11, 0.2);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card-title {
-  color: #e91e63;
+  color: #030303;
   font-size: 28px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .age, .timetable, .poblacion {
   font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-primary:hover {
   background-color: #0056b3;
   border-color: #0056b3;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .select {
   width: 100%;
   padding: 10px;
+  font-family: 'Montserrat', sans-serif; 
 }

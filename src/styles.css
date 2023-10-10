@@ -1,13 +1,7 @@
 html, body, app-root{
-  background: linear-gradient(to bottom, #7cf07c, #71e1f5, #71e1f5,#7cf07c);
+  background: linear-gradient(to bottom, #f0d17c, #f5f171, #71e1f5,#7cf07c);
   margin: 0;
   padding: 0;
   color: #fff;
   height: 100%;
-}
-
-.card-yellow-bg {
-
-  background: linear-gradient(to bottom, yellow, rgb(244, 244, 122));
-  border-radius: 10px; 
 }

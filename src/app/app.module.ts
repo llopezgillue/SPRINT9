@@ -19,6 +19,12 @@ import { AuthService } from './services/auth.service';
 import { AcompanantesService } from './services/acompañante.service';
 
 import { environment } from '../environments/environment';
+import { FormularioComponent } from './components/formulario/formulario.component';
+import { MainComponent } from './components/main/main.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
+
 
 @NgModule({
   declarations: [
@@ -31,6 +37,9 @@ import { environment } from '../environments/environment';
     SaludParentComponent,
     SaludChildComponent,
     FollowMeComponent,
+    FormularioComponent,
+    MainComponent,
+
 
   ],
   imports: [
@@ -40,6 +49,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
 
 
   ],
