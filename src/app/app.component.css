@@ -1,8 +1,12 @@
-.logo{
-  margin-bottom:-120px;
+.logo {
+  margin-bottom: -120px;
   width: 350px;
   height: 200px;
+}
 
+.container-fluid {
+  padding: 0;
+  margin: 0;
 }
 
 .login-signup-container {
@@ -13,26 +17,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  padding: 10px 20px;
 
+}
 
 .flex-spacer {
   flex-grow: 1;
 }
-
 
 .login-button,
 .signup-button {
   text-decoration: none;
   padding: 10px 15px;
   margin-left: 10px;
-
 }
+
 .logged-in-username {
   color: black;
   font-size: 18px;
-
 }
+
 .btn-primary {
   font-size: 25px;
   padding: 20px 40px;

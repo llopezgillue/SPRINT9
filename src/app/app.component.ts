@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AuthService } from './services/auth.service';
-
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -10,45 +9,34 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'SPRINT9';
-  isWelcomePage = false;
-  isLoggedIn = true;
+  isLoggedIn = false;
   loggedInUserName: string | null = null;
-  showNavbar = true;
-  healthAdvices: string[] = [];
 
-
-
-
-  constructor(private router: Router, public AuthService: AuthService) {
+  constructor(private router: Router, public userService: UserService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
 
-        this.showNavbar = event.url !== '/';
+        this.updateLoginStatus();
       }
-    });
-    this.AuthService.loginStatusChanged.subscribe((isLoggedIn: boolean) => {
-      this.isLoggedIn = isLoggedIn;
-      this.loggedInUserName = this.AuthService.getLoggedInUserName();
     });
   }
 
   ngOnInit(): void {
 
     this.updateLoginStatus();
-    this.AuthService.loginStatusChanged.subscribe(() => {
+    this.userService.loginStatusChanged.subscribe(() => {
+
       this.updateLoginStatus();
     });
   }
 
   updateLoginStatus(): void {
-    this.isLoggedIn = this.AuthService.isLoggedInUser();
-    this.loggedInUserName = this.AuthService.getLoggedInUserName();
+    this.isLoggedIn = this.userService.isLoggedInUser();
+    this.loggedInUserName = this.userService.getLoggedInUserName();
   }
 
   logout(): void {
-    this.AuthService.logout();
+    this.userService.logout();
     this.router.navigate(['/']);
   }
-
 }
-

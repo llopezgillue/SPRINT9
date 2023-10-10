@@ -13,5 +13,6 @@ export class NavbarComponent {
 
   mostrarConsejos() {
     this.mostrarConsejosSalud = true;
+    console.log('Mostrando consejos de salud');
   }
 }

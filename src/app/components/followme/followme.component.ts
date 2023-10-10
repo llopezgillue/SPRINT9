@@ -30,7 +30,7 @@ export class FollowMeComponent {
         }
       );
     } else {
-      // Si no se selecciona una población específica, mostrar todos los cuidadores
+     
       this.AcompanantesService.obtenerAcompanantes().subscribe(
         (data: any[]) => {
           console.log('Datos recibidos:', data);
