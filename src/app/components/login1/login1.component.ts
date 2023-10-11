@@ -30,9 +30,9 @@ export class Login1Component {
     this.userService.login(this.formLogin.value)
       .then(response => {
         console.log('Inicio de sesión exitoso:', response);
-        // Establece isLoggedIn en true en el servicio
+
         this.userService.isLoggedIn = true;
-        // Redirige al usuario a la página deseada (por ejemplo, /welcome)
+
         this.router.navigate(['/welcome']);
       })
       .catch(error => console.log('Error al iniciar sesión:', error));
@@ -42,9 +42,9 @@ export class Login1Component {
     this.userService.loginWithGoogle()
       .then(response => {
         console.log('Inicio de sesión con Google exitoso:', response);
-        // Establece isLoggedIn en true en el servicio
+        
         this.userService.isLoggedIn = true;
-        // Redirige al usuario a la página deseada (por ejemplo, /welcome)
+
         this.router.navigate(['/welcome']);
       })
       .catch(error => console.log('Error al iniciar sesión con Google:', error));

@@ -22,8 +22,9 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
 import { UserService } from './services/user.service';
-import { Register1Component } from './components/register1/register.component';
+
 import { Login1Component } from './components/login1/login1.component';
+import { Register1Component } from './components/register1/register1.component';
 
 
 

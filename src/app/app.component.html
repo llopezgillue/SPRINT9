@@ -4,7 +4,7 @@
   </div>
   <div class="text-end mt-1 pt-1 ps-3 my-1">
     <ng-container *ngIf="isLoggedIn; else loggedOutButtons">
-      <a class="logged-in-username">{{ loggedInUserName }}&nbsp;&nbsp;</a>
+      <a class="logged-in-username">{{ loggedInUserName }}</a>
       <a (click)="logout()" class="btn btn-primary">CIERRA SESIÓN</a>
     </ng-container>
     <ng-template #loggedOutButtons>
@@ -12,7 +12,6 @@
       <a routerLink="/register" class="btn btn-primary">REGÍSTRATE</a>
     </ng-template>
   </div>
-
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
   </div>

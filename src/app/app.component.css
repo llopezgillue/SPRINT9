@@ -1,7 +1,7 @@
 .logo {
-  margin-bottom: -120px;
+  margin-bottom: -60px;
   width: 350px;
-  height: 200px;
+  height: 180px;
 }
 
 .container-fluid {
@@ -38,6 +38,8 @@
 }
 
 .btn-primary {
-  font-size: 25px;
-  padding: 20px 40px;
+  font-size: 18px;
+  padding: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 10px;
 }
