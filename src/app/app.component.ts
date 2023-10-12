@@ -46,13 +46,13 @@ export class AppComponent implements OnInit {
     this.successMessage = message;
     setTimeout(() => {
       this.successMessage = null;
-    }, 5000);
+    }, 3000);
   }
 
   showErrorMessage(message: string) {
     this.errorMessage = message;
     setTimeout(() => {
       this.errorMessage = null;
-    }, 5000); 
+    }, 3000);
   }
 }

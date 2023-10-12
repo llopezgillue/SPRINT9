@@ -21,38 +21,44 @@ export class Login1Component {
   onSubmit() {
     this.userService.login(this.formLogin.value)
       .then(response => {
-        this.userService.setSuccessMessage('Inicio de sesión exitoso.');
-        setTimeout(() => {
-          this.userService.clearMessages();
-        }, 5000);
-        this.userService.isLoggedIn = true;
-        this.router.navigate(['/welcome']);
+        // Verifica si el inicio de sesión fue exitoso
+        if (this.userService.isLoggedIn) {
+          this.userService.setSuccessMessage('Inicio de sesión exitoso.');
+          setTimeout(() => {
+            this.userService.clearMessages();
+          }, 5000);
+          this.router.navigate(['/welcome']);
+        }
       })
       .catch(error => {
+        // Muestra un mensaje de error en caso de un error durante el inicio de sesión
         this.userService.setErrorMessage('Error al iniciar sesión. Asegúrate de que el correo electrónico y la contraseña sean correctos.');
         setTimeout(() => {
           this.userService.clearMessages();
         }, 5000);
-        console.log(error);
+        console.error('Error al iniciar sesión:', error);
       });
   }
 
   onClick() {
     this.userService.loginWithGoogle()
       .then(response => {
-        this.userService.setSuccessMessage('Inicio de sesión con Google exitoso.');
-        setTimeout(() => {
-          this.userService.clearMessages();
-        }, 5000);
-        this.userService.isLoggedIn = true;
-        this.router.navigate(['/welcome']);
+        // Verifica si el inicio de sesión con Google fue exitoso
+        if (this.userService.isLoggedIn) {
+          this.userService.setSuccessMessage('Inicio de sesión con Google exitoso.');
+          setTimeout(() => {
+            this.userService.clearMessages();
+          }, 5000);
+          this.router.navigate(['/welcome']);
+        }
       })
       .catch(error => {
+        // Muestra un mensaje de error en caso de un error durante el inicio de sesión con Google
         this.userService.setErrorMessage('Error al iniciar sesión con Google.');
         setTimeout(() => {
           this.userService.clearMessages();
         }, 5000);
-        console.log(error);
+        console.error('Error al iniciar sesión con Google:', error);
       });
   }
 }

@@ -16,7 +16,6 @@
   <router-outlet></router-outlet>
 </div>
 
-<!-- Sección para mostrar mensajes de error y éxito -->
 <div class="message-section" *ngIf="errorMessage || successMessage">
   <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
   <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>

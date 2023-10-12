@@ -48,6 +48,7 @@ export class UserService {
         this.clearMessages();
         this.successMessage = 'Inicio de sesión exitoso.';
         this.errorMessage = null;
+        this.isLoggedIn = true;  // Establece isLoggedIn en true después del inicio de sesión exitoso
       })
       .catch((error) => {
         this.clearMessages();
@@ -107,10 +108,12 @@ export class UserService {
   setSuccessMessage(message: string) {
     this.successMessage = message;
   }
+
   clearMessages() {
     this.successMessage = null;
     this.errorMessage = null;
   }
+
   setLoggedInState(isLoggedIn: boolean) {
     this.isLoggedIn = isLoggedIn;
   }

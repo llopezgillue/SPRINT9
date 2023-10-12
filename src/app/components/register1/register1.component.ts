@@ -28,7 +28,7 @@ export class Register1Component {
         setTimeout(() => {
           this.userService.clearMessages();
         }, 5000);
-        this.userService.setLoggedInState(false); // Establecer isLoggedIn en false
+        this.userService.setLoggedInState(false);
         this.router.navigate(['/welcome']);
       })
       .catch(error => {
@@ -37,6 +37,7 @@ export class Register1Component {
         setTimeout(() => {
           this.userService.clearMessages();
         }, 5000);
+      
         console.error('Error en el registro:', error);
       });
   }
