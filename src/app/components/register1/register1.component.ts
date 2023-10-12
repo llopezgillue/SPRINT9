@@ -9,14 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./register1.component.css']
 })
 export class Register1Component {
+  isRegistered: boolean = true;
   formReg: FormGroup;
   isUserAlreadyRegistered: boolean = false;
-  private registrationMessageTimer: any;
 
-  constructor(
-    private userService: UserService,
-    private router: Router
-  ) {
+  constructor(public userService: UserService, private router: Router) {
     this.formReg = new FormGroup({
       email: new FormControl(),
       password: new FormControl()
@@ -25,19 +22,23 @@ export class Register1Component {
 
   onSubmit() {
     this.userService.register(this.formReg.value)
-      .then((response: any) => {
-        if (response.isRegistered === true) {
-          // El usuario ya está registrado.
-          this.isUserAlreadyRegistered = true;
-          // Ocultar el mensaje después de 5 segundos (5000 ms).
-          this.registrationMessageTimer = setTimeout(() => {
-            this.isUserAlreadyRegistered = false;
-          }, 5000);
-        } else {
-          // El registro fue exitoso, redirige a la página de bienvenida.
-          this.router.navigate(['/welcome']);
-        }
+      .then(() => {
+        // Registro exitoso
+        this.userService.setSuccessMessage('Registro exitoso.');
+        setTimeout(() => {
+          this.userService.clearMessages();
+        }, 5000);
+        this.userService.setLoggedInState(false); // Establecer isLoggedIn en false
+        this.router.navigate(['/welcome']);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        // Registro no exitoso
+        this.userService.setErrorMessage('Error en el registro. Asegúrate de que el correo electrónico y la contraseña sean correctos.');
+        setTimeout(() => {
+          this.userService.clearMessages();
+        }, 5000);
+        console.error('Error en el registro:', error);
+      });
   }
+
 }

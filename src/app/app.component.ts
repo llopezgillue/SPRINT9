@@ -11,6 +11,9 @@ export class AppComponent implements OnInit {
   title = 'SPRINT9';
   isLoggedIn = false;
   loggedInUserName: string | null = null;
+  errorMessage: string | null = null;
+  successMessage: string | null = null;
+
 
   constructor(private router: Router, public userService: UserService) {
     this.router.events.subscribe((event) => {
@@ -38,5 +41,18 @@ export class AppComponent implements OnInit {
   logout(): void {
     this.userService.logout();
     this.router.navigate(['/']);
+  }
+  showSuccessMessage(message: string) {
+    this.successMessage = message;
+    setTimeout(() => {
+      this.successMessage = null;
+    }, 5000);
+  }
+
+  showErrorMessage(message: string) {
+    this.errorMessage = message;
+    setTimeout(() => {
+      this.errorMessage = null;
+    }, 5000); 
   }
 }

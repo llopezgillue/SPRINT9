@@ -3,16 +3,21 @@
     <img src="../assets/images/logo_mayormente.png" class="logo">
   </div>
   <div class="text-end mt-1 pt-1 ps-3 my-1">
-    <ng-container *ngIf="isLoggedIn; else loggedOutButtons">
-      <a class="logged-in-username">{{ loggedInUserName }}</a>
-      <a (click)="logout()" class="btn btn-primary">CIERRA SESIÓN</a>
+    <ng-container *ngIf="userService.isLoggedIn; else loggedOutButtons">
+      <a class="logged-in-username">{{ userService.loggedInUserName }}</a>
+      <button (click)="logout()" class="btn btn-primary">Cerrar Sesión</button>
     </ng-container>
     <ng-template #loggedOutButtons>
-      <a routerLink="/login" class="btn btn-primary me-2 my-0">INICIA SESIÓN</a>
-      <a routerLink="/register" class="btn btn-primary">REGÍSTRATE</a>
+      <a routerLink="/login" class="btn btn-primary me-2 my-0">Iniciar Sesión</a>
+      <a routerLink="/register" class="btn btn-primary">Registrarse</a>
     </ng-template>
   </div>
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-  </div>
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+</div>
 
+<!-- Sección para mostrar mensajes de error y éxito -->
+<div class="message-section" *ngIf="errorMessage || successMessage">
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+</div>
