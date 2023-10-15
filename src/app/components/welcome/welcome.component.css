@@ -1,41 +1,69 @@
-.main-container {
-  background-image: url(../../../assets/images/imagen_welcome.png);
-  height: 750px;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px;
-  font-style: oblique;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.welcome-container {
-  background-color: rgba(248, 240, 240, 0.7);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-}
-
-.welcome {
-  font-size: 40px;
-  color: black;
-  font-weight: bold;
-  margin-top:10px;
-}
-
 #content {
   background-color: rgba(69, 68, 68, 0.7);
   padding: 40px;
   border-radius: 10px;
   margin-top: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-p {
   font-size: 36px;
   line-height: 1.5;
+  color: #333; /* Color de texto */
+  font-family: "Arial", sans-serif; /* Fuente del texto */
+}
+
+#content strong {
+  font-weight: bold; /* Hacer el texto en negrita */
+  color: #fdfafa; /* Cambiar el color del texto en negrita */
+}
+
+.image-carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  height: 700px;
+  position: relative;
+  margin-top: -60px;
+}
+
+.image-carousel .slide {
+  width: 120%;
+  height: 100%;
+  background-size: 100% auto;
+  background-position: center left;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+.slide1 {
+  background-image: url(../../../assets/images/imagen_welcome.png);
+  animation: slide 20s linear infinite 0s;
+}
+
+.slide2 {
+  background-image: url(../../../assets/images/cuidador.jpg);
+  animation: slide 20s linear infinite 5s;
+}
+
+
+.slide3 {
+  background-image: url(../../../assets/images/mayores_pistola_agua.jpeg);
+  animation: slide 20s linear infinite 20s;
+}
+
+.slide4{
+  background-image: url(../../../assets/images/mayores_selfie.jpg);
+  animation: slide 20s linear infinite 25s;
+}
+
+.slide5 {
+  background-image: url(../../../assets/images/parejamayores_portatil4.png);
+  animation: slide 20s linear infinite 30s;
+}
+
+
+@keyframes slide {
+  0%, 100% { opacity: 0; }
+  2.5%, 97.5% { opacity: 1; } /* Cambia las imágenes cada 5 segundos */
 }

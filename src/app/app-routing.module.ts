@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'login', component: Login1Component },
   { path: 'register', component: Register1Component},
-  { path: 'salud', component: SaludParentComponent, canActivate: [AuthGuard] },
+  { path: 'salud', component: SaludParentComponent },
   { path: 'followme', component: FollowMeComponent,canActivate: [AuthGuard] },
   { path: 'formulario', component: FormularioComponent },
   { path: '**', redirectTo: '/welcome', pathMatch: 'full' },

@@ -9,8 +9,8 @@ export class FormularioComponent {
   solicitud = {
     nombre: '',
     apellidos: '',
-    edad: 0,
-    horasDeseadas: 0,
+    edad: '',
+    horasDeseadas:'',
     comentarios: ''
   };
 
@@ -18,6 +18,14 @@ export class FormularioComponent {
 
     console.log('Formulario enviado:', this.solicitud);
 
+    this.solicitud = {
+      nombre: '',
+      apellidos: '',
+      edad:'',
+      horasDeseadas: '',
+      comentarios: ''
 
+
+}
 }
 }

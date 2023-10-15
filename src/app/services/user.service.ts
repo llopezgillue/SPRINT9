@@ -8,7 +8,6 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 export class UserService {
   public isLoggedIn = false;
   public loggedInUserName: string | null = null;
-  public isLoggedInSuccessfully = false;
   public successMessage: string | null = null;
   public errorMessage: string | null = null;
 
@@ -30,14 +29,10 @@ export class UserService {
   register({ email, password }: any) {
     return createUserWithEmailAndPassword(this.auth, email, password)
       .then(() => {
-        this.clearMessages();
-        this.successMessage = 'El registro fue exitoso.';
-        this.errorMessage = null;
+        this.setSuccessMessage('El registro fue exitoso.');
       })
       .catch((error) => {
-        this.clearMessages();
-        this.errorMessage = 'Ocurrió un error en el registro. Asegúrate de que el usuario no esté registrado anteriormente y la contraseña sea válida.';
-        this.successMessage = null;
+        this.setErrorMessage('Ocurrió un error en el registro. Asegúrate de que el usuario no esté registrado anteriormente y la contraseña sea válida.');
         console.error('Error al registrar:', error);
       });
   }
@@ -45,15 +40,11 @@ export class UserService {
   login({ email, password }: any) {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then(() => {
-        this.clearMessages();
-        this.successMessage = 'Inicio de sesión exitoso.';
-        this.errorMessage = null;
-        this.isLoggedIn = true;  // Establece isLoggedIn en true después del inicio de sesión exitoso
+        this.setSuccessMessage('Inicio de sesión exitoso.');
+        this.isLoggedIn = true;
       })
       .catch((error) => {
-        this.clearMessages();
-        this.errorMessage = 'Error al iniciar sesión. Asegúrate de que el correo electrónico y la contraseña sean correctos.';
-        this.successMessage = null;
+        this.setErrorMessage('Error al iniciar sesión. Asegúrate de que el correo electrónico y la contraseña sean correctos.');
         console.error('Error al iniciar sesión:', error);
       });
   }
@@ -61,14 +52,10 @@ export class UserService {
   loginWithGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider())
       .then(() => {
-        this.clearMessages();
-        this.successMessage = 'Inicio de sesión con Google exitoso.';
-        this.errorMessage = null;
+        this.setSuccessMessage('Inicio de sesión con Google exitoso.');
       })
       .catch((error) => {
-        this.clearMessages();
-        this.errorMessage = 'Error al iniciar sesión con Google.';
-        this.successMessage = null;
+        this.setErrorMessage('Error al iniciar sesión con Google.');
         console.error('Error al iniciar sesión con Google:', error);
       });
   }
@@ -78,13 +65,11 @@ export class UserService {
       .then(() => {
         this.isLoggedIn = false;
         this.loggedInUserName = null;
-        this.successMessage = 'Cierre de sesión exitoso.';
-        this.errorMessage = null;
+        this.setSuccessMessage('Cierre de sesión exitoso.');
         this.loginStatusChanged.emit(this.isLoggedIn);
       })
       .catch((error) => {
-        this.errorMessage = 'Error al cerrar sesión.';
-        this.successMessage = null;
+        this.setErrorMessage('Error al cerrar sesión.');
         console.error('Error al cerrar sesión:', error);
       });
   }
@@ -97,16 +82,14 @@ export class UserService {
     return this.loggedInUserName;
   }
 
-  setLoggedInSuccessfully() {
-    this.isLoggedInSuccessfully = true;
-  }
-
   setErrorMessage(message: string) {
     this.errorMessage = message;
+    this.clearMessagesAfterTimeout();
   }
 
   setSuccessMessage(message: string) {
     this.successMessage = message;
+    this.clearMessagesAfterTimeout();
   }
 
   clearMessages() {
@@ -114,7 +97,9 @@ export class UserService {
     this.errorMessage = null;
   }
 
-  setLoggedInState(isLoggedIn: boolean) {
-    this.isLoggedIn = isLoggedIn;
+  private clearMessagesAfterTimeout() {
+    setTimeout(() => {
+      this.clearMessages();
+    }, 3000);
   }
 }
