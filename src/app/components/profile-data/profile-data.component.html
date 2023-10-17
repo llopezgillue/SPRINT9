@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Editar Perfil</h2>
+  <form>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos</label>
+      <input type="text" class="form-control" id="apellidos" [(ngModel)]="apellidos" name="apellidos">
+    </div>
+    <div class="mb-3">
+      <label for="edad" class="form-label">Edad</label>
+      <input type="number" class="form-control" id="edad" [(ngModel)]="edad" name="edad">
+    </div>
+    <div class="mb-3">
+      <label for="aficiones" class="form-label">Aficiones</label>
+      <input type="text" class="form-control" id="aficiones" [(ngModel)]="aficiones" name="aficiones">
+    </div>
+    <div class="mb-3">
+      <label for="poblacion" class="form-label">Población</label>
+      <input type="text" class="form-control" id="poblacion" [(ngModel)]="poblacion" name="poblacion">
+    </div>
+    <button type="button" (click)="guardarDatosPerfil()" class="btn btn-primary">Guardar</button>
+  </form>
+</div>

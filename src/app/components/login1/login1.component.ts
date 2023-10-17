@@ -20,7 +20,6 @@ export class Login1Component {
 
 
   onSubmit() {
-    debugger
     this.userService.login(this.formLogin.value)
       .then(response => {
 

@@ -25,7 +25,7 @@ import { UserService } from './services/user.service';
 import { Login1Component } from './components/login1/login1.component';
 import { Register1Component } from './components/register1/register1.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
+import { ProfileDataComponent } from './components/profile-data/profile-data.component';
 
 
 @NgModule({
@@ -40,6 +40,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     Register1Component,
     Login1Component,
     UserProfileComponent,
+    ProfileDataComponent,
 
 
   ],

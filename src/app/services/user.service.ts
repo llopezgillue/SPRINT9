@@ -55,7 +55,7 @@ export class UserService {
   loginWithGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider())
       .then(() => {
-        debugger
+      
         this.setSuccessMessage('Inicio de sesión con Google exitoso.');
       })
       .catch((error) => {
