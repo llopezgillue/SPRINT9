@@ -18,27 +18,50 @@ export class Login1Component {
     });
   }
 
+
   onSubmit() {
+    debugger
     this.userService.login(this.formLogin.value)
-      .then(() => {
+      .then(response => {
+
         if (this.userService.isLoggedIn) {
+          this.userService.setSuccessMessage('Inicio de sesión exitoso.');
+          setTimeout(() => {
+            this.userService.clearMessages();
+          }, 5000);
           this.router.navigate(['/welcome']);
         }
       })
       .catch(error => {
-        
+
+        this.userService.setErrorMessage('Error al iniciar sesión. Asegúrate de que el correo electrónico y la contraseña sean correctos.');
+        setTimeout(() => {
+          this.userService.clearMessages();
+        }, 3000);
+        console.error('Error al iniciar sesión:', error);
       });
   }
 
+
   onClick() {
     this.userService.loginWithGoogle()
-      .then(() => {
+      .then(response => {
+        // Verifica si el inicio de sesión con Google fue exitoso
         if (this.userService.isLoggedIn) {
+          this.userService.setSuccessMessage('Inicio de sesión con Google exitoso.');
+          setTimeout(() => {
+            this.userService.clearMessages();
+          }, 3000);
           this.router.navigate(['/welcome']);
         }
       })
       .catch(error => {
-
+        // Muestra un mensaje de error en caso de un error durante el inicio de sesión con Google
+        this.userService.setErrorMessage('Error al iniciar sesión con Google.');
+        setTimeout(() => {
+          this.userService.clearMessages();
+        }, 3000);
+        console.error('Error al iniciar sesión con Google:', error);
       });
   }
 }

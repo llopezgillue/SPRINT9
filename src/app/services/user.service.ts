@@ -29,6 +29,7 @@ export class UserService {
   register({ email, password }: any) {
     return createUserWithEmailAndPassword(this.auth, email, password)
       .then(() => {
+        this.auth.signOut();
         this.setSuccessMessage('El registro fue exitoso.');
       })
       .catch((error) => {
@@ -39,7 +40,10 @@ export class UserService {
 
   login({ email, password }: any) {
     return signInWithEmailAndPassword(this.auth, email, password)
-      .then(() => {
+      .then((userCredential) => {
+        debugger
+        this.loggedInUserName = email;
+        this.isLoggedInUser;
         this.setSuccessMessage('Inicio de sesión exitoso.');
         this.isLoggedIn = true;
       })
@@ -52,6 +56,7 @@ export class UserService {
   loginWithGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider())
       .then(() => {
+        debugger
         this.setSuccessMessage('Inicio de sesión con Google exitoso.');
       })
       .catch((error) => {

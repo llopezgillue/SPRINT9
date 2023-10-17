@@ -1,40 +1,50 @@
 #content {
-  background-color: rgba(69, 68, 68, 0.7);
-  padding: 40px;
+  background-image: linear-gradient(to right, #f7ae48, #7ded72, rgb(131, 201, 242));
+  padding: 10px 40px;
   border-radius: 10px;
   margin-top: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: 36px;
-  line-height: 1.5;
-  color: #333; /* Color de texto */
-  font-family: "Arial", sans-serif; /* Fuente del texto */
+  box-shadow: 0 4px 8px rgb(10, 10, 10);
+  font-size: 50px;
+  line-height: 1.0;
+  animation: moveGradient 5s linear infinite;
+  border: 6px solid black;
+  height: 90px;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 #content strong {
-  font-weight: bold; /* Hacer el texto en negrita */
-  color: #fdfafa; /* Cambiar el color del texto en negrita */
+  font-weight: bold;
+  color: #d00606;
+  text-shadow: 2px 2px 5px #0b0b0b, -2px -2px 5px #919e02;
 }
 
 .image-carousel {
   display: flex;
   overflow: hidden;
   width: 100vw;
-  height: 700px;
+  height: 670px;
   position: relative;
-  margin-top: -60px;
+  margin-top: -40px;
 }
 
 .image-carousel .slide {
-  width: 120%;
+  width: 100%;
   height: 100%;
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center left;
   position: absolute;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
-
 
 .slide1 {
   background-image: url(../../../assets/images/imagen_welcome.png);
@@ -46,13 +56,12 @@
   animation: slide 20s linear infinite 5s;
 }
 
-
 .slide3 {
   background-image: url(../../../assets/images/mayores_pistola_agua.jpeg);
   animation: slide 20s linear infinite 20s;
 }
 
-.slide4{
+.slide4 {
   background-image: url(../../../assets/images/mayores_selfie.jpg);
   animation: slide 20s linear infinite 25s;
 }
@@ -62,8 +71,7 @@
   animation: slide 20s linear infinite 30s;
 }
 
-
 @keyframes slide {
   0%, 100% { opacity: 0; }
-  2.5%, 97.5% { opacity: 1; } /* Cambia las imágenes cada 5 segundos */
+  2.5%, 97.5% { opacity: 1; }
 }

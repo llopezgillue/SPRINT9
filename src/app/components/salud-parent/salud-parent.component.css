@@ -1,12 +1,12 @@
 .container-con-video {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(to bottom, #f0d17c, #f5f171, #71e1f5,#7cf07c,#7cf07c);
+  background: linear-gradient(to bottom, #f0d17c, #f5f171, #71e1f5,#7cf07c);
 }
 
 .video-bg {
   width: 100vw;
-  height: 60vw;
+  height: 1000px;
   z-index: -1;
   top: 0;
   left: 0;

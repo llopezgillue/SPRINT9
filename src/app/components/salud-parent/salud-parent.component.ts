@@ -81,10 +81,16 @@ export class SaludParentComponent {
   ];
 
   consejosMostrados: string[] = [];
+  isReversed: boolean = false;
 
   obtenerConsejos() {
 
     const consejosAleatorios = this.consejosSalud.sort(() => 0.5 - Math.random()).slice(0, 6);
     this.consejosMostrados = consejosAleatorios;
+  }
+
+  toggleLayout() {
+    this.isReversed = !this.isReversed; 
+    this.obtenerConsejos()
   }
 }

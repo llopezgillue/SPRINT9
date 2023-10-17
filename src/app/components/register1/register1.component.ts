@@ -24,10 +24,10 @@ export class Register1Component {
   onSubmit() {
     this.userService.register(this.formReg.value)
       .then(() => {
-        this.router.navigate(['/welcome']);
+         this.router.navigate(['/welcome']);
       })
       .catch(error => {
-       
+
       });
   }
 }

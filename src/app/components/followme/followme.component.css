@@ -1,7 +1,7 @@
 .description {
   font-size: 20px;
   color: #0d0d0d;
-  font-family: 'Montserrat', sans-serif; /* Aplicar la fuente Montserrat */
+  font-family: 'Montserrat', sans-serif; 
 }
 
 .card {
@@ -42,5 +42,5 @@
 .select {
   width: 100%;
   padding: 10px;
-  font-family: 'Montserrat', sans-serif; 
+  font-family: 'Montserrat', sans-serif;
 }

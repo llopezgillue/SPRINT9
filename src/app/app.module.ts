@@ -1,6 +1,5 @@
 import { FollowMeComponent } from './components/followme/followme.component';
 import { AppComponent } from './app.component';
-import { CoursesComponent } from './components/courses/courses.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SaludParentComponent } from './components/salud-parent/salud-parent.component';
@@ -25,13 +24,13 @@ import { UserService } from './services/user.service';
 
 import { Login1Component } from './components/login1/login1.component';
 import { Register1Component } from './components/register1/register1.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent,
     NavbarComponent,
     WelcomeComponent,
     SaludParentComponent,
@@ -40,6 +39,7 @@ import { Register1Component } from './components/register1/register1.component';
     FormularioComponent,
     Register1Component,
     Login1Component,
+    UserProfileComponent,
 
 
   ],
