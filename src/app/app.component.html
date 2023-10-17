@@ -5,7 +5,7 @@
   <div class="text-end mt-1 pt-1 ps-3 my-1">
     <ng-container *ngIf="userService.isLoggedIn; else loggedOutButtons">
       <a [routerLink]="['/perfil', userService.loggedInUserName]">{{ userService.loggedInUserName }}</a>
-
+      &nbsp;&nbsp;&nbsp;
       <button (click)="logout()" class="btn btn-primary">Cerrar Sesión</button>
     </ng-container>
     <ng-template #loggedOutButtons>

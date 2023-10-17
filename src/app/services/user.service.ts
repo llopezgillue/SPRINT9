@@ -41,9 +41,8 @@ export class UserService {
   login({ email, password }: any) {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
-        debugger
-        this.loggedInUserName = email;
-        this.isLoggedInUser;
+        const atIndex = email.indexOf('@');
+        this.loggedInUserName = email.slice(0, atIndex)
         this.setSuccessMessage('Inicio de sesión exitoso.');
         this.isLoggedIn = true;
       })
