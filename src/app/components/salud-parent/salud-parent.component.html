@@ -1,19 +1,20 @@
 <div class="container-con-video">
-  <video class="video-bg" autoplay loop muted>
-    <source src="../../../assets/videos/istockphoto-1299366238-640_adpp_is.mp4" type="video/mp4">
-    Tu navegador no soporta el elemento de video.
-  </video>
+  <div class="video-container">
+    <video class="video-bg" autoplay loop muted>
+      <source src="../../../assets/videos/depositphotos_386626270-stock-video-couple-physical-therapy-with-nurse.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
   <div class="overlay">
     <div class="content">
       <div class="centered-content">
         <button class="btn btn-primary" (click)="obtenerConsejos()">DAME CONSEJOS</button>
-        <br>
-        <div class="consejos-container">
-          <div class="consejo" *ngFor="let consejo of consejosMostrados">
-            {{ consejo }}
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
+  <div class="consejos-container">
+    <div class="consejo" *ngFor="let consejo of consejosMostrados">
+      {{ consejo }}
     </div>
   </div>
 </div>

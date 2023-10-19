@@ -4,35 +4,35 @@
       <h2 class="text-center">Formulario de solicitud de acompañante</h2>
       <form #formulario="ngForm" (ngSubmit)="enviarFormulario()">
         <div class="mb-3 mt-4 text-center">
-          <label for="nombre" class="form-label" style="font-size: 25px;">Nombre:</label>
+          <label for="nombre" class="form-label" style="font-size: 25px; text-align: right;">Nombre:</label>
           <div class="d-flex justify-content-center">
             <input type="text" id="nombre" name="nombre" class="form-control" [(ngModel)]="solicitud.nombre" required style="width: 250px;">
           </div>
         </div>
 
         <div class="mb-3 text-center">
-          <label for="apellidos" class="form-label" style="font-size: 25px;">Apellidos:</label>
+          <label for="apellidos" class="form-label" style="font-size: 25px; text-align: right;">Apellidos:</label>
           <div class="d-flex justify-content-center">
             <input type="text" id="apellidos" name="apellidos" class="form-control" [(ngModel)]="solicitud.apellidos" required style="width: 250px;">
           </div>
         </div>
 
         <div class="mb-3 text-center">
-          <label for="edad" class="form-label" style="font-size: 25px;">Edad:</label>
+          <label for="edad" class="form-label" style="font-size: 25px; text-align: right;">Edad:</label>
           <div class="d-flex justify-content-center">
             <input type="number" id="edad" name="edad" class="form-control" [(ngModel)]="solicitud.edad" required style="width: 150px;">
           </div>
         </div>
 
         <div class="mb-3 text-center">
-          <label for="horasDeseadas" class="form-label" style="font-size: 25px;">Horas Deseadas:</label>
+          <label for="horasDeseadas" class="form-label" style="font-size: 25px; text-align: right;">Horas Deseadas:</label>
           <div class="d-flex justify-content-center">
             <input type="number" id="horasDeseadas" name="horasDeseadas" class="form-control" [(ngModel)]="solicitud.horasDeseadas" required style="width: 150px;">
           </div>
         </div>
 
         <div class="mb-3 text-center">
-          <label for="comentarios" class="form-label" style="font-size: 25px;">Comentarios:</label>
+          <label for="comentarios" class="form-label" style="font-size: 25px; text-align: right;">Comentarios:</label>
           <div class="d-flex justify-content-center">
             <textarea id="comentarios" name="comentarios" class="form-control" [(ngModel)]="solicitud.comentarios" rows="2" required style="width: 400px;"></textarea>
           </div>

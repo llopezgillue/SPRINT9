@@ -26,6 +26,7 @@ import { Login1Component } from './components/login1/login1.component';
 import { Register1Component } from './components/register1/register1.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ProfileDataComponent } from './components/profile-data/profile-data.component';
+import { ProfileService } from './services/profile.service';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { ProfileDataComponent } from './components/profile-data/profile-data.com
 
 
   ],
-  providers: [UserService, AcompanantesService],
+  providers: [UserService, AcompanantesService,ProfileService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

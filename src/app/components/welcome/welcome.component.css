@@ -23,7 +23,7 @@
 #content strong {
   font-weight: bold;
   color: #030404;
- 
+
 }
 
 .image-carousel {
@@ -42,13 +42,16 @@
   background-position: center left;
   position: absolute;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 5s ease-in-out; /* Ajusta el tiempo de transición */
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  animation-timing-function: steps(1);
 }
 
 .slide1 {
   background-image: url(../../../assets/images/imagen_welcome.png);
   animation: slide 20s linear infinite 0s;
+  animation-delay: -90s;
+  opacity: 1;
 }
 
 .slide2 {
@@ -58,20 +61,29 @@
 
 .slide3 {
   background-image: url(../../../assets/images/mayores_pistola_agua.jpeg);
-  animation: slide 20s linear infinite 20s;
+  animation: slide 20s linear infinite 10s;
 }
 
 .slide4 {
   background-image: url(../../../assets/images/mayores_selfie.jpg);
-  animation: slide 20s linear infinite 25s;
+  animation: slide 20s linear infinite 15s;
 }
 
 .slide5 {
   background-image: url(../../../assets/images/parejamayores_portatil4.png);
-  animation: slide 20s linear infinite 30s;
+  animation: slide 20s linear infinite 20s;
 }
-
 @keyframes slide {
-  0%, 100% { opacity: 0; }
-  2.5%, 97.5% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

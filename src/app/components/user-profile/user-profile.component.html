@@ -1,20 +1,20 @@
 <div class="container">
-  <h2>Perfil de {{ username }}</h2>
-  <!-- Botones en vertical -->
-  <div class="vertical-buttons">
-    <button (click)="editarPerfil()">Editar perfil</button>
-    <button (click)="mostrarDatosPerfil()">Mostrar datos del perfil</button>
-    <button (click)="irAChat()">Chat</button>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <!-- Contenido del perfil -->
+ 
+
+  <div class="d-flex justify-content-center my-3">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Datos del perfil:</h3>
+        <p class="card-text">Nombre: {{ profileData?.nombre }}</p>
+        <p class="card-text">Apellidos: {{ profileData?.apellidos }}</p>
+        <p class="card-text">Edad: {{ profileData?.edad }}</p>
+        <p class="card-text">Aficiones: {{ profileData?.aficiones }}</p>
+        <p class="card-text">Población: {{ profileData?.poblacion }}</p>
       </div>
     </div>
-    <div class="col-md-8">
-      <h2>Detalles del perfil de {{ username }}</h2>
-      <p>Aquí puedes mostrar detalles adicionales sobre el perfil del usuario.</p>
-    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <button (click)="editarPerfil()" class="btn btn-primary">Editar perfil</button>
   </div>
 </div>
