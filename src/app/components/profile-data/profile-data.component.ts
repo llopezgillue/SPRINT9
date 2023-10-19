@@ -16,10 +16,10 @@ export class ProfileDataComponent {
   aficiones: string | null = null;
   poblacion: string | null = null;
 
-  constructor(private Router: Router, private UserService: UserService, private ProfileService: ProfileService) { }
+  constructor(private router: Router, private userService: UserService, private profileService: ProfileService) { }
 
   guardarDatosPerfil() {
-    if (this.UserService.loggedInUserName) {
+    if (this.userService.loggedInUserName) {
       const data = {
         nombre: this.nombre,
         apellidos: this.apellidos,
@@ -27,19 +27,18 @@ export class ProfileDataComponent {
         aficiones: this.aficiones,
         poblacion: this.poblacion
       };
+      
+      this.profileService.saveProfileData(data, this.userService.loggedInUserName);
 
-      // Llama al servicio para guardar los datos del perfil
-      this.ProfileService.saveProfileData(data, this.UserService.loggedInUserName);
+      localStorage.setItem('perfil_' + this.userService.loggedInUserName, JSON.stringify(data));
 
-      // Guarda también los datos en el Local Storage
-      localStorage.setItem('perfil_' + this.UserService.loggedInUserName, JSON.stringify(data));
 
-      // Restablece los campos a nulos después de guardar los datos
       this.nombre = null;
       this.apellidos = null;
       this.edad = null;
       this.aficiones = null;
       this.poblacion = null;
+
     }
   }
 }

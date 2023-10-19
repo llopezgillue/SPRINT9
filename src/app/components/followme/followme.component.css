@@ -1,7 +1,7 @@
 .description {
   font-size: 20px;
   color: #0d0d0d;
-  font-family: 'Montserrat', sans-serif; 
+  font-family: 'Montserrat', sans-serif;
 }
 
 .card {
@@ -31,6 +31,7 @@
   background-color: #007bff;
   border-color: #007bff;
   font-family: 'Montserrat', sans-serif;
+  font-size: 23px;
 }
 
 .btn-primary:hover {

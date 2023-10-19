@@ -38,8 +38,14 @@
 }
 
 .btn-primary {
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px 20px;
   font-family: 'Montserrat', sans-serif;
   margin-right: 10px;
 }
+
+.user-name {
+  font-size: 26px;
+  color:brown;
+}
+

@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'followme', component: FollowMeComponent,canActivate: [AuthGuard]},
   { path: 'formulario', component: FormularioComponent },
   { path: 'perfil/:username', component: UserProfileComponent },
-  { path: 'profile-data', component: ProfileDataComponent },
+  { path: 'profile-data', component: ProfileDataComponent }
+ 
 ];
 
 @NgModule({

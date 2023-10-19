@@ -1,26 +1,27 @@
-<div class="container">
-  <h2>Editar Perfil</h2>
+<div class="container mt-5">
+  <h2 class="custom-heading">Editar Perfil</h2>
   <form>
-    <div class="mb-3">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre">
+    <div class="mt-3">
+      <label for="nombre" class="form-label custom-label">Nombre</label>
+      <input type="text" class="form-control short-input" id="nombre" [(ngModel)]="nombre" name="nombre">
     </div>
     <div class="mb-3">
-      <label for="apellidos" class="form-label">Apellidos</label>
-      <input type="text" class="form-control" id="apellidos" [(ngModel)]="apellidos" name="apellidos">
+      <label for="apellidos" class="form-label custom-label">Apellidos</label>
+      <input type="text" class="form-control short-input" id="apellidos" [(ngModel)]="apellidos" name="apellidos">
     </div>
     <div class="mb-3">
-      <label for="edad" class="form-label">Edad</label>
-      <input type="number" class="form-control" id="edad" [(ngModel)]="edad" name="edad">
+      <label for="edad" class="form-label custom-label">Edad</label>
+      <input type="number" class="form-control short-input" id="edad" [(ngModel)]="edad" name="edad">
     </div>
     <div class="mb-3">
-      <label for="aficiones" class="form-label">Aficiones</label>
-      <input type="text" class="form-control" id="aficiones" [(ngModel)]="aficiones" name="aficiones">
+      <label for="poblacion" class="form-label custom-label">Población</label>
+      <input type="text" class="form-control short-input" id="poblacion" [(ngModel)]="poblacion" name="poblacion">
     </div>
     <div class="mb-3">
-      <label for="poblacion" class="form-label">Población</label>
-      <input type="text" class="form-control" id="poblacion" [(ngModel)]="poblacion" name="poblacion">
+      <label for="aficiones" class="form-label custom-label">Aficiones</label>
+      <input type="text" class="form-control wide-input" id="aficiones" [(ngModel)]="aficiones" name="aficiones">
     </div>
+
     <button type="button" (click)="guardarDatosPerfil()" class="btn btn-primary">Guardar</button>
   </form>
 </div>

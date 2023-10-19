@@ -13,3 +13,9 @@
 
    font-family: 'Montserrat', sans-serif;
 }
+.card-rounded{
+background:linear-gradient(to bottom, #f5f171, #71e1f5,#7cf07c,#7cf07c);
+border-radius: 20px;
+box-shadow: 20px 20px 100px rgba(0, 0, 0, 0.2);
+
+}

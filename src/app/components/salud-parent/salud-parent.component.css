@@ -11,7 +11,8 @@
   width: 50%;
   height: 100vh;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agregar sombreado al video */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  border: 4px solid rgb(2, 2, 2);
 }
 
 .video-bg {
@@ -39,8 +40,9 @@
   width: 50%;
   padding: 20px;
   text-align: center;
-  color:brown;
+  color: rgb(8, 8, 8);
   font-size: 30px;
+  font-weight: bold;
   position: absolute;
   top: 90px;
   right: 0;
@@ -49,14 +51,17 @@
 
 .consejo {
   font-size: 30px;
-  margin-bottom: 30px; /* Aumentar el espacio entre los consejos */
+  font-weight: bold;
+
+  margin-bottom: 40px;
 }
 
 .btn-primary {
   z-index: 9999;
-  font-size: 18px;
+  font-size: 23px;
   padding: 10px 20px;
   position: absolute;
+  font-family: 'Montserrat', sans-serif;
   top: 10px;
   right: 400px;
 }

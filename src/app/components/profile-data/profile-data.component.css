@@ -1,0 +1,29 @@
+.container{
+
+  margin-left:880px;
+
+}
+
+.short-input {
+  font-size: 20px;
+  padding: 5px 10px;
+  width: 150px;
+}
+.wide-input {
+  width: 30%;
+  height:4vw;
+}
+.custom-heading {
+  font-size: 40px;
+  color: brown;
+}
+
+.custom-label {
+  font-size: 28px;
+  color: black;
+}
+.btn-primary {
+  font-family: 'Montserrat', sans-serif; /* Establecer Montserrat como fuente */
+  font-size: 20px; /* Tamaño de fuente 20px */
+}
+
