@@ -1,0 +1,37 @@
+.postik-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.postik {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  font-size: 25px;
+  color: #333;
+  width: calc(33.33% - 20px); /* 3 postiks per row with margins */
+}
+
+.postik h3 {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.postik p {
+  font-size: 25px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.postik .comentarios {
+  font-size: 25px;
+  white-space: normal;
+  overflow: visible;
+  width: 100%;
+}

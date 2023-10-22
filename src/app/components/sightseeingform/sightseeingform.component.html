@@ -1,0 +1,19 @@
+<div>
+  <h2>Añadir Paseo</h2>
+  <form (ngSubmit)="agregarPaseo()">
+    <label for="nuevaPoblacion">Población:</label>
+    <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required>
+
+    <label for="nuevaHora">Hora de quedada:</label>
+    <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required>
+
+    <label for="nuevoNombre">Nombre:</label>
+    <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required>
+
+    <label for="nuevosComentarios">Comentarios:</label>
+    <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios"></textarea>
+
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancelarFormulario()">Cancelar</button>
+  </form>
+</div>

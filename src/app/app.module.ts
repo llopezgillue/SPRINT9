@@ -27,6 +27,9 @@ import { Register1Component } from './components/register1/register1.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ProfileDataComponent } from './components/profile-data/profile-data.component';
 import { ProfileService } from './services/profile.service';
+import { SightseeingComponent } from './components/sightseeing/sightseeing.component';
+import { SightseeingFormComponent} from './components/sightseeingform/sightseeingform.component';
+import { SightseeingService } from './services/sightseeing.service';
 
 
 @NgModule({
@@ -42,6 +45,8 @@ import { ProfileService } from './services/profile.service';
     Login1Component,
     UserProfileComponent,
     ProfileDataComponent,
+    SightseeingComponent,
+    SightseeingFormComponent,
 
 
   ],
@@ -57,7 +62,7 @@ import { ProfileService } from './services/profile.service';
 
 
   ],
-  providers: [UserService, AcompanantesService,ProfileService],
+  providers: [UserService, AcompanantesService,ProfileService, SightseeingService,],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
