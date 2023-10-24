@@ -11,6 +11,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ProfileDataComponent } from './components/profile-data/profile-data.component';
 import { SightseeingComponent } from './components/sightseeing/sightseeing.component';
 import { SightseeingFormComponent } from './components/sightseeingform/sightseeingform.component';
+import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'profile-data', component: ProfileDataComponent },
   { path: 'sightseeing', component: SightseeingComponent},
   { path: 'sightseeing-form', component: SightseeingFormComponent},
+  { path: 'editar-paseo/:paseoId', component: EditarPaseoComponent},
 
 ];
 

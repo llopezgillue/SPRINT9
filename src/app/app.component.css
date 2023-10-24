@@ -49,3 +49,15 @@
   color:brown;
 }
 
+.custom-link {
+  display: inline-block; /* Hace que el elemento sea un bloque en línea */
+  background-color: gray; /* Establece el fondo gris */
+  color: rgb(255, 255, 255); /* Establece el color de las letras*/
+  padding: 5.5px; /* Agrega un espacio alrededor del texto para crear el efecto de un recuadro */
+  border: 1px solid darkgray; /* Agrega un borde alrededor del elemento */
+  border-radius: 7px; /* Agrega esquinas redondeadas al recuadro */
+  font-family: 'Montserrat', sans-serif;
+  width: auto;
+  height: auto;
+  font-size: 26px;
+}

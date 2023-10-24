@@ -12,9 +12,22 @@ export class SightseeingService {
   obtenerSightseeing(): Observable<any[]> {
     return this.firestore.collection('postiks paseo').valueChanges();
   }
+
   eliminarPaseo(paseoId: string): Promise<void> {
-    console.log("Eliminando paseo con ID:", paseoId);
-    return this.firestore.collection('postiks paseo').doc(paseoId).delete();
+    if (paseoId) {
+      console.log("Eliminando paseo con ID:", paseoId);
+
+      return this.firestore.collection('postiks paseo').doc(paseoId).delete()
+        .then(() => {
+          console.log('Paseo eliminado de la base de datos');
+        })
+        .catch(error => {
+          console.error('Error al eliminar el paseo de la base de datos', error);
+        });
+    } else {
+      console.error('ID de paseo no válido');
+      return Promise.reject('ID de paseo no válido');
+    }
   }
 
   buscarSightseeingPorCampo(nombreCampo: string, valorCampo: any): Observable<any[]> {

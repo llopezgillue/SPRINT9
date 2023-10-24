@@ -12,7 +12,8 @@ export class SightseeingFormComponent implements OnInit {
     poblacion: '',
     hora: '',
     Nombre: '',
-    comentarios: ''
+    comentarios: '',
+    fecha: '',
   };
 
   constructor(private firestore: AngularFirestore, private router: Router) {}

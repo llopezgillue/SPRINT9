@@ -30,6 +30,7 @@ import { ProfileService } from './services/profile.service';
 import { SightseeingComponent } from './components/sightseeing/sightseeing.component';
 import { SightseeingFormComponent} from './components/sightseeingform/sightseeingform.component';
 import { SightseeingService } from './services/sightseeing.service';
+import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { SightseeingService } from './services/sightseeing.service';
     ProfileDataComponent,
     SightseeingComponent,
     SightseeingFormComponent,
+    EditarPaseoComponent,
 
 
   ],
