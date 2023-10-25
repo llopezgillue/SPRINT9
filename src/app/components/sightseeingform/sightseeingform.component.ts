@@ -1,45 +1,41 @@
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sightseeingform',
+  selector: 'app-sightseeing-form',
   templateUrl: './sightseeingform.component.html',
-  styleUrls: ['./sightseeingform.component.css'],
+  styleUrls: ['./sightseeingform.component.css']
 })
 export class SightseeingFormComponent implements OnInit {
-  paseo: any = {}; // Declarar el objeto para almacenar los datos del paseo.
+  nuevoPaseo = {
+    poblacion: '',
+    hora: '',
+    Nombre: '',
+    comentarios: '',
+    fecha: '',
+  };
 
-  constructor(
-    private Firestore: AngularFirestore,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private firestore: AngularFirestore, private router: Router) {}
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      const id = params.get('id');
-      if (id !== null) {
-        this.Firestore.collection('postiks paseo').doc(id).get().subscribe((doc) => {
-          this.paseo = doc.data();
-        });
-      }
-    });
+  ngOnInit() {}
+
+  navigateToAddSightseeing() {
+    this.router.navigate(['/sightseeing-form']);
   }
 
-  guardarCambios() {
-    this.route.paramMap.subscribe((params) => {
-      const id = params.get('id');
-      if (id !== null) {
-        this.Firestore.collection('postiks paseo').doc(id).set(this.paseo).then(() => {
-          console.log('Paseo actualizado en Firestore');
-          this.router.navigate(['/sightseeing']);
-        });
-      }
-    });
+  agregarPaseo() {
+    this.firestore.collection('postiks paseo').add(this.nuevoPaseo)
+      .then(() => {
+        console.log('Paseo agregado a Firestore');
+        // Puedes agregar lógica adicional después de agregar el paseo, si es necesario
+      })
+      .catch(error => {
+        console.error('Error al agregar el paseo', error);
+      });
   }
 
-  cancelarEdicion() {
-    this.router.navigate(['/sightseeing']);
+  cancelarFormulario() {
+    // Puedes implementar la lógica para ocultar el formulario aquí si es necesario
   }
 }

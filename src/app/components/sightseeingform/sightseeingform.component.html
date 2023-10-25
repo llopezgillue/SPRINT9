@@ -1,22 +1,24 @@
 <div>
-  <h2>Editar Paseo</h2>
-  <form (ngSubmit)="guardarCambios()">
-    <label for="editPoblacion">Población:</label>
-    <input id="editPoblacion" name="poblacion" [(ngModel)]="paseo.poblacion" required>
+  <h2>Añadir Paseo</h2>
+  <form (ngSubmit)="agregarPaseo()">
+    <label for="nuevaPoblacion">Población:</label>
+    <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required>
 
-    <label for="editHora">Hora de quedada:</label>
-    <input id="editHora" name="hora" [(ngModel)]="paseo.hora" required>
+    <label for="nuevaHora">Hora de quedada:</label>
+    <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required>
 
-    <label for="editNombre">Nombre:</label>
-    <input id="editNombre" name="Nombre" [(ngModel)]="paseo.Nombre" required>
+    <label for="nuevoNombre">Nombre:</label>
+    <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required>
 
-    <label for="editComentarios">Comentarios:</label>
-    <textarea id="editComentarios" name="comentarios" [(ngModel)]="paseo.comentarios"></textarea>
+    <label for="nuevosComentarios">Comentarios:</label>
+    <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios"></textarea>
 
-    <label for="editFecha">Fecha:</label>
-    <input id="editFecha" name="fecha" [(ngModel)]="paseo.fecha" required>
+    <label for="nuevaFecha">Fecha (YYYY-MM-DD):</label>
+    <input id="nuevaFecha" name="fecha" [(ngModel)]="nuevoPaseo.fecha" required
+           pattern="\d{4}-\d{2}-\d{2}">
 
-    <button type="submit">Guardar Cambios</button>
-    <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancelarFormulario()">Cancelar</button>
   </form>
 </div>

@@ -1,6 +1,14 @@
+import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Component } from '@angular/core';
 
+// Define una interfaz para la estructura de datos del paseo
+interface PaseoData {
+  Nombre: string;
+  fecha: string;
+  hora: string;
+  comentarios: string;
+}
 
 @Component({
   selector: 'app-editar-paseo',
@@ -12,9 +20,40 @@ export class EditarPaseoComponent {
   fechaDelPaseo: string = '';
   horaDelPaseo: string = '';
   comentariosDelPaseo: string = '';
-  paseoId: string = ''; // Asigna un valor inicial
+  paseoId: string = '';
 
-  constructor(private Firestore: AngularFirestore) {}
+  constructor(private route: ActivatedRoute, private Firestore: AngularFirestore) {
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      if (id !== null) {
+        this.paseoId = id;
+        // Carga los datos del paseo cuando se inicializa el componente
+        this.cargarDatosPaseo();
+      }
+    });
+  }
+
+  cargarDatosPaseo() {
+    // Asegúrate de que tengas un ID de paseo válido
+    if (!this.paseoId) {
+      console.error('ID de paseo no válido');
+      return;
+    }
+
+    // Obtén el documento del paseo desde Firestore
+    this.Firestore.collection('postiks paseo').doc(this.paseoId).get()
+      .subscribe((doc) => {
+        if (doc.exists) {
+          const data = doc.data() as PaseoData; // Utiliza la interfaz para el tipo de datos
+          this.nombreDelPaseo = data.Nombre;
+          this.fechaDelPaseo = data.fecha;
+          this.horaDelPaseo = data.hora;
+          this.comentariosDelPaseo = data.comentarios;
+        } else {
+          console.error('El documento del paseo no existe');
+        }
+      });
+  }
 
   guardarCambios() {
     // Verifica que tengas un ID de paseo válido
@@ -23,16 +62,16 @@ export class EditarPaseoComponent {
       return;
     }
 
-    // Define los datos a actualizar
-    const data = {
-      nombre: this.nombreDelPaseo,
+    // Define los datos a actualizar utilizando la interfaz PaseoData
+    const data: PaseoData = {
+      Nombre: this.nombreDelPaseo,
       fecha: this.fechaDelPaseo,
       hora: this.horaDelPaseo,
       comentarios: this.comentariosDelPaseo
     };
 
     // Actualiza el documento en Firestore
-    this.Firestore.collection('paseos').doc(this.paseoId).update(data)
+    this.Firestore.collection('postiks paseo').doc(this.paseoId).update(data)
       .then(() => {
         console.log('Cambios guardados correctamente');
       })
