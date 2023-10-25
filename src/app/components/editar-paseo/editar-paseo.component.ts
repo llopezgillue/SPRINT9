@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Component } from '@angular/core';
 
@@ -22,7 +22,7 @@ export class EditarPaseoComponent {
   comentariosDelPaseo: string = '';
   paseoId: string = '';
 
-  constructor(private route: ActivatedRoute, private Firestore: AngularFirestore) {
+  constructor(private route: ActivatedRoute, private router: Router, private Firestore: AngularFirestore) {
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id !== null) {
@@ -74,9 +74,12 @@ export class EditarPaseoComponent {
     this.Firestore.collection('postiks paseo').doc(this.paseoId).update(data)
       .then(() => {
         console.log('Cambios guardados correctamente');
+        // Después de guardar los cambios, redirige a la pantalla anterior
+        this.router.navigate(['/sightseeing']);
       })
       .catch(error => {
         console.error('Error al guardar los cambios:', error);
       });
   }
 }
+

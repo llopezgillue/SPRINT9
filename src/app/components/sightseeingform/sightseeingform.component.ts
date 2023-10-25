@@ -28,7 +28,7 @@ export class SightseeingFormComponent implements OnInit {
     this.firestore.collection('postiks paseo').add(this.nuevoPaseo)
       .then(() => {
         console.log('Paseo agregado a Firestore');
-        // Puedes agregar lógica adicional después de agregar el paseo, si es necesario
+
       })
       .catch(error => {
         console.error('Error al agregar el paseo', error);
@@ -36,6 +36,6 @@ export class SightseeingFormComponent implements OnInit {
   }
 
   cancelarFormulario() {
-    // Puedes implementar la lógica para ocultar el formulario aquí si es necesario
+    this.router.navigate(['/sightseeing']);
   }
 }
