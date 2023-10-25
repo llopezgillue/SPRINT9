@@ -4,6 +4,7 @@
   height: 150px;
 }
 
+/* Estilos generales para el contenedor */
 .container-fluid {
   padding: 0;
   margin: 0;
@@ -13,18 +14,19 @@
   margin-left: auto;
 }
 
+/* Estilos para la barra de navegación */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-
 }
 
 .flex-spacer {
   flex-grow: 1;
 }
 
+/* Estilos para los botones de inicio de sesión y registro */
 .login-button,
 .signup-button {
   text-decoration: none;
@@ -46,18 +48,54 @@
 
 .user-name {
   font-size: 26px;
-  color:brown;
+  color: brown;
 }
 
 .custom-link {
-  display: inline-block; /* Hace que el elemento sea un bloque en línea */
-  background-color: gray; /* Establece el fondo gris */
-  color: rgb(255, 255, 255); /* Establece el color de las letras*/
-  padding: 5.5px; /* Agrega un espacio alrededor del texto para crear el efecto de un recuadro */
-  border: 1px solid darkgray; /* Agrega un borde alrededor del elemento */
-  border-radius: 7px; /* Agrega esquinas redondeadas al recuadro */
+  display: inline-block;
+  background-color: gray;
+  color: rgb(255, 255, 255);
+  padding: 5.5px;
+  border: 1px solid darkgray;
+  border-radius: 7px;
   font-family: 'Montserrat', sans-serif;
   width: auto;
   height: auto;
   font-size: 26px;
+}
+
+/* Media queries para dispositivos más pequeños */
+@media (max-width: 768px) {
+  .logo {
+    width: 150px; /* Reduce el tamaño del logotipo en pantallas más pequeñas */
+    height: 90px;
+  }
+
+  .container-fluid {
+    padding: 0 10px; /* Agrega un espacio en los lados del contenedor en pantallas más pequeñas */
+  }
+
+  .login-button,
+  .signup-button {
+    font-size: 16px; /* Reduce el tamaño de fuente en pantallas más pequeñas */
+    padding: 8px 12px;
+  }
+
+  .logged-in-username {
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    font-size: 18px; /* Reduce el tamaño de fuente de los botones en pantallas más pequeñas */
+    padding: 8px 16px;
+    margin-right: 8px;
+  }
+
+  .user-name {
+    font-size: 22px; /* Reduce el tamaño de fuente del nombre de usuario en pantallas más pequeñas */
+  }
+
+  .custom-link {
+    font-size: 22px; /* Reduce el tamaño de fuente del enlace personalizado en pantallas más pequeñas */
+  }
 }

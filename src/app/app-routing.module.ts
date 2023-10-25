@@ -18,14 +18,16 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'login', component: Login1Component },
   { path: 'register', component: Register1Component},
-  { path: 'salud', component: SaludParentComponent,canActivate: [AuthGuard]},
-  { path: 'followme', component: FollowMeComponent,canActivate: [AuthGuard]},
+  { path: 'salud', component: SaludParentComponent},
+  { path: 'followme', component: FollowMeComponent},
   { path: 'formulario', component: FormularioComponent },
   { path: 'perfil/:username', component: UserProfileComponent },
   { path: 'profile-data', component: ProfileDataComponent },
   { path: 'sightseeing', component: SightseeingComponent},
-  { path: 'sightseeing-form', component: SightseeingFormComponent},
+   { path: 'editar-paseo/:id', component: SightseeingFormComponent},
   { path: 'editar-paseo/:paseoId', component: EditarPaseoComponent},
+  { path: 'sightseeing-form', component: SightseeingFormComponent },
+
 
 ];
 

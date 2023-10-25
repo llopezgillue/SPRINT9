@@ -10,14 +10,21 @@ export class SightseeingService {
   constructor(private firestore: AngularFirestore) {}
 
   obtenerSightseeing(): Observable<any[]> {
-    return this.firestore.collection('postiks paseo').valueChanges();
+    return this.firestore.collection('postiks paseo').snapshotChanges().pipe(
+      map((changes) => {
+        return changes.map((a) => {
+          const data = a.payload.doc.data() as any;
+          data['Document ID'] = a.payload.doc.id; 
+          return data;
+        });
+      })
+    );
   }
 
-  eliminarPaseo(paseoId: string): Promise<void> {
-    if (paseoId) {
-      console.log("Eliminando paseo con ID:", paseoId);
-
-      return this.firestore.collection('postiks paseo').doc(paseoId).delete()
+  eliminarPaseo(documentId: string): Promise<void> {
+    console.log("Eliminando paseo con ID:", documentId);
+    if (documentId) {
+      return this.firestore.collection('postiks paseo').doc(documentId).delete()
         .then(() => {
           console.log('Paseo eliminado de la base de datos');
         })

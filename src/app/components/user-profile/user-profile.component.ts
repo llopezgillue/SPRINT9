@@ -47,5 +47,5 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['/profile-data']);
   }
 
-  // Otras funciones relacionadas con el perfil
+ 
 }

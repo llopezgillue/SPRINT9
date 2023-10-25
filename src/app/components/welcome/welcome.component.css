@@ -87,3 +87,31 @@
     opacity: 0;
   }
 }
+@media (max-width: 768px) {
+  #content {
+    font-size: 40px; /* Reducir el tamaño de fuente */
+    height: 60px; /* Ajustar la altura */
+    padding: 5px 20px; /* Ajustar el espaciado */
+  }
+
+  .image-carousel {
+    height: 400px; /* Ajustar la altura del carrusel */
+  }
+
+  .slide {
+    background-size: contain; /* Ajustar el tamaño de fondo para mantener la imagen completa en pantalla */
+  }
+}
+
+/* Media query para pantallas más pequeñas, por ejemplo, smartphones */
+@media (max-width: 576px) {
+  #content {
+    font-size: 30px; /* Reducir el tamaño de fuente aún más */
+    height: 50px; /* Ajustar la altura */
+    padding: 5px 10px; /* Ajustar el espaciado */
+  }
+
+  .image-carousel {
+    height: 300px; /* Ajustar la altura del carrusel aún más */
+  }
+}

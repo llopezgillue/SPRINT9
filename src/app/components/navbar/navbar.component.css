@@ -3,18 +3,21 @@
   overflow: hidden;
   margin-top: 0;
   height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .navbar a {
-  float: left;
-  display: block;
   color: white;
   text-align: center;
-  padding: 10px 16px;
   text-decoration: none;
   font-size: 28px;
   letter-spacing: 10px;
+  padding: 10px 16px;
 }
+
 .navbar a:hover {
   background-color: #ddd;
   color: black;
@@ -22,18 +25,30 @@
 
 .navbar .separator {
   color: white;
-  padding: 14px 16px;
   font-size: 28px;
 }
+
 .navbar a.active {
   background-color: #ddd;
   color: gray;
 }
+
 .menu-item {
   position: relative;
   display: inline-block;
   margin: auto;
-
 }
 
+/* Media query para hacerlo responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  background-color: #171615e4; /* Mantén el fondo negro */
+  }
 
+  .navbar a {
+    font-size: 18px;
+    letter-spacing: 5px;
+    margin: 5px 0;
+  }
+}

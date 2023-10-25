@@ -29,7 +29,6 @@ import { ProfileDataComponent } from './components/profile-data/profile-data.com
 import { ProfileService } from './services/profile.service';
 import { SightseeingComponent } from './components/sightseeing/sightseeing.component';
 import { SightseeingFormComponent} from './components/sightseeingform/sightseeingform.component';
-import { SightseeingService } from './services/sightseeing.service';
 import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.component';
 
 
@@ -64,7 +63,7 @@ import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.com
 
 
   ],
-  providers: [UserService, AcompanantesService,ProfileService, SightseeingService,],
+  providers: [UserService, AcompanantesService,ProfileService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

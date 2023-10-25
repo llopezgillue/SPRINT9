@@ -20,8 +20,11 @@
         <p>Nombre: {{ resultado.Nombre }}</p>
         <p>Fecha: {{ resultado.fecha }}</p>
         <p class="comentarios">Comentarios: {{ resultado.comentarios }}</p>
-        <button (click)="editarPaseo(resultado.id)">Editar</button>
-        <button (click)="eliminarPaseo(resultado.id)">Eliminar({{ resultado.id }})</button>
+        <button (click)="editarPaseo(resultado['Document ID'])">Editar</button>
+        <button (click)="eliminarPaseo(resultado['Document ID'])">
+          Eliminar
+        </button>
+
       </div>
     </ng-container>
   </div>
