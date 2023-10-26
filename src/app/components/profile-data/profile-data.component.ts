@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 import { UserService } from '../../services/user.service';
 import { ProfileService } from '../../services/profile.service';
@@ -15,10 +16,31 @@ export class ProfileDataComponent implements OnInit {
   edad: number | null = null;
   aficiones: string | null = null;
   poblacion: string | null = null;
+  profileData: any;
 
-  constructor(private router: Router, private userService: UserService, private profileService: ProfileService) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private profileService: ProfileService,
+    private cookieService: CookieService
+  ) { }
 
   ngOnInit() {
+
+    
+    this.profileData = null;
+    if (this.cookieService.check('username')) {
+      const usernameCookie = this.cookieService.get('username');
+      console.log('Nombre de usuario desde la cookie:', usernameCookie);
+    } else {
+      console.log('No se encontró un nombre de usuario en la cookie.');
+    }
+
+    const usernameCookie = this.cookieService.get('username');
+    if (usernameCookie) {
+      this.userService.loggedInUserName = usernameCookie;
+    }
+
     if (this.userService.loggedInUserName) {
       const storedData = localStorage.getItem('perfil_' + this.userService.loggedInUserName);
 
@@ -44,6 +66,9 @@ export class ProfileDataComponent implements OnInit {
       };
 
       this.profileService.saveProfileData(data, this.userService.loggedInUserName);
+
+      this.cookieService.delete('username');
+      this.cookieService.set('username', this.userService.loggedInUserName);
 
       localStorage.setItem('perfil_' + this.userService.loggedInUserName, JSON.stringify(data));
 

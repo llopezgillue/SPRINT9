@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserService {
 
   loginStatusChanged = new EventEmitter<boolean>();
 
-  constructor(private auth: Auth) {
+  constructor(private auth: Auth,private cookieService: CookieService) {
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.isLoggedIn = true;
@@ -65,6 +66,8 @@ export class UserService {
   }
 
   logout() {
+
+    this.cookieService.delete('username');
     return signOut(this.auth)
       .then(() => {
         this.isLoggedIn = false;

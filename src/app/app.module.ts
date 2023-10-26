@@ -32,6 +32,7 @@ import { SightseeingFormComponent} from './components/sightseeingform/sightseein
 import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,8 @@ import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.com
     AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+
+
 
 
   ],

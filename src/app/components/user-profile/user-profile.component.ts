@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../services/profile.service';
+import { CookieService } from 'ngx-cookie-service'; 
 
 @Component({
   selector: 'app-user-profile',
@@ -47,5 +48,5 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['/profile-data']);
   }
 
- 
+
 }
