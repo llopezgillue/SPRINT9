@@ -24,8 +24,9 @@ const routes: Routes = [
   { path: 'perfil/:username', component: UserProfileComponent },
   { path: 'profile-data', component: ProfileDataComponent },
   { path: 'sightseeing', component: SightseeingComponent},
- {path: 'editar-paseo/:id', component: EditarPaseoComponent,},
-  { path: 'sightseeing-form', component: SightseeingFormComponent },
+   {path: 'editar-paseo/:id', component: EditarPaseoComponent,},
+  { path: 'sightseeing-form', component: SightseeingFormComponent},
+
 
 
 ];

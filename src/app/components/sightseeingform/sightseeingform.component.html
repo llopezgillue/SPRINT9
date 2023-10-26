@@ -1,24 +1,28 @@
 <div>
-  <h2>Añadir Paseo</h2>
+  <h2 style="color: #333; font-family: Arial, sans-serif;">Añadir Paseo</h2>
   <form (ngSubmit)="agregarPaseo()">
-    <label for="nuevaPoblacion">Población:</label>
-    <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required>
+    <label for="nuevaPoblacion" style="color: #666;">Población:</label>
+    <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required
+           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
 
-    <label for="nuevaHora">Hora de quedada:</label>
-    <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required>
+    <label for="nuevaHora" style="color: #666;">Hora de quedada:</label>
+    <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required
+           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
 
-    <label for="nuevoNombre">Nombre:</label>
-    <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required>
+    <label for="nuevoNombre" style="color: #666;">Nombre:</label>
+    <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required
+           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
 
-    <label for="nuevosComentarios">Comentarios:</label>
-    <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios"></textarea>
+    <label for="nuevosComentarios" style="color: #666;">Comentarios:</label>
+    <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios"
+              style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;"></textarea>
 
-    <label for="nuevaFecha">Fecha (YYYY-MM-DD):</label>
+    <label for="nuevaFecha" style="color: #666;">Fecha (YYYY-MM-DD):</label>
     <input id="nuevaFecha" name="fecha" [(ngModel)]="nuevoPaseo.fecha" required
-           pattern="\d{4}-\d{2}-\d{2}">
+           pattern="\d{4}-\d{2}-\d{2}"
+           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
 
-
-    <button type="submit">Guardar</button>
-    <button type="button" (click)="cancelarFormulario()">Cancelar</button>
+    <button type="submit" style="background-color: #007bff; color: #fff; font-family: Arial, sans-serif;">Guardar</button>
+    <button type="button" (click)="cancelarFormulario()" style="background-color: #d9534f; color: #fff; font-family: Arial, sans-serif;">Cancelar</button>
   </form>
 </div>
