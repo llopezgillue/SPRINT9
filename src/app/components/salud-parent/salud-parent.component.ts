@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-salud-parent',
@@ -83,14 +83,18 @@ export class SaludParentComponent {
   consejosMostrados: string[] = [];
   isReversed: boolean = false;
 
-  obtenerConsejos() {
+  @Output() consejosCambiados: EventEmitter<string[]> = new EventEmitter<string[]>();
+  @Output() toggleLayoutEvent: EventEmitter<void> = new EventEmitter<void>();
 
+  obtenerConsejos() {
     const consejosAleatorios = this.consejosSalud.sort(() => 0.5 - Math.random()).slice(0, 6);
     this.consejosMostrados = consejosAleatorios;
+    this.consejosCambiados.emit(this.consejosMostrados); // Emitir la lista de consejos mostrados
   }
 
   toggleLayout() {
     this.isReversed = !this.isReversed;
-    this.obtenerConsejos()
+    this.obtenerConsejos();
+    this.toggleLayoutEvent.emit(); // Emitir el evento de cambio de diseño
   }
 }

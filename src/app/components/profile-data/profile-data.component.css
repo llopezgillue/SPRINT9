@@ -23,7 +23,7 @@
   color: black;
 }
 .btn-primary {
-  font-family: 'Montserrat', sans-serif; /* Establecer Montserrat como fuente */
-  font-size: 20px; /* Tamaño de fuente 20px */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px 
 }
 
