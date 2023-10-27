@@ -1,0 +1,35 @@
+.custom-heading {
+  color: brown;
+  font-family: Arial, sans-serif;
+  font-size: 45px;
+}
+
+.custom-label {
+  color: #050505;
+  font-size: 25px;
+}
+
+.custom-input-container {
+  align-items: center;
+  margin-bottom: 15px;
+
+}
+
+.custom-input {
+  flex: 1;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.custom-textarea {
+  min-height: 150px;
+}
+
+.custom-button {
+  background-color: #007bff;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;;
+
+}

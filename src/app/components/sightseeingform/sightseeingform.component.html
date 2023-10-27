@@ -1,28 +1,36 @@
-<div>
-  <h2 style="color: #333; font-family: Arial, sans-serif;">Añadir Paseo</h2>
-  <form (ngSubmit)="agregarPaseo()">
-    <label for="nuevaPoblacion" style="color: #666;">Población:</label>
-    <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required
-           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
+<div class="mt-3 d-flex justify-content-center align-items-center" style="height: 70vh;">
+  <div>
+    <h2 style="color: brown; font-family: Arial, sans-serif; font-size: 45px;">Añadir Paseo</h2>
+    <form (ngSubmit)="agregarPaseo()">
+      <div class="form-group mb-3 mt-4">
+        <label for="nuevaPoblacion" style="color: #050505; font-size: 25px;">Población:</label>
+        <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required class="text-right">
+      </div>
 
-    <label for="nuevaHora" style="color: #666;">Hora de quedada:</label>
-    <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required
-           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
+      <div class="form-group mb-3">
+        <label for="nuevaHora" style="color: #070707; font-size: 25px;">Hora de quedada:</label>
+        <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required class="text-right">
+      </div>
 
-    <label for="nuevoNombre" style="color: #666;">Nombre:</label>
-    <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required
-           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
+      <div class="form-group mb-3">
+        <label for="nuevoNombre" style="color: #010101; font-size: 25px;">Nombre:</label>
+        <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required class="text-right">
+      </div>
 
-    <label for="nuevosComentarios" style="color: #666;">Comentarios:</label>
-    <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios"
-              style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;"></textarea>
+      <div class="form-group mb-3">
+        <label for="nuevosComentarios" style="color: #040404; font-size: 25px;">Comentarios:</label>
+        <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios" class="text-right"></textarea>
+      </div>
 
-    <label for="nuevaFecha" style="color: #666;">Fecha (YYYY-MM-DD):</label>
-    <input id="nuevaFecha" name="fecha" [(ngModel)]="nuevoPaseo.fecha" required
-           pattern="\d{4}-\d{2}-\d{2}"
-           style="font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;">
+      <div class="form-group mb-3">
+        <label for="nuevaFecha" style="color: #040404; font-size: 25px;">Fecha (YYYY-MM-DD):</label>
+        <input id="nuevaFecha" name="fecha" [(ngModel)]="nuevoPaseo.fecha" required pattern="\d{4}-\d{2}-\d{2}" class="text-right">
+      </div>
 
-    <button type="submit" style="background-color: #007bff; color: #fff; font-family: Arial, sans-serif;">Guardar</button>
-    <button type="button" (click)="cancelarFormulario()" style="background-color: #d9534f; color: #fff; font-family: Arial, sans-serif;">Cancelar</button>
-  </form>
+      <div class="mt-4 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" style="background-color: #007bff; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 18px;">Guardar</button>
+        <button type="button" class="btn btn-primary" (click)="cancelarFormulario()" style="background-color: #d9534f; color: #fff; font-family: Arial, sans-serif; font-size: 18px; margin-left: 10px;">Cancelar</button>
+      </div>
+    </form>
+  </div>
 </div>

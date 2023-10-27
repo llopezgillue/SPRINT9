@@ -1,20 +1,29 @@
+<div class="container mt-5 d-flex flex-column justify-content-center align-items-center" style="height: 60vh;">
+  <h1 class="custom-heading">Editar Paseo</h1>
 
+  <div class="custom-input-container mt-3">
+    <label for="Nombre" class="custom-label">Nombre:</label>
+    <br>
+    <input type="text" id="Nombre" [(ngModel)]="nombreDelPaseo" class="custom-input">
+  </div>
 
-<!-- Agrega las casillas de edición -->
-<div class="container">
-  <h1>Editar Paseo</h1>
+  <div class="custom-input-container">
+    <label for="fecha" class="custom-label">Fecha:</label>
+    <br>
+    <input type="date" id="fecha" [(ngModel)]="fechaDelPaseo" class="custom-input" style="margin-right:70px">
+  </div>
 
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="Nombre" [(ngModel)]="nombreDelPaseo">
+  <div class="custom-input-container">
+    <label for ="hora" class="custom-label">Hora:</label>
+    <br>
+    <input type="text" id="hora" [(ngModel)]="horaDelPaseo" class="custom-input">
+  </div>
 
-  <label for="fecha">Fecha:</label>
-  <input type="date" id="fecha" [(ngModel)]="fechaDelPaseo">
+  <div class="custom-input-container">
+    <label for="comentarios" class="custom-label">Comentarios:</label>
+    <br>
+    <textarea id="comentarios" [(ngModel)]="comentariosDelPaseo" class="custom-input custom-textarea"style="margin-right:25px"></textarea>
+  </div>
 
-  <label for="hora">Hora:</label>
-  <input type="text" id="hora" [(ngModel)]="horaDelPaseo">
-
-  <label for="comentarios">Comentarios:</label>
-  <textarea id="comentarios" [(ngModel)]="comentariosDelPaseo"></textarea>
-
-  <button (click)="guardarCambios()">Guardar Cambios</button>
+  <button (click)="guardarCambios()" class="btn btn-primary" style="background-color: #007bff; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 20px;">Guardar Cambios</button>
 </div>

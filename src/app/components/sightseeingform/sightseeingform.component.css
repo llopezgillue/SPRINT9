@@ -1,0 +1,8 @@
+.text-right {
+  display: block;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  background-color: #f2f2f2;
+  color: #333;
+}

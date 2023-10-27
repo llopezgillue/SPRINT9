@@ -28,6 +28,7 @@ export class SightseeingFormComponent implements OnInit {
     this.firestore.collection('postiks paseo').add(this.nuevoPaseo)
       .then(() => {
         console.log('Paseo agregado a Firestore');
+        this.router.navigate(['/sightseeing']);
 
       })
       .catch(error => {
