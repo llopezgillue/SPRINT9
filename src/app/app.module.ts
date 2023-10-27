@@ -66,7 +66,7 @@ import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.com
 
 
   ],
-  providers: [UserService, AcompanantesService,ProfileService],
+  providers: [UserService, AcompanantesService, ProfileService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
