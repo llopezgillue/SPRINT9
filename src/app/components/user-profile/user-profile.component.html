@@ -1,16 +1,20 @@
 <div class="container mt-4">
-  <div class="d-flex justify-content-center mb-4">
-    <div class="card" style="background-color: #f9f7f7; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+  <div class="d-flex justify-content-start mb-4">
+    <div class="card" style="background: linear-gradient(to bottom, #f7f36e, #f5f7b5, #82d8f3, #79f8e5, #7af8ea); border: none; border-radius: 10px;">
       <div class="card-body">
         <h3 class="card-title" style="font-size: 32px; color: #333;">Datos del Perfil:</h3>
-        <img [src]="getPhotoUrl()" alt="Foto de Perfil" class="img-fluid mb-3" *ngIf="getPhotoUrl() || selectedFile">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" style="font-size: 24px; border: none;">Nombre: {{ profileData?.nombre }}</li>
-          <li class="list-group-item" style="font-size: 24px; border: none;">Apellidos: {{ profileData?.apellidos }}</li>
-          <li class="list-group-item" style="font-size: 24px; border: none;">Edad: {{ profileData?.edad }}</li>
-          <li class="list-group-item" style="font-size: 24px; border: none;">Aficiones: {{ profileData?.aficiones }}</li>
-          <li class="list-group-item" style="font-size: 24px; border: none;">Población: {{ profileData?.poblacion }}</li>
-        </ul>
+        <div class="d-flex">
+          <div class="img-container">
+            <img [src]="getPhotoUrl()" alt="Foto de Perfil" class="img-thumbnail mb-3" *ngIf="getPhotoUrl() || selectedFile" style="max-width: 700px; max-height: 700px;">
+          </div>
+          <ul class="list-group list-group-flush" style="margin-left: 20px;">
+            <li class="list-group-item" style="font-size: 24px; border: none;"><strong>Nombre:</strong> {{ profileData?.nombre }}</li>
+            <li class="list-group-item" style="font-size: 24px; border: none;"><strong>Apellidos:</strong> {{ profileData?.apellidos }}</li>
+            <li class="list-group-item" style="font-size: 24px; border: none;"><strong>Edad:</strong> {{ profileData?.edad }}</li>
+            <li class="list-group-item" style="font-size: 24px; border: none;"><strong>Aficiones:</strong> {{ profileData?.aficiones }}</li>
+            <li class="list-group-item" style="font-size: 24px; border: none;"><strong>Población:</strong> {{ profileData?.poblacion }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
