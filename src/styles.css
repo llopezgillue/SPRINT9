@@ -1,10 +1,7 @@
-body, app-root {
-  background: linear-gradient(to bottom, #46d3f3, #f5f171, #71e1f5, #7cf07c, #7cf07c, #71e1f5, #f5f171, #46d3f3, #46d3f3);
+html, body, app-root {
+  background: linear-gradient(to bottom, #46d3f3, #f5f171, #71e1f5, #7cf07c, #7cf07c);
   margin: 0;
   padding: 0;
   color: #fff;
   height: 100%;
-  background-size: 100% 200%;
-  animation: gradient 10s linear infinite;
-
 }
