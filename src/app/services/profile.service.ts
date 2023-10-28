@@ -8,8 +8,8 @@ export class ProfileService {
   constructor() { }
 
   saveProfileData(data: any, username: string) {
-    const profileData = this.getProfileData(username) || {}; // Obtén los datos existentes si los hay
-    // Combina los datos existentes con los nuevos datos
+    const profileData = this.getProfileData(username) || {}; 
+
     const updatedData = { ...profileData, ...data };
     localStorage.setItem(`profileData_${username}`, JSON.stringify(updatedData));
   }

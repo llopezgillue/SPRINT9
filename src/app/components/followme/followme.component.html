@@ -2,12 +2,12 @@
   <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
       <h1 class="text-center">Buscar Cuidadores</h1>
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 mt-5">
         <select class="form-select" [(ngModel)]="poblacion">
           <option value="">Todas las poblaciones</option>
           <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion">{{ poblacion }}</option>
         </select>
-        <button class="btn btn-primary" (click)="buscarPorPoblacion()">Buscar</button>
+        <button class="btn btn-primary mx-3" (click)="buscarPorPoblacion()">Buscar</button>
       </div>
     </div>
   </div>

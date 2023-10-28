@@ -4,11 +4,11 @@
   <label for="poblacion" class="mt-5" style="color: #040404; font-size: 26px;">Selecciona una población:&nbsp;&nbsp;</label>
   <select id="poblacion" [(ngModel)]="selectedPoblacion" style="font-size: 20px;">
     <option value="" style="font-family: Arial, sans-serif; font-size: 26px;">Todas</option>
-    <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion" style="font-family: Arial, sans-serif; font-size: 16px;">{{ poblacion }}</option>
+    <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion" style="font-family: Arial, sans-serif; font-size: 20px;">{{ poblacion }}</option>
   </select>
 
-  <label for="fecha" class="mt-3" style="color: #070707; font-size: 26px; margin-top: 10px;">Selecciona una fecha:&nbsp;&nbsp;</label>
-  <input type="date" id="fecha" [(ngModel)]="selectedFecha" style=" font-size:20px; font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333; margin-top: 5px;">
+  <label for="fecha" class="mt-3" style="color: #070707; font-size: 26px; margin-top: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;Selecciona una fecha:&nbsp;&nbsp;</label>
+  <input type="date" id="fecha" [(ngModel)]="selectedFecha" style=" font-size:20px; font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333; margin-top: 5px;margin-right:30px;">
 
   <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary" style="font-size: 20px; background-color: #007bff; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Buscar</button>
 

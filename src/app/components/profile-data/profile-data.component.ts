@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { UserService } from '../../services/user.service';
 import { ProfileService } from '../../services/profile.service';
+import { PhotoService } from '../../services/photo.service';
 
 @Component({
   selector: 'app-profile-data',
@@ -17,17 +18,20 @@ export class ProfileDataComponent implements OnInit {
   aficiones: string | null = null;
   poblacion: string | null = null;
   profileData: any;
+  selectedFile: File | null = null;
+
 
   constructor(
     private router: Router,
     private userService: UserService,
     private profileService: ProfileService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private PhotoService: PhotoService
   ) { }
 
   ngOnInit() {
 
-    
+
     this.profileData = null;
     if (this.cookieService.check('username')) {
       const usernameCookie = this.cookieService.get('username');
@@ -62,7 +66,9 @@ export class ProfileDataComponent implements OnInit {
         apellidos: this.apellidos,
         edad: this.edad,
         aficiones: this.aficiones,
-        poblacion: this.poblacion
+        poblacion: this.poblacion,
+        
+
       };
 
       this.profileService.saveProfileData(data, this.userService.loggedInUserName);
@@ -73,6 +79,14 @@ export class ProfileDataComponent implements OnInit {
       localStorage.setItem('perfil_' + this.userService.loggedInUserName, JSON.stringify(data));
 
       this.router.navigate(['perfil', this.userService.loggedInUserName]);
+
     }
+  }
+
+  onFileSelected(event: any) {
+debugger
+    this.selectedFile = event.target.files[0];
+    this.PhotoService.setSelectedPhoto(this.selectedFile);
+    console.log('Archivo seleccionado:', this.selectedFile);
   }
 }
