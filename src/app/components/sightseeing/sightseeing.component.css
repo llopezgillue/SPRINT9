@@ -6,32 +6,47 @@
 
 .postik {
   background-color: #f0f0f0;
-  border: 50px solid #ccc;
+  border: 1px solid #ccc; /* Reduzco el grosor del borde para ahorrar espacio */
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px;
   border-radius: 5px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: #333;
-  width: calc(33.33% - 20px); /* 3 postiks per row with margins */
+  width: calc(33.33% - 20px); /* 3 postiks por fila con márgenes */
+  min-width: 300px; /* Establezco un ancho mínimo para evitar que se vuelvan demasiado delgados en pantallas grandes */
 }
 
 .postik h3 {
-  font-size: 25px;
+  font-size: 20px;
   margin: 0;
   padding: 0;
 }
 
 .postik p {
-  font-size: 25px;
+  font-size: 20px;
   margin: 5px 0;
   padding: 0;
 }
 
 .postik .comentarios {
-  font-size: 25px;
+  font-size: 20px;
   white-space: normal;
   overflow: visible;
   width: 100%;
+}
+
+/* Media query para pantallas más pequeñas, por ejemplo, tablets */
+@media (max-width: 768px) {
+  .postik {
+    width: calc(50% - 20px); /* 2 postiks por fila con márgenes */
+  }
+}
+
+/* Media query para pantallas aún más pequeñas, por ejemplo, smartphones */
+@media (max-width: 576px) {
+  .postik {
+    width: calc(100% - 20px); /* 1 postik por fila con márgenes */
+  }
 }

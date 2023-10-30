@@ -62,9 +62,6 @@ import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.com
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
 
-
-
-
   ],
   providers: [UserService, AcompanantesService, ProfileService],
   bootstrap: [AppComponent],

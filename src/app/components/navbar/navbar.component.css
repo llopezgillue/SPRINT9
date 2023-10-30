@@ -39,16 +39,34 @@
   margin: auto;
 }
 
-/* Media query para hacerlo responsive */
-@media (max-width: 768px) {
+/* Estilos para dispositivos móviles (375 x 667 px - Móvil medio) */
+@media (max-width: 375px) {
   .navbar {
     flex-direction: column;
-  background-color: #171615e4; /* Mantén el fondo negro */
+    height: auto;
   }
 
   .navbar a {
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 5px;
     margin: 5px 0;
+  }
+}
+
+/* Estilos para smartphones grandes (720 x 1280 px) */
+@media (min-width: 376px) and (max-width: 720px) {
+  .navbar a {
+    font-size: 24px;
+    letter-spacing: 8px;
+    padding: 8px 12px;
+  }
+}
+
+/* Estilos para ordenadores portátiles (1366 x 768 px - Ordenador portátil medio) */
+@media (min-width: 721px) and (max-width: 1366px) {
+  .navbar a {
+    font-size: 28px;
+    letter-spacing: 10px;
+    padding: 10px 16px;
   }
 }

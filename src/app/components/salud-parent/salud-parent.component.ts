@@ -80,7 +80,6 @@ export class SaludParentComponent {
 
   ];
 
-  consejosMostrados: string[] = [];
   isReversed: boolean = false;
 
   @Output() consejosCambiados: EventEmitter<string[]> = new EventEmitter<string[]>();
@@ -88,13 +87,13 @@ export class SaludParentComponent {
 
   obtenerConsejos() {
     const consejosAleatorios = this.consejosSalud.sort(() => 0.5 - Math.random()).slice(0, 6);
-    this.consejosMostrados = consejosAleatorios;
-    this.consejosCambiados.emit(this.consejosMostrados); // Emitir la lista de consejos mostrados
+    this.consejosSalud = consejosAleatorios;
+    this.consejosCambiados.emit(this.consejosSalud);
   }
 
   toggleLayout() {
     this.isReversed = !this.isReversed;
     this.obtenerConsejos();
-    this.toggleLayoutEvent.emit(); // Emitir el evento de cambio de diseño
+    this.toggleLayoutEvent.emit();
   }
 }

@@ -87,15 +87,16 @@
     opacity: 0;
   }
 }
+/* Media query para pantallas pequeñas, por ejemplo, tablets */
 @media (max-width: 768px) {
   #content {
-    font-size: 40px; /* Reducir el tamaño de fuente */
-    height: 60px; /* Ajustar la altura */
-    padding: 5px 20px; /* Ajustar el espaciado */
+    font-size: 4.5vw; /* Reducir el tamaño de fuente aún más */
+    height: auto; /* Ajustar la altura automáticamente */
+    padding: 20px; /* Ajustar el espaciado */
   }
 
   .image-carousel {
-    height: 400px; /* Ajustar la altura del carrusel */
+    height: 400px; /* Ajustar la altura del carrusel aún más */
   }
 
   .slide {
@@ -103,15 +104,20 @@
   }
 }
 
-/* Media query para pantallas más pequeñas, por ejemplo, smartphones */
+/* Media query para pantallas aún más pequeñas, por ejemplo, smartphones */
 @media (max-width: 576px) {
   #content {
-    font-size: 30px; /* Reducir el tamaño de fuente aún más */
-    height: 50px; /* Ajustar la altura */
-    padding: 5px 10px; /* Ajustar el espaciado */
+    font-size: 4vw; /* Reducir el tamaño de fuente aún más */
+    height: auto; /* Ajustar la altura automáticamente */
+    padding: 10px; /* Ajustar el espaciado */
   }
 
   .image-carousel {
     height: 300px; /* Ajustar la altura del carrusel aún más */
   }
+
+  .slide {
+    background-size: contain; /* Ajustar el tamaño de fondo para mantener la imagen completa en pantalla */
+  }
 }
+

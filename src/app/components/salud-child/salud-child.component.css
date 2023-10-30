@@ -1,0 +1,18 @@
+.consejos-container {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  color: rgb(8, 8, 8);
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 90px;
+  right: 0;
+  bottom: 0;
+}
+
+.consejo {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}

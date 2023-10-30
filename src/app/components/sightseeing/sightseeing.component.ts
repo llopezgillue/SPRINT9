@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SightseeingService } from '../../services/sightseeing.service';
 import { Router } from '@angular/router';
+import { CookieService} from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-sightseeing',
@@ -12,8 +14,10 @@ export class SightseeingComponent implements OnInit {
   poblacionesDisponibles: string[] = [];
   selectedPoblacion: string = '';
   selectedFecha: string = '';
+  personasAgregadas: number[] = [];
 
-  constructor(private sightseeingService: SightseeingService, private router: Router) {}
+
+  constructor(private sightseeingService: SightseeingService, private router: Router, private cookieService:CookieService) {}
 
   navigateToAddSightseeing() {
     this.router.navigate(['/sightseeing-form']);
@@ -91,5 +95,11 @@ export class SightseeingComponent implements OnInit {
     console.log('ID del resultado:', documentId);
     this.router.navigate(['/editar-paseo', documentId]);
 
+  }
+  agregarPersona(index: number) {
+
+    this.personasAgregadas[index] = (this.personasAgregadas[index] || 0) + 1;
+
+    this.cookieService.set('personasAgregadas', JSON.stringify(this.personasAgregadas));
   }
 }

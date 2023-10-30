@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-salud-child',
@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./salud-child.component.css']
 })
 export class SaludChildComponent {
-  @Input() consejosSalud: string[] = [];
+
+ @Input() consejosSalud: string[] = [];
 }

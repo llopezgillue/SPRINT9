@@ -12,9 +12,6 @@
       </div>
     </div>
   </div>
-  <div class="consejos-container">
-    <div class="consejo" *ngFor="let consejo of consejosMostrados">
-      {{ consejo }}
-    </div>
+  <app-salud-child [consejosSalud]="consejosSalud"></app-salud-child>
   </div>
-</div>
+
