@@ -79,21 +79,26 @@ export class SaludParentComponent {
     '-Evita el consumo excesivo de alimentos con alto contenido de sodio.',
 
   ];
-
+  consejosMostrados: string[] = [];
   isReversed: boolean = false;
 
   @Output() consejosCambiados: EventEmitter<string[]> = new EventEmitter<string[]>();
-  @Output() toggleLayoutEvent: EventEmitter<void> = new EventEmitter<void>();
 
-  obtenerConsejos() {
-    const consejosAleatorios = this.consejosSalud.sort(() => 0.5 - Math.random()).slice(0, 6);
-    this.consejosSalud = consejosAleatorios;
-    this.consejosCambiados.emit(this.consejosSalud);
+  ngOnInit() {
+    this.obtenerConsejos();
   }
 
-  toggleLayout() {
-    this.isReversed = !this.isReversed;
-    this.obtenerConsejos();
-    this.toggleLayoutEvent.emit();
+  obtenerConsejos() {
+    const consejosAleatorios = this.shuffleArray(this.consejosSalud).slice(0, 6);
+    this.consejosMostrados = consejosAleatorios;
+    this.consejosCambiados.emit(this.consejosMostrados);
+  }
+
+  shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 }
