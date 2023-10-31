@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SightseeingService } from '../../services/sightseeing.service';
 import { Router } from '@angular/router';
-import { CookieService} from 'ngx-cookie-service';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sightseeing',
@@ -16,8 +15,7 @@ export class SightseeingComponent implements OnInit {
   selectedFecha: string = '';
   personasAgregadas: number[] = [];
 
-
-  constructor(private sightseeingService: SightseeingService, private router: Router, private cookieService:CookieService) {}
+  constructor(private sightseeingService: SightseeingService, private router: Router, private cookieService: CookieService) {}
 
   navigateToAddSightseeing() {
     this.router.navigate(['/sightseeing-form']);
@@ -25,22 +23,16 @@ export class SightseeingComponent implements OnInit {
 
   ngOnInit() {
     this.obtenerPoblaciones();
-
   }
 
   buscarPorPoblacionYFecha(): void {
     console.log("Función buscarPorPoblacionYFecha llamada. Población:", this.selectedPoblacion, "Fecha:", this.selectedFecha);
-
-
-    console.log("Fecha ingresada:", this.selectedFecha);
-
 
     const fechaFormateada = this.selectedFecha;
 
     if (fechaFormateada) {
       this.sightseeingService.obtenerSightseeing().subscribe(
         (data: any[]) => {
-
           this.resultados = data.filter(resultado => this.coincidePoblacionYFecha(resultado, fechaFormateada));
           console.log("Resultados después de filtrar:", this.resultados);
         },
@@ -56,8 +48,6 @@ export class SightseeingComponent implements OnInit {
 
   coincidePoblacionYFecha(resultado: any, fechaSeleccionada: string): boolean {
     const poblacionCoincide = !this.selectedPoblacion || resultado.poblacion === this.selectedPoblacion;
-    console.log("Población coincide:", poblacionCoincide);
-
     return poblacionCoincide && resultado.fecha === fechaSeleccionada;
   }
 
@@ -79,7 +69,7 @@ export class SightseeingComponent implements OnInit {
         .then(() => {
           console.log('Paseo eliminado');
 
-          const index = this.resultados.findIndex(resultado => resultado['Document ID'] === documentId); // Cambiar 'id' por 'Document ID'
+          const index = this.resultados.findIndex(resultado => resultado['Document ID'] === documentId);
           if (index !== -1) {
             this.resultados.splice(index, 1);
           }
@@ -91,15 +81,43 @@ export class SightseeingComponent implements OnInit {
       console.error('ID de paseo no válido');
     }
   }
+
   editarPaseo(documentId: string) {
     console.log('ID del resultado:', documentId);
     this.router.navigate(['/editar-paseo', documentId]);
-
   }
+
   agregarPersona(index: number) {
+    const documentId = this.resultados[index]['Document ID'];
 
-    this.personasAgregadas[index] = (this.personasAgregadas[index] || 0) + 1;
+    if (documentId) {
+      this.sightseeingService.agregarPersona(documentId)
+        .then(() => {
+          this.personasAgregadas[index]++;
+        })
+        .catch(error => {
+          console.error('Error al agregar persona:', error);
+        });
+    } else {
+      console.error('ID de paseo no válido');
+    }
+  }
 
-    this.cookieService.set('personasAgregadas', JSON.stringify(this.personasAgregadas));
+  restarPersona(index: number) {
+    if (this.personasAgregadas[index] > 0) {
+      const documentId = this.resultados[index]['Document ID'];
+
+      if (documentId) {
+        this.sightseeingService.restarPersona(documentId)
+          .then(() => {
+            this.personasAgregadas[index]--;
+          })
+          .catch(error => {
+            console.error('Error al restar persona:', error);
+          });
+      } else {
+        console.error('ID de paseo no válido');
+      }
+    }
   }
 }

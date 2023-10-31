@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class SightseeingService {
       map((changes) => {
         return changes.map((a) => {
           const data = a.payload.doc.data() as any;
-          data['Document ID'] = a.payload.doc.id; 
+          data['Document ID'] = a.payload.doc.id;
           return data;
         });
       })
@@ -50,5 +51,40 @@ export class SightseeingService {
         return poblaciones;
       })
     );
+  }
+  agregarPersona(documentId: string): Promise<void> {
+    console.log("Agregando persona a paseo con ID:", documentId);
+    if (documentId) {
+      return this.firestore.collection('postiks paseo').doc(documentId).update({
+        apuntados: firebase.firestore.FieldValue.increment(1) 
+      })
+      .then(() => {
+        console.log('Persona agregada al paseo en la base de datos');
+      })
+      .catch(error => {
+        console.error('Error al agregar persona al paseo en la base de datos', error);
+      });
+    } else {
+      console.error('ID de paseo no válido');
+      return Promise.reject('ID de paseo no válido');
+    }
+  }
+
+  restarPersona(documentId: string): Promise<void> {
+    console.log("Restando persona de paseo con ID:", documentId);
+    if (documentId) {
+      return this.firestore.collection('postiks paseo').doc(documentId).update({
+        apuntados: firebase.firestore.FieldValue.increment(-1)
+      })
+      .then(() => {
+        console.log('Persona restada del paseo en la base de datos');
+      })
+      .catch(error => {
+        console.error('Error al restar persona del paseo en la base de datos', error);
+      });
+    } else {
+      console.error('ID de paseo no válido');
+      return Promise.reject('ID de paseo no válido');
+    }
   }
 }

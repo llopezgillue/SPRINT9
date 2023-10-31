@@ -1,28 +1,28 @@
-<div class="container mt-5 d-flex flex-column justify-content-center align-items-center" style="height: 60vh;">
+<div class="container mt-5 d-flex flex-column justify-content-center align-items-center" style="height: 65vh;">
   <h1 class="custom-heading">Editar Paseo</h1>
 
   <div class="custom-input-container mt-3">
-    <label for="Nombre" class="custom-label">Nombre:</label>
+    <label for="Nombre" class="custom-label mb-3">Nombre:</label>
     <br>
-    <input type="text" id="Nombre" [(ngModel)]="nombreDelPaseo" class="custom-input">
+    <input type="text" id="Nombre" [(ngModel)]="nombreDelPaseo" class="custom-input form-control">
   </div>
 
   <div class="custom-input-container">
-    <label for="fecha" class="custom-label">Fecha:</label>
+    <label for="fecha" class="custom-label mb-3">Fecha:</label>
     <br>
-    <input type="date" id="fecha" [(ngModel)]="fechaDelPaseo" class="custom-input" style="margin-right:70px">
+    <input type="date" id="fecha" [(ngModel)]="fechaDelPaseo" class="custom-input form-control" style="margin-right:70px">
   </div>
 
   <div class="custom-input-container">
-    <label for ="hora" class="custom-label">Hora:</label>
+    <label for ="hora" class="custom-label mb-3">Hora:</label>
     <br>
-    <input type="text" id="hora" [(ngModel)]="horaDelPaseo" class="custom-input">
+    <input type="text" id="hora" [(ngModel)]="horaDelPaseo" class="custom-input form-control">
   </div>
 
   <div class="custom-input-container">
-    <label for="comentarios" class="custom-label">Comentarios:</label>
+    <label for="comentarios" class="custom-label mb-3">Comentarios:</label>
     <br>
-    <textarea id="comentarios" [(ngModel)]="comentariosDelPaseo" class="custom-input custom-textarea"style="margin-right:25px"></textarea>
+    <textarea id="comentarios" [(ngModel)]="comentariosDelPaseo" class="custom-input custom-textarea form-control"style="margin-right:25px"></textarea>
   </div>
 
   <button (click)="guardarCambios()" class="btn btn-primary" style="background-color: #007bff; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 20px;">Guardar Cambios</button>

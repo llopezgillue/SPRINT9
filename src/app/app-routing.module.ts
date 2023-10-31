@@ -17,6 +17,7 @@ import { SaludParentComponent } from './components/salud-parent/salud-parent.com
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'login', component: Login1Component },
   { path: 'register', component: Register1Component},
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
   { path: 'perfil/:username', component: UserProfileComponent },
   { path: 'profile-data', component: ProfileDataComponent },
-  { path: 'sightseeing', component: SightseeingComponent,canActivate: [AuthGuard]},
+  { path: 'sightseeing', component: SightseeingComponent},
    {path: 'editar-paseo/:id', component: EditarPaseoComponent,},
   { path: 'sightseeing-form', component: SightseeingFormComponent},
 
