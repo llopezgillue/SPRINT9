@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
   { path: 'perfil/:username', component: UserProfileComponent },
   { path: 'profile-data', component: ProfileDataComponent },
-  { path: 'sightseeing', component: SightseeingComponent},
+  { path: 'sightseeing', component: SightseeingComponent,canActivate: [AuthGuard]},
    {path: 'editar-paseo/:id', component: EditarPaseoComponent,},
   { path: 'sightseeing-form', component: SightseeingFormComponent},
 

@@ -3,16 +3,17 @@
   padding: 20px;
   text-align: center;
   color: rgb(8, 8, 8);
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   position: absolute;
-  top: 90px;
+  top: 30px;
   right: 0;
   bottom: 0;
+  margin-top: 250px;
 }
 
 .consejo {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 40px;
 }

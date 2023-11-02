@@ -7,5 +7,6 @@ import { Component, Input} from '@angular/core';
 })
 export class SaludChildComponent {
 
- @Input() consejosSalud: string[] = [];
+  @Input() consejosMostrados: string[] = [];
+
 }

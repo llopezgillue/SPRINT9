@@ -1,7 +1,7 @@
 .logo {
-  margin-bottom: -60px;
-  width: 250px;
-  height: 150px;
+  margin-bottom: -55px;
+  width: 220px;
+  height: 120px;
 }
 
 /* Estilos generales para el contenedor */
@@ -26,12 +26,21 @@
   flex-grow: 1;
 }
 
-/* Estilos para los botones de inicio de sesión y registro */
+
 .login-button,
 .signup-button {
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
   margin-left: 10px;
+  font-size: 18px;
+  background-color: #0176f2;
+  border: none;
+  color: white;
+}
+.login-button:hover,
+.signup-button:hover {
+  background-color: #4c7eb4; /* Cambiar el color de fondo al hacer hover */
+  color: white; /* Cambiar el color del texto a blanco al hacer hover */
 }
 
 .logged-in-username {
@@ -40,10 +49,11 @@
 }
 
 .btn-primary {
-  font-size: 20px;
-  padding: 10px 20px;
-  font-family: 'Montserrat', sans-serif;
-  margin-right: 10px;
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color: #6955f0;
+  border: none;
+  color: white;
 }
 
 .user-name {
@@ -53,31 +63,31 @@
 
 .custom-link {
   display: inline-block;
-  background-color: gray;
-  color: rgb(255, 255, 255);
+  background-color: #62acfb;
+  color: white;
   padding: 5.5px;
   border: 1px solid darkgray;
   border-radius: 7px;
   font-family: 'Montserrat', sans-serif;
   width: auto;
   height: auto;
-  font-size: 26px;
+  font-size: 18px;
 }
 
-/* Media queries para dispositivos más pequeños */
+
 @media (max-width: 768px) {
   .logo {
-    width: 150px; /* Reduce el tamaño del logotipo en pantallas más pequeñas */
+    width: 150px;
     height: 90px;
   }
 
   .container-fluid {
-    padding: 0 10px; /* Agrega un espacio en los lados del contenedor en pantallas más pequeñas */
+    padding: 0 10px;
   }
 
   .login-button,
   .signup-button {
-    font-size: 16px; /* Reduce el tamaño de fuente en pantallas más pequeñas */
+    font-size: 16px;
     padding: 8px 12px;
   }
 
@@ -86,16 +96,16 @@
   }
 
   .btn-primary {
-    font-size: 18px; /* Reduce el tamaño de fuente de los botones en pantallas más pequeñas */
+    font-size: 18px;
     padding: 8px 16px;
     margin-right: 8px;
   }
 
   .user-name {
-    font-size: 22px; /* Reduce el tamaño de fuente del nombre de usuario en pantallas más pequeñas */
+    font-size: 22px;
   }
 
   .custom-link {
-    font-size: 22px; /* Reduce el tamaño de fuente del enlace personalizado en pantallas más pequeñas */
+    font-size: 22px;
   }
 }

@@ -81,15 +81,13 @@ export class SaludParentComponent {
   ];
   consejosMostrados: string[] = [];
   isReversed: boolean = false;
+  consejosPorPagina: number = 4;
 
   @Output() consejosCambiados: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-  ngOnInit() {
-    this.obtenerConsejos();
-  }
-
   obtenerConsejos() {
-    const consejosAleatorios = this.shuffleArray(this.consejosSalud).slice(0, 6);
+    
+    const consejosAleatorios = this.shuffleArray(this.consejosSalud).slice(0, this.consejosPorPagina);
     this.consejosMostrados = consejosAleatorios;
     this.consejosCambiados.emit(this.consejosMostrados);
   }

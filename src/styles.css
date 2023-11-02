@@ -1,7 +1,8 @@
 html, body, app-root {
-  background: linear-gradient(to bottom, #46d3f3, #f5f171, #71e1f5, #7cf07c, #7cf07c);
+  background: linear-gradient(to bottom, rgb(114, 168, 239), rgb(185, 232, 249), rgb(114, 168, 239));
+  background-repeat: repeat;
   margin: 0;
   padding: 0;
   color: #fff;
-  height: 107%;
+  height: 101%;
 }

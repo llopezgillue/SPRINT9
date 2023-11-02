@@ -109,4 +109,20 @@ export class UserService {
       this.clearMessages();
     }, 3000);
   }
+
+  setUserData(username: string, data: any) {
+    
+    const userDataString = localStorage.getItem('userData') || '{}';
+    const userData = JSON.parse(userDataString);
+
+
+    userData[username] = data;
+
+
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
+  getUserData(username: string) {
+
+    return {};
+  }
 }

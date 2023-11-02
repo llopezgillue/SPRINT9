@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../services/profile.service';
-import { CookieService } from 'ngx-cookie-service';
+import { UserService } from '../../services/user.service'; // Importa el servicio de usuario
 import { PhotoService } from '../../services/photo.service';
 import { Subscription } from 'rxjs';
 
@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private profileService: ProfileService,
-    private CookieService: CookieService,
+    private userService: UserService,
     private photoService: PhotoService
   ) {}
 
@@ -28,13 +28,7 @@ export class UserProfileComponent implements OnInit {
       this.username = params['username'];
 
 
-      const storedProfile = localStorage.getItem('perfil_' + this.username);
-      if (storedProfile) {
-        this.profileData = JSON.parse(storedProfile);
-      } else {
-
-        this.loadProfileData();
-      }
+      this.loadProfileData();
     });
   }
 
@@ -42,9 +36,13 @@ export class UserProfileComponent implements OnInit {
     if (this.username) {
       this.profileData = this.profileService.getProfileData(this.username);
 
-
       if (this.profileData) {
         localStorage.setItem('perfil_' + this.username, JSON.stringify(this.profileData));
+
+
+        const userData = this.userService.getUserData(this.username) || {};
+        const updatedUserData = { ...userData, profile: this.profileData };
+        this.userService.setUserData(this.username, updatedUserData); 
       }
     }
   }

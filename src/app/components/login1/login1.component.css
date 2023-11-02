@@ -1,26 +1,74 @@
-.custom-button {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  padding: 10px 20px;
+.login-form button.btn-primary {
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: #0e69cb;
+  border: none;
+  color: white;
 }
 
-.main{
 
+.custom-link {
+  display: inline-block;
+  background-color: #266ab3;
+  color: white;
+  padding: 5.5px;
+  border: 1px solid darkgray;
+  border-radius: 7px;
+  font-family: 'Montserrat', sans-serif;
+  width: auto;
+  height: auto;
+  font-size: 18px;
+}
+
+
+.custom-button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px; /* Reducir el tamaño de fuente de los botones */
+  padding: 8px 16px; /* Reducir el relleno de los botones */
+}
+
+.main {
   color: brown;
+  font-size: 24px; /* Reducir el tamaño de fuente del encabezado principal */
 }
 
 .transparent-background {
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
+  padding: 15px;
 }
+
 .login-form {
   text-align: center;
 }
 
 .login-form button {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .alert {
-  margin-top: 10px;
+  margin-top: 8px;
 }
+
+
+@media (max-width: 768px) {
+  .custom-button {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+
+  .main {
+    font-size: 24px;
+
+  .transparent-background {
+    padding: 10px;
+  }
+
+  .login-form button {
+    margin-right: 6px;
+  }
+
+  .alert {
+    margin-top: 6px;
+  }
+}
+ }

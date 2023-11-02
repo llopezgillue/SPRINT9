@@ -19,6 +19,7 @@ export class ProfileDataComponent implements OnInit {
   poblacion: string | null = null;
   profileData: any;
   selectedFile: File | null = null;
+  private userData: Record<string, any> = {};
 
 
   constructor(
@@ -27,6 +28,7 @@ export class ProfileDataComponent implements OnInit {
     private profileService: ProfileService,
     private cookieService: CookieService,
     private PhotoService: PhotoService
+
   ) { }
 
   ngOnInit() {
@@ -67,7 +69,7 @@ export class ProfileDataComponent implements OnInit {
         edad: this.edad,
         aficiones: this.aficiones,
         poblacion: this.poblacion,
-        
+
 
       };
 
@@ -88,5 +90,12 @@ debugger
     this.selectedFile = event.target.files[0];
     this.PhotoService.setSelectedPhoto(this.selectedFile);
     console.log('Archivo seleccionado:', this.selectedFile);
+  }
+  getUserData(username: string) {
+    return this.userData[username];
+  }
+
+  setUserData(username: string, data: any) {
+    this.userData[username] = data;
   }
 }
