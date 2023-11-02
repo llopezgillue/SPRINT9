@@ -1,10 +1,10 @@
 .logo {
   margin-bottom: -55px;
-  width: 220px;
-  height: 120px;
+  width: 360px;
+  height: 110px;
+
 }
 
-/* Estilos generales para el contenedor */
 .container-fluid {
   padding: 0;
   margin: 0;
@@ -14,7 +14,7 @@
   margin-left: auto;
 }
 
-/* Estilos para la barra de navegación */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -33,14 +33,14 @@
   padding: 8px 12px;
   margin-left: 10px;
   font-size: 18px;
-  background-color: #0176f2;
+  background-color: #6b7784;
   border: none;
   color: white;
 }
 .login-button:hover,
 .signup-button:hover {
-  background-color: #4c7eb4; /* Cambiar el color de fondo al hacer hover */
-  color: white; /* Cambiar el color del texto a blanco al hacer hover */
+  background-color: #4c7eb4;
+  color: white;
 }
 
 .logged-in-username {
@@ -63,7 +63,7 @@
 
 .custom-link {
   display: inline-block;
-  background-color: #62acfb;
+  background-color: #758a7a;
   color: white;
   padding: 5.5px;
   border: 1px solid darkgray;
