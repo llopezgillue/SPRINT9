@@ -1,100 +1,28 @@
 .main-container {
-  overflow-x: hidden; 
+  position: relative;
+  width: 90%;
+  height: 70vh;
+  overflow: hidden;
+  margin-top:40px;
+  margin-left:80px;
+
+}
+
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95vw;
+  height: 110%;
+  object-fit: cover;
+
 }
 
 #content {
-  background-image: linear-gradient(to right, #48e8f7, #7ded72, rgb(131, 201, 242));
-  background-size: 130% 130%;
-  padding: 10px 40px;
-  border-radius: 10px;
-  margin-top: 10px;
-  box-shadow: 0 4px 8px rgb(10, 10, 10);
-  font-size: 50px;
-  line-height: 1.0;
-  animation: moveGradient 5s linear infinite;
-  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  padding: 20px;
 }
-
-
-.display-2{
-
-  font-size:50px;
-  margin-top:-30px;
-
-
-}
-#content strong {
-  font-weight: bold;
-  color: #030404;
-
-}
-
-.image-carousel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10px;
-}
-.image-slide {
-  width: 50%;
-  height: 90px;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-  animation-timing-function: steps(1);
-  margin-bottom: 20px;
-}
-.image-carousel .slide {
-  width: 100%;
-  height: 80%;
-  background-size: cover;
-  background-position: center left;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 5s ease-in-out;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-  animation-timing-function: steps(1);
-}
-
-.slide1 {
-  background-image: url(../../../assets/images/imagen_welcome.png);
-  animation: slide 20s linear infinite 0s;
-  animation-delay: -90s;
-  opacity: 1;
-}
-
-.slide2 {
-  background-image: url(../../../assets/images/cuidador.jpg);
-  animation: slide 20s linear infinite 5s;
-}
-
-.slide3 {
-  background-image: url(../../../assets/images/mayores_pistola_agua.jpeg);
-  animation: slide 20s linear infinite 10s;
-}
-
-.slide4 {
-  background-image: url(../../../assets/images/mayores_selfie.jpg);
-  animation: slide 20s linear infinite 15s;
-}
-
-.slide5 {
-  background-image: url(../../../assets/images/parejamayores_portatil4.png);
-  animation: slide 20s linear infinite 20s;
-}
-@keyframes slide {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 
