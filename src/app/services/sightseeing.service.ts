@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import firebase from 'firebase/compat/app';
+import * as firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root',
@@ -52,11 +52,12 @@ export class SightseeingService {
       })
     );
   }
+
   agregarPersona(documentId: string): Promise<void> {
     console.log("Agregando persona a paseo con ID:", documentId);
     if (documentId) {
       return this.firestore.collection('postiks paseo').doc(documentId).update({
-        apuntados: firebase.firestore.FieldValue.increment(1) 
+        apuntados: firebase.default.firestore.FieldValue.increment(1)
       })
       .then(() => {
         console.log('Persona agregada al paseo en la base de datos');
@@ -74,7 +75,7 @@ export class SightseeingService {
     console.log("Restando persona de paseo con ID:", documentId);
     if (documentId) {
       return this.firestore.collection('postiks paseo').doc(documentId).update({
-        apuntados: firebase.firestore.FieldValue.increment(-1)
+        apuntados: firebase.default.firestore.FieldValue.increment(-1)
       })
       .then(() => {
         console.log('Persona restada del paseo en la base de datos');

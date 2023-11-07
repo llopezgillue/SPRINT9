@@ -3,7 +3,7 @@
 
   <label for="poblacion" class="mt-5" style="color: #040404; font-size: 20px;">Selecciona una
     población:&nbsp;&nbsp;</label>
-  <select id="poblacion" [(ngModel)]="selectedPoblacion" style="font-size: 20px;">
+  <select id="poblacion" [(ngModel)]="selectedPoblacion" style="font-size: 16px;">
     <option value="" style="font-family: Arial, sans-serif; font-size: 16px;">Todas</option>
     <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion"
       style="font-family: Arial, sans-serif; font-size: 16px;">{{ poblacion }}</option>
@@ -13,7 +13,7 @@
     style="color: #070707; font-size: 20px; margin-top: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;Selecciona una
     fecha:&nbsp;&nbsp;</label>
   <input type="date" id="fecha" [(ngModel)]="selectedFecha"
-    style=" font-size:20px; font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333; margin-top: 5px;margin-right:30px;">
+    style=" font-size:16px; font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333; margin-top: 5px;margin-right:30px;">
 
   <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary"
     style="font-size: 16px; background-color: #007bff; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Buscar</button>
@@ -21,7 +21,7 @@
   <div class="postik-container">
     <ng-container *ngFor="let resultado of resultados; let i = index">
       <div class="postik"
-        style="font-size:20px; background-color: #f7f7f7; border: 1px solid #ddd; padding: 10px; margin: 10px; border-radius: 5px;">
+        style="font-size:20px; background-color: #e2f670; border: 1px solid #ddd; padding: 10px; margin: 10px; border-radius: 5px;">
         <h3 style="color: #010101;"><strong>Población:</strong> {{ resultado.poblacion }}</h3>
         <p style="color: #000000;"><strong>Hora de quedada:</strong> {{ resultado.hora }}</p>
         <p style="color: #010101;"><strong>Nombre:</strong> {{ resultado.Nombre }}</p>
@@ -43,6 +43,6 @@
 
   </div>
   <button (click)="navigateToAddSightseeing()" class="btn btn-primary"
-    style="font-size: 16px; background-color: #007bff; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 20px;">Añadir
+    style="font-size: 16px; background-color: #007bff; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 20px;margin-left:20px;">Añadir
     Paseo</button>
 </div>
