@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProfileService } from '../../services/profile.service';
 import { UserService } from '../../services/user.service';
+import { ProfileDataService } from '../../services/profile-data.service';
+
+
+interface UserData {
+  profile?: any;
+
+
+}
 
 @Component({
   selector: 'app-user-profile',
@@ -9,32 +16,33 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  username: string = ''; // Ahora se declara como una cadena, no como string | null
+  username: string = '';
   profileData: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private profileService: ProfileService,
-    private userService: UserService
+    private userService: UserService,
+    private profileDataService: ProfileDataService
   ) {}
 
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.username = params['username'] || ''; // Ahora se asigna una cadena vacía en lugar de null
-      this.loadProfileData();
+  async ngOnInit() {
+    this.route.params.subscribe(async (params) => {
+      this.username = params['username'] || '';
+      await this.loadProfileData();
     });
+
+    // Obtiene los datos del perfil desde el servicio
+    this.profileData = this.profileDataService.getProfileData();
   }
 
-  loadProfileData() {
+  async loadProfileData() {
     if (this.username) {
-      this.profileService.getProfileData(this.username).subscribe((data) => {
-        if (data) {
-          const userData = this.userService.getUserData(this.username) || {};
-          const updatedUserData = { ...userData, profile: data };
-          this.userService.setUserData(this.username, updatedUserData);
-        }
-      });
+      // Código para cargar los datos del perfil
+      const userData: UserData = (await this.userService.getUserData(this.username)) || {};
+      if (userData.profile) {
+        this.profileDataService.setProfileData(userData.profile);
+      }
     }
   }
 

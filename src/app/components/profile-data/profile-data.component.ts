@@ -1,8 +1,9 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../../services/user.service';
 import { ProfileService } from '../../services/profile.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ProfileDataService } from '../../services/profile-data.service'; // Importa el servicio
 
 @Component({
   selector: 'app-profile-data',
@@ -17,12 +18,14 @@ export class ProfileDataComponent implements OnInit {
   poblacion: string | null = null;
   userId: string | null = null;
   userName: string | null = null;
+  @Output() profileSaved = new EventEmitter<void>();
 
   constructor(
     private router: Router,
     private userService: UserService,
     private profileService: ProfileService,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private profileDataService: ProfileDataService
   ) {}
 
   ngOnInit() {
@@ -60,6 +63,12 @@ export class ProfileDataComponent implements OnInit {
       };
 
       this.profileService.saveProfileData(data, this.userId).then(() => {
+        // Almacena los datos en el servicio
+        this.profileDataService.setProfileData(data);
+
+        // Emite el evento de que los datos del perfil se han guardado
+        this.profileSaved.emit();
+
         this.router.navigate(['/perfil', this.userName]);
       }).catch((error) => {
         console.error('Error al guardar los datos del perfil:', error);
