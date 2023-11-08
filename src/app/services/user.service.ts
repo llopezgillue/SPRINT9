@@ -8,20 +8,20 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class UserService {
   public isLoggedIn = false;
-  public loggedInUserName: string | null = null;
+  public loggedInUser: { name: string | null, id: string | null } = { name: null, id: null };
   public successMessage: string | null = null;
   public errorMessage: string | null = null;
 
   loginStatusChanged = new EventEmitter<boolean>();
 
-  constructor(private auth: Auth,private cookieService: CookieService) {
+  constructor(private auth: Auth, private cookieService: CookieService) {
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.isLoggedIn = true;
-        this.loggedInUserName = user.displayName;
+        this.loggedInUser = { name: user.displayName, id: user.uid };
       } else {
         this.isLoggedIn = false;
-        this.loggedInUserName = null;
+        this.loggedInUser = { name: null, id: null };
       }
       this.loginStatusChanged.emit(this.isLoggedIn);
     });
@@ -43,7 +43,7 @@ export class UserService {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         const atIndex = email.indexOf('@');
-        this.loggedInUserName = email.slice(0, atIndex)
+        this.loggedInUser.name = email.slice(0, atIndex)
         this.setSuccessMessage('Inicio de sesión exitoso.');
         this.isLoggedIn = true;
       })
@@ -71,7 +71,7 @@ export class UserService {
     return signOut(this.auth)
       .then(() => {
         this.isLoggedIn = false;
-        this.loggedInUserName = null;
+        this.loggedInUser.name = null;
         this.setSuccessMessage('Cierre de sesión exitoso.');
         this.loginStatusChanged.emit(this.isLoggedIn);
       })
@@ -86,7 +86,7 @@ export class UserService {
   }
 
   getLoggedInUserName(): string | null {
-    return this.loggedInUserName;
+    return this.loggedInUser.name;
   }
 
   setErrorMessage(message: string) {
@@ -111,7 +111,7 @@ export class UserService {
   }
 
   setUserData(username: string, data: any) {
-    
+
     const userDataString = localStorage.getItem('userData') || '{}';
     const userData = JSON.parse(userDataString);
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SightseeingService } from '../../services/sightseeing.service';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sightseeing',
@@ -15,7 +14,7 @@ export class SightseeingComponent implements OnInit {
   selectedFecha: string = '';
   personasAgregadas: number[] = [];
 
-  constructor(private sightseeingService: SightseeingService, private router: Router, private cookieService: CookieService) {}
+  constructor(private sightseeingService: SightseeingService, private router: Router) {}
 
   navigateToAddSightseeing() {
     this.router.navigate(['/sightseeing-form']);
@@ -34,6 +33,8 @@ export class SightseeingComponent implements OnInit {
       this.sightseeingService.obtenerSightseeing().subscribe(
         (data: any[]) => {
           this.resultados = data.filter(resultado => this.coincidePoblacionYFecha(resultado, fechaFormateada));
+          // Llenar el array personasAgregadas con ceros para cada resultado
+          this.personasAgregadas = Array(this.resultados.length).fill(0);
           console.log("Resultados después de filtrar:", this.resultados);
         },
         (error) => {
@@ -72,6 +73,8 @@ export class SightseeingComponent implements OnInit {
           const index = this.resultados.findIndex(resultado => resultado['Document ID'] === documentId);
           if (index !== -1) {
             this.resultados.splice(index, 1);
+            // Eliminar el elemento correspondiente en el array personasAgregadas
+            this.personasAgregadas.splice(index, 1);
           }
         })
         .catch(error => {

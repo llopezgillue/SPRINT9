@@ -33,6 +33,7 @@ import { EditarPaseoComponent } from './components/editar-paseo/editar-paseo.com
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

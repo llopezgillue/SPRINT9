@@ -1,10 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../../services/user.service';
 import { ProfileService } from '../../services/profile.service';
-import { PhotoService } from '../../services/photo.service';
 
 @Component({
   selector: 'app-profile-data',
@@ -17,85 +15,73 @@ export class ProfileDataComponent implements OnInit {
   edad: number | null = null;
   aficiones: string | null = null;
   poblacion: string | null = null;
-  profileData: any;
-  selectedFile: File | null = null;
-  private userData: Record<string, any> = {};
-
+  userId: string | null = null;
+  userName: string | null = null;
 
   constructor(
     private router: Router,
     private userService: UserService,
     private profileService: ProfileService,
-    private cookieService: CookieService,
-    private PhotoService: PhotoService
-
-  ) { }
+    private auth: AngularFireAuth
+  ) {}
 
   ngOnInit() {
-
-
-    this.profileData = null;
-    if (this.cookieService.check('username')) {
-      const usernameCookie = this.cookieService.get('username');
-      console.log('Nombre de usuario desde la cookie:', usernameCookie);
-    } else {
-      console.log('No se encontró un nombre de usuario en la cookie.');
-    }
-
-    const usernameCookie = this.cookieService.get('username');
-    if (usernameCookie) {
-      this.userService.loggedInUserName = usernameCookie;
-    }
-
-    if (this.userService.loggedInUserName) {
-      const storedData = localStorage.getItem('perfil_' + this.userService.loggedInUserName);
-
-      if (storedData) {
-        const parsedData = JSON.parse(storedData);
-        this.nombre = parsedData.nombre;
-        this.apellidos = parsedData.apellidos;
-        this.edad = parsedData.edad;
-        this.aficiones = parsedData.aficiones;
-        this.poblacion = parsedData.poblacion;
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.userId = user.uid;
+        this.userName = user.displayName;
+        this.getProfileData();
+        console.log('User authenticated:', user.displayName, this.userId);
+        console.log('User name:', this.userName);
       }
+    });
+  }
+
+  getProfileData() {
+    if (this.userId) {
+      this.profileService.getProfileData(this.userId).subscribe((data: any) => {
+        if (data) {
+          this.nombre = data.nombre;
+          this.apellidos = data.apellidos;
+          this.edad = data.edad;
+          this.aficiones = data.aficiones;
+          this.poblacion = data.poblacion;
+          console.log('Profile data retrieved:', data);
+        }
+      });
     }
   }
 
   guardarDatosPerfil() {
-    if (this.userService.loggedInUserName) {
-      const data = {
-        nombre: this.nombre,
-        apellidos: this.apellidos,
-        edad: this.edad,
-        aficiones: this.aficiones,
-        poblacion: this.poblacion,
+    if (this.userId && this.userName) {
+      if (this.nombre !== null) {
+        const data = {
+          nombre: this.nombre || '',
+          apellidos: this.apellidos || '',
+          edad: this.edad || 0,
+          aficiones: this.aficiones || '',
+          poblacion: this.poblacion || '',
+        };
+        console.log('Saving profile data:', data);
 
+        // Aquí, además de guardar en Firebase Authentication, también guarda la información del usuario en Firebase (por ejemplo, en Firestore).
+        this.profileService.saveProfileData(data, this.userId).then(() => {
+          console.log('Profile data saved successfully');
 
-      };
+          if (this.userName !== null) {
+            // Asegúrate de que this.userName no sea nulo antes de usarlo.
+            this.userService.setUserData(this.userName, data);
+          }
 
-      this.profileService.saveProfileData(data, this.userService.loggedInUserName);
-
-      this.cookieService.delete('username');
-      this.cookieService.set('username', this.userService.loggedInUserName);
-
-      localStorage.setItem('perfil_' + this.userService.loggedInUserName, JSON.stringify(data));
-
-      this.router.navigate(['perfil', this.userService.loggedInUserName]);
-
+          this.router.navigate(['/perfil', this.userName]);
+        }).catch((error) => {
+          console.error('Error al guardar los datos del perfil:', error);
+        });
+      } else {
+        console.error('El nombre de usuario es nulo o indefinido. No se puede navegar.');
+      }
+    } else {
+      console.error('El nombre de usuario es nulo o indefinido. No se puede navegar.');
     }
-  }
-
-  onFileSelected(event: any) {
-debugger
-    this.selectedFile = event.target.files[0];
-    this.PhotoService.setSelectedPhoto(this.selectedFile);
-    console.log('Archivo seleccionado:', this.selectedFile);
-  }
-  getUserData(username: string) {
-    return this.userData[username];
-  }
-
-  setUserData(username: string, data: any) {
-    this.userData[username] = data;
   }
 }

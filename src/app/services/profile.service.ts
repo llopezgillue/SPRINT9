@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
+  constructor(private firestore: AngularFirestore) {}
 
-  constructor() { }
-
-  saveProfileData(data: any, username: string) {
-    const profileData = this.getProfileData(username) || {}; 
-
-    const updatedData = { ...profileData, ...data };
-    localStorage.setItem(`profileData_${username}`, JSON.stringify(updatedData));
+  saveProfileData(data: any, userId: string) {
+    return this.firestore.collection('profiles').doc(userId).set(data);
   }
 
-  getProfileData(username: string) {
-    const data = localStorage.getItem(`profileData_${username}`);
-    return data ? JSON.parse(data) : null;
+  getProfileData(userId: string) {
+    return this.firestore.collection('profiles').doc(userId).valueChanges();
   }
 }
