@@ -45,7 +45,7 @@ export class Login1Component {
   onClick() {
     this.userService.loginWithGoogle()
       .then(response => {
-        // Verifica si el inicio de sesión con Google fue exitoso
+   
         if (this.userService.isLoggedIn) {
           this.userService.setSuccessMessage('Inicio de sesión con Google exitoso.');
           setTimeout(() => {
@@ -55,7 +55,7 @@ export class Login1Component {
         }
       })
       .catch(error => {
-        // Muestra un mensaje de error en caso de un error durante el inicio de sesión con Google
+
         this.userService.setErrorMessage('Error al iniciar sesión con Google.');
         setTimeout(() => {
           this.userService.clearMessages();

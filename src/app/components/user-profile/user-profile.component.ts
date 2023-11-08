@@ -9,7 +9,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  username: string = '';
+  username: string = ''; // Ahora se declara como una cadena, no como string | null
   profileData: any;
 
   constructor(
@@ -21,20 +21,20 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.username = params['username'] || '';
+      this.username = params['username'] || ''; // Ahora se asigna una cadena vacía en lugar de null
       this.loadProfileData();
     });
   }
 
   loadProfileData() {
     if (this.username) {
-      // Aquí puedes obtener la información del usuario desde Firebase (por ejemplo, Firestore) a través del servicio UserService.
-      const userData = this.userService.getUserData(this.username);
-
-      if (userData) {
-        this.profileData = userData;
-        console.log('Profile data loaded:', userData);
-      }
+      this.profileService.getProfileData(this.username).subscribe((data) => {
+        if (data) {
+          const userData = this.userService.getUserData(this.username) || {};
+          const updatedUserData = { ...userData, profile: data };
+          this.userService.setUserData(this.username, updatedUserData);
+        }
+      });
     }
   }
 

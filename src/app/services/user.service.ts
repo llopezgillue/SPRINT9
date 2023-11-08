@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
-import { CookieService } from 'ngx-cookie-service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,11 @@ export class UserService {
 
   loginStatusChanged = new EventEmitter<boolean>();
 
-  constructor(private auth: Auth, private cookieService: CookieService) {
+  constructor(private auth: Auth,private firestore: AngularFirestore) {
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.isLoggedIn = true;
-        this.loggedInUser = { name: user.displayName, id: user.uid };
+        this.loggedInUser = { name: user.displayName || null, id: user.uid || null };
       } else {
         this.isLoggedIn = false;
         this.loggedInUser = { name: null, id: null };
@@ -56,7 +56,6 @@ export class UserService {
   loginWithGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider())
       .then(() => {
-
         this.setSuccessMessage('Inicio de sesión con Google exitoso.');
       })
       .catch((error) => {
@@ -66,8 +65,6 @@ export class UserService {
   }
 
   logout() {
-
-    this.cookieService.delete('username');
     return signOut(this.auth)
       .then(() => {
         this.isLoggedIn = false;
@@ -109,20 +106,44 @@ export class UserService {
       this.clearMessages();
     }, 3000);
   }
+  setUserData(userName: string, data: any) {
+    if (this.auth.currentUser) {
+      const userId = this.auth.currentUser.uid;
 
-  setUserData(username: string, data: any) {
-
-    const userDataString = localStorage.getItem('userData') || '{}';
-    const userData = JSON.parse(userDataString);
-
-
-    userData[username] = data;
-
-
-    localStorage.setItem('userData', JSON.stringify(userData));
+      this.firestore.collection('users').doc(userId).set({
+        userName,
+        ...data
+      })
+      .then(() => {
+        console.log('Datos de usuario guardados en Firestore');
+      })
+      .catch((error) => {
+        console.error('Error al guardar los datos de usuario en Firestore:', error);
+      });
+    }
   }
-  getUserData(username: string) {
 
-    return {};
+  getUserData(username: string) {
+    if (this.auth.currentUser) {
+      const userId = this.auth.currentUser.uid;
+
+      return this.firestore.collection('users').doc(userId).get()
+        .toPromise()
+        .then((doc) => {
+          if (doc && doc.exists) {
+            return doc.data();
+          } else {
+            console.error('No se encontraron datos para el usuario:', username);
+            return null;
+          }
+        })
+        .catch((error) => {
+          console.error('Error al obtener los datos del usuario:', error);
+          return null;
+        });
+    } else {
+      console.error('Usuario no autenticado. No se pueden obtener los datos del usuario.');
+      return null;
+    }
   }
 }

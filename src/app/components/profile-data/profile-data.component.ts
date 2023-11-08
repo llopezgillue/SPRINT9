@@ -31,8 +31,6 @@ export class ProfileDataComponent implements OnInit {
         this.userId = user.uid;
         this.userName = user.displayName;
         this.getProfileData();
-        console.log('User authenticated:', user.displayName, this.userId);
-        console.log('User name:', this.userName);
       }
     });
   }
@@ -46,42 +44,26 @@ export class ProfileDataComponent implements OnInit {
           this.edad = data.edad;
           this.aficiones = data.aficiones;
           this.poblacion = data.poblacion;
-          console.log('Profile data retrieved:', data);
         }
       });
     }
   }
 
   guardarDatosPerfil() {
-    if (this.userId && this.userName) {
-      if (this.nombre !== null) {
-        const data = {
-          nombre: this.nombre || '',
-          apellidos: this.apellidos || '',
-          edad: this.edad || 0,
-          aficiones: this.aficiones || '',
-          poblacion: this.poblacion || '',
-        };
-        console.log('Saving profile data:', data);
+    if (this.userId) {
+      const data = {
+        nombre: this.nombre,
+        apellidos: this.apellidos,
+        edad: this.edad,
+        aficiones: this.aficiones,
+        poblacion: this.poblacion,
+      };
 
-        // Aquí, además de guardar en Firebase Authentication, también guarda la información del usuario en Firebase (por ejemplo, en Firestore).
-        this.profileService.saveProfileData(data, this.userId).then(() => {
-          console.log('Profile data saved successfully');
-
-          if (this.userName !== null) {
-            // Asegúrate de que this.userName no sea nulo antes de usarlo.
-            this.userService.setUserData(this.userName, data);
-          }
-
-          this.router.navigate(['/perfil', this.userName]);
-        }).catch((error) => {
-          console.error('Error al guardar los datos del perfil:', error);
-        });
-      } else {
-        console.error('El nombre de usuario es nulo o indefinido. No se puede navegar.');
-      }
-    } else {
-      console.error('El nombre de usuario es nulo o indefinido. No se puede navegar.');
+      this.profileService.saveProfileData(data, this.userId).then(() => {
+        this.router.navigate(['/perfil', this.userName]);
+      }).catch((error) => {
+        console.error('Error al guardar los datos del perfil:', error);
+      });
     }
   }
 }
