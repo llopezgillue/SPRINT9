@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { ProfileDataService } from '../../services/profile-data.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 interface UserData {
   profile?: any;
@@ -20,42 +20,37 @@ export class UserProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    private profileDataService: ProfileDataService
+    private auth: AngularFireAuth,
   ) {}
 
-  async ngOnInit() {
-    this.route.params.subscribe(async (params) => {
-      this.username = params['username'] || '';
+  ngOnInit() {
+    this.auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        // Obtener el nombre de usuario desde el objeto de usuario
+        this.username = user.displayName || '';
 
-      console.log('UserProfileComponent: Username', this.username);
-
-      // Limpia los datos del perfil actual en el servicio
-      this.profileDataService.clearProfileData();
-
-      console.log('UserProfileComponent: Cleared profile data');
-
-      // Cargar los datos del perfil del usuario actual
-      await this.loadProfileData();
-
-      // Ahora, los datos del perfil deberían estar disponibles
-      this.profileData = this.profileDataService.getProfileData();
-
-      console.log('UserProfileComponent: Profile Data', this.profileData);
+        // Cargar y mostrar los datos del perfil
+        await this.loadAndShowProfileData();
+      }
     });
   }
 
-  async loadProfileData() {
+  async loadAndShowProfileData() {
     if (this.username) {
       console.log('UserProfileComponent: Loading profile data for', this.username);
 
-      const userData: UserData = (await this.userService.getUserData(this.username)) || {};
-      if (userData.profile) {
-        // Actualiza el servicio ProfileDataService con los datos del perfil
-        this.profileDataService.setProfileData(userData.profile);
+      try {
+        const userData: UserData = await this.userService.getUserData(this.username).toPromise();
 
-        console.log('UserProfileComponent: Set profile data', userData.profile);
-      } else {
-        console.log('UserProfileComponent: No profile data found');
+        if (userData.profile) {
+          // Asignar datos del perfil y mostrarlos
+          this.profileData = userData.profile;
+          console.log('UserProfileComponent: Profile Data', this.profileData);
+        } else {
+          console.warn('UserProfileComponent: Profile Data is null');
+        }
+      } catch (error) {
+        console.error('UserProfileComponent: Error fetching user data', error);
       }
     }
   }

@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../../services/user.service';
 import { ProfileService } from '../../services/profile.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ProfileDataService } from '../../services/profile-data.service';
 
 @Component({
   selector: 'app-profile-data',
@@ -25,14 +24,13 @@ export class ProfileDataComponent implements OnInit {
     private userService: UserService,
     private profileService: ProfileService,
     private auth: AngularFireAuth,
-    private profileDataService: ProfileDataService
   ) { }
 
   ngOnInit() {
     this.auth.onAuthStateChanged((user) => {
       if (user) {
         this.userId = user.uid;
-        this.userName = user.displayName || ''; 
+        this.userName = user.displayName || '';
         this.getProfileData();
       }
     });
@@ -63,7 +61,6 @@ export class ProfileDataComponent implements OnInit {
       };
 
       this.profileService.saveProfileData(data, this.userId).then(() => {
-        this.profileDataService.setProfileData(data);
         this.profileSaved.emit();
 
         const targetUrl = ['/perfil', this.userName];
