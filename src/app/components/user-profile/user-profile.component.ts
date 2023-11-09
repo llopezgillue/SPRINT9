@@ -3,11 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { ProfileDataService } from '../../services/profile-data.service';
 
-
 interface UserData {
   profile?: any;
-
-
 }
 
 @Component({
@@ -29,19 +26,36 @@ export class UserProfileComponent implements OnInit {
   async ngOnInit() {
     this.route.params.subscribe(async (params) => {
       this.username = params['username'] || '';
-      await this.loadProfileData();
-    });
 
-    // Obtiene los datos del perfil desde el servicio
-    this.profileData = this.profileDataService.getProfileData();
+      console.log('UserProfileComponent: Username', this.username);
+
+      // Limpia los datos del perfil actual en el servicio
+      this.profileDataService.clearProfileData();
+
+      console.log('UserProfileComponent: Cleared profile data');
+
+      // Cargar los datos del perfil del usuario actual
+      await this.loadProfileData();
+
+      // Ahora, los datos del perfil deberían estar disponibles
+      this.profileData = this.profileDataService.getProfileData();
+
+      console.log('UserProfileComponent: Profile Data', this.profileData);
+    });
   }
 
   async loadProfileData() {
     if (this.username) {
-      // Código para cargar los datos del perfil
+      console.log('UserProfileComponent: Loading profile data for', this.username);
+
       const userData: UserData = (await this.userService.getUserData(this.username)) || {};
       if (userData.profile) {
+        // Actualiza el servicio ProfileDataService con los datos del perfil
         this.profileDataService.setProfileData(userData.profile);
+
+        console.log('UserProfileComponent: Set profile data', userData.profile);
+      } else {
+        console.log('UserProfileComponent: No profile data found');
       }
     }
   }
