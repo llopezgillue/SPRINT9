@@ -107,20 +107,18 @@ export class SightseeingComponent implements OnInit {
   }
 
   restarPersona(index: number) {
-    if (this.personasAgregadas[index] > 0) {
-      const documentId = this.resultados[index]['Document ID'];
+    const documentId = this.resultados[index]['Document ID'];
 
-      if (documentId) {
-        this.sightseeingService.restarPersona(documentId)
-          .then(() => {
-            this.personasAgregadas[index]--;
-          })
-          .catch(error => {
-            console.error('Error al restar persona:', error);
-          });
-      } else {
-        console.error('ID de paseo no válido');
-      }
+    if (documentId) {
+      this.sightseeingService.restarPersona(documentId)  // Cambié de agregarPersona a restarPersona
+        .then(() => {
+          this.personasAgregadas[index]--;
+        })
+        .catch(error => {
+          console.error('Error al restar persona:', error);
+        });
+    } else {
+      console.error('ID de paseo no válido');
     }
   }
-}
+  }
