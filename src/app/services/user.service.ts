@@ -4,7 +4,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import firebase from 'firebase/compat/app';  // Cambio en la importación
+import firebase from 'firebase/compat/app';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +19,16 @@ export class UserService {
 
   loginStatusChanged = new EventEmitter<boolean>();
 
-  constructor(private auth: AngularFireAuth, private firestore: AngularFirestore) {
+  constructor(private auth: AngularFireAuth, private firestore: AngularFirestore, private router: Router) {
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.isLoggedIn = true;
         this.loggedInUser = { name: user.displayName || null, id: user.uid || null };
+        this.router.navigate(['/welcome']);
       } else {
         this.isLoggedIn = false;
         this.loggedInUser = { name: null, id: null };
       }
-      this.loginStatusChanged.emit(this.isLoggedIn);
     });
   }
 
@@ -57,14 +59,9 @@ export class UserService {
   }
 
   loginWithGoogle() {
-    return this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()) 
-      .then(() => {
-        this.setSuccessMessage('Inicio de sesión con Google exitoso.');
-      })
-      .catch((error: any) => {
-        this.setErrorMessage('Error al iniciar sesión con Google.');
-        console.error('Error al iniciar sesión con Google:', error);
-      });
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    return this.auth.signInWithRedirect(provider);
   }
 
   logout() {
@@ -118,11 +115,11 @@ export class UserService {
         try {
           await this.firestore.collection('users').doc(userId).set({
             userName,
-            ...data
+            profile: data
           });
-          console.log('Datos de usuario guardados en Firestore');
+          console.log('Datos de usuario y perfil guardados en Firestore');
         } catch (error) {
-          console.error('Error al guardar los datos de usuario en Firestore:', error);
+          console.error('Error al guardar los datos de usuario y perfil en Firestore:', error);
         }
       }
     });
@@ -130,15 +127,17 @@ export class UserService {
 
   getUserData(username: string): Observable<any> {
     return this.auth.authState.pipe(
+      tap(user => console.log('Auth state:', user)),
       switchMap((user) => {
         if (user) {
-          // Si hay un usuario autenticado
           const userData = this.firestore.collection('users').doc(username).valueChanges();
           return userData;
         } else {
+          console.warn('User not authenticated.');
           return of(null);
         }
-      })
+      }),
+      tap(data => console.log('User data:', data))
     );
   }
 }

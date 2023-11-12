@@ -5,7 +5,7 @@
 }
 
 .card {
-  background: linear-gradient(to bottom, #71e1f5, #76cdf2);
+  background: linear-gradient(to bottom, rgb(149, 225, 239), #76cdf2);
   border: 1px solid rgb(194, 239, 250);
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(11, 11, 11, 0.2);

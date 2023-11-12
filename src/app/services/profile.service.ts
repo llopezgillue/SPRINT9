@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,9 @@ export class ProfileService {
 
   getProfileData(userId: string) {
     return this.firestore.collection('profiles').doc(userId).valueChanges();
+  }
+
+  getProfileDataByUsername(username: string) {
+    return this.firestore.collection('profiles', ref => ref.where('userName', '==', username)).valueChanges();
   }
 }

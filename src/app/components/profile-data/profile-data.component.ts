@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { UserService } from '../../services/user.service';
 import { ProfileService } from '../../services/profile.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
@@ -21,7 +20,6 @@ export class ProfileDataComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService,
     private profileService: ProfileService,
     private auth: AngularFireAuth,
   ) { }
@@ -61,9 +59,8 @@ export class ProfileDataComponent implements OnInit {
       };
 
       this.profileService.saveProfileData(data, this.userId).then(() => {
-        this.profileSaved.emit();
 
-        const targetUrl = ['/perfil', this.userName];
+        const targetUrl = this.userName ? ['/perfil', this.userName] : ['perfil/:username'];
         console.log('Intentando navegar a:', targetUrl);
 
         this.router.navigate(targetUrl);

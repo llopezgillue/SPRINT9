@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-
-interface UserData {
-  profile?: any;
-}
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,46 +11,41 @@ interface UserData {
 export class UserProfileComponent implements OnInit {
   username: string = '';
   profileData: any;
+  userId: string | null = null;
+  userName: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService,
     private auth: AngularFireAuth,
-  ) {}
+    private profileService: ProfileService,
+  ) { }
 
   ngOnInit() {
-    this.auth.onAuthStateChanged(async (user) => {
+    this.auth.onAuthStateChanged((user) => {
       if (user) {
-        // Obtener el nombre de usuario desde el objeto de usuario
-        this.username = user.displayName || '';
-
-        // Cargar y mostrar los datos del perfil
-        await this.loadAndShowProfileData();
+        this.userId = user.uid;
+        this.userName = user.displayName || '';
+        this.loadProfileData();
       }
     });
   }
 
-  async loadAndShowProfileData() {
-    if (this.username) {
-      console.log('UserProfileComponent: Loading profile data for', this.username);
-
-      try {
-        const userData: UserData = await this.userService.getUserData(this.username).toPromise();
-
-        if (userData.profile) {
-          // Asignar datos del perfil y mostrarlos
-          this.profileData = userData.profile;
-          console.log('UserProfileComponent: Profile Data', this.profileData);
+  loadProfileData() {
+    if (this.userId) {
+      this.profileService.getProfileData(this.userId).subscribe((data: any) => {
+        console.log('Data from Firestore:', data);
+        if (data) {
+          this.profileData = data;
+          console.log('Profile data loaded:', this.profileData);
         } else {
-          console.warn('UserProfileComponent: Profile Data is null');
+          console.warn('No profile data found for user ID:', this.userId);
         }
-      } catch (error) {
-        console.error('UserProfileComponent: Error fetching user data', error);
-      }
+      }, (error) => {
+        console.error('Error fetching profile data:', error);
+      });
     }
   }
-
   editarPerfil() {
     this.router.navigate(['/profile-data']);
   }
