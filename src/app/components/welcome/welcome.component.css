@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  overflow-y: scroll; /* Añade scroll vertical */
+  overflow-y: scroll;
 }
 
 .main-container {
@@ -13,7 +13,7 @@ body {
 }
 
 .header {
-  background-color: #333;
+  background-color: #020202;
   color: white;
   padding: 20px;
 }
@@ -53,4 +53,15 @@ body {
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
+.masthead {
 
+  color: #faf6f6;
+  padding: 20px;
+}
+
+.image-laugh{
+
+  margin-top: 140px;
+
+
+}
