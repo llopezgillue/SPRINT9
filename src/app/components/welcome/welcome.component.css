@@ -22,7 +22,6 @@ body {
   margin-top: 50px;
 }
 
-
 .masthead {
   color: #faf6f6;
   padding: 20px;
@@ -44,14 +43,33 @@ body {
 .font-alt {
   color: brown;
 }
+
 .video-container {
-  float: right;
-  width: 40%;
-  margin-top: 20px;
+  width: 70%;
+  margin: 70px auto;
+  text-align: center;
 }
 
 .video {
-  width: 600px;
+  width: 100%;
   height: auto;
 
+}
+
+.cta-content h2 {
+  font-size: 80px;
+}
+
+.image-container {
+  width: 30%;
+  text-align: right;
+ 
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 500px;
+  max-height: 300px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
