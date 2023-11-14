@@ -31,11 +31,12 @@ body {
 }
 
 .group-people {
+  display: inline;
   width: 900px;
   align-items: center;
   box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
-}
 
+}
 .font-alt {
   color: brown;
 }
@@ -63,14 +64,14 @@ body {
 .image-container {
   width: 50%;
   text-align: right;
+  box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 40px;
 }
 
 .image-container img {
-  width: 100%;
-  max-width: 500px;
-  max-height: 300px;
-  margin-bottom: 20px;
-  margin-top: 60px;
+  width: 90%;
+  margin-left:90px;
+
 }
 .section-content {
   margin-bottom: 30px;
