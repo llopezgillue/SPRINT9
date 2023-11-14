@@ -1,9 +1,11 @@
+
 .login-form button.btn-primary {
   font-size: 16px;
   padding: 8px 16px;
   background-color: #0e69cb;
   border: none;
   color: white;
+  border-radius: 15px;
 }
 
 
@@ -23,13 +25,13 @@
 
 .custom-button {
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px; /* Reducir el tamaño de fuente de los botones */
-  padding: 8px 16px; /* Reducir el relleno de los botones */
+  font-size: 18px;
+  padding: 8px 16px;
 }
 
 .main {
   color: brown;
-  font-size: 24px; /* Reducir el tamaño de fuente del encabezado principal */
+  font-size: 24px;
 }
 
 .transparent-background {

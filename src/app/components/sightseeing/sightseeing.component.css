@@ -9,7 +9,7 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
-  border-radius: 50px;
+  border-radius: 100px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
   font-size: 20px;
@@ -41,6 +41,14 @@
   white-space: normal;
   overflow: visible;
   width: 100%;
+}
+.btn-primary {
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color: #6955f0;
+  border: none;
+  color: white;
+  border-radius: 15px;
 }
 
 

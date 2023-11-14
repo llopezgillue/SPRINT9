@@ -1,7 +1,6 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  overflow-y: scroll;
 }
 
 .header {
@@ -18,9 +17,6 @@ body {
   margin-bottom: 30px;
 }
 
-.video-container {
-  margin-top: 50px;
-}
 
 .masthead {
   color: #faf6f6;
@@ -29,8 +25,8 @@ body {
 
 .image-laugh {
   margin-top: 170px;
-  width: 650px;
-  height: 460px;
+  width: 690px;
+  height: 490px;
   box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -45,14 +41,14 @@ body {
 }
 
 .video-container {
-  width: 70%;
-  margin: 70px auto;
+  width: 100%;
   text-align: center;
 }
 
 .video {
   width: 100%;
-  height: auto;
+  margin-top:-30px;
+
 }
 
 .cta-content {
@@ -74,7 +70,7 @@ body {
   max-width: 500px;
   max-height: 300px;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 .section-content {
   margin-bottom: 30px;

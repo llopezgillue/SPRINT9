@@ -32,6 +32,8 @@
   border-color: #007bff;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  border-radius: 15px;
+
 }
 
 .btn-primary:hover {
