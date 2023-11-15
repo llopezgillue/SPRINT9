@@ -8,16 +8,22 @@
   color:brown;
 }
 
-.btn
-{
+.btn-primary {
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color: #0a0da7e4;
+  border: none;
+  color: white;
+  border-radius: 15px;
 
-   font-family: 'Montserrat', sans-serif;
-   border-radius: 15px;
-   background-color: rgb(210, 143, 67);;
+}
+.btn-primary:hover {
+  background-color: #2a72c0;
+  color: rgb(245, 245, 245);
 }
 .card-rounded{
-background:linear-gradient(to bottom, #77bde0, #71e1f5,#80cbeb,#90e8fa);
+background:linear-gradient(to right, #828c92, #c6cbcc,#a1a4a5);
 border-radius: 20px;
-box-shadow: 20px 20px 100px rgba(0, 0, 0, 0.2);
+box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 
 }

@@ -26,6 +26,13 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16p;
   background-color: #0a0da7e4;
+  border-radius: 15px;
+
+}
+
+.btn-primary:hover{
+
+background-color: rgb(96, 96, 223);
 
 }
 

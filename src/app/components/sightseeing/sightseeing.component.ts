@@ -34,7 +34,6 @@ export class SightseeingComponent implements OnInit {
       this.sightseeingService.obtenerSightseeing().subscribe(
         (data: any[]) => {
           this.resultados = data.filter(resultado => this.coincidePoblacionYFecha(resultado, fechaFormateada));
-          // Llenar el array personasAgregadas con ceros para cada resultado
           this.personasAgregadas = Array(this.resultados.length).fill(0);
           console.log("Resultados después de filtrar:", this.resultados);
         },
@@ -74,7 +73,7 @@ export class SightseeingComponent implements OnInit {
           const index = this.resultados.findIndex(resultado => resultado['Document ID'] === documentId);
           if (index !== -1) {
             this.resultados.splice(index, 1);
-            // Eliminar el elemento correspondiente en el array personasAgregadas
+
             this.personasAgregadas.splice(index, 1);
           }
         })
@@ -111,7 +110,7 @@ export class SightseeingComponent implements OnInit {
     const documentId = this.resultados[index]['Document ID'];
 
     if (documentId) {
-      this.sightseeingService.restarPersona(documentId)  // Cambié de agregarPersona a restarPersona
+      this.sightseeingService.restarPersona(documentId)
         .then(() => {
           this.personasAgregadas[index]--;
         })
@@ -122,8 +121,5 @@ export class SightseeingComponent implements OnInit {
       console.error('ID de paseo no válido');
     }
   }
-  toggleComentarios(index: number) {
 
-    this.resultados[index].mostrarComentarios = !this.resultados[index].mostrarComentarios;
-  }
   }
