@@ -38,12 +38,6 @@
         <p class="comentarios" style="color: #060606; font-style: italic;"><strong>Comentarios:</strong> {{ resultado.comentarios }}</p>
 
 
-        <div *ngIf="resultado.comentarios && resultado.comentarios.length > 50">
-          <button (click)="resultado.mostrarComentarios = !resultado.mostrarComentarios" class="btn btn-primary">
-            {{ resultado.mostrarComentarios ? 'Ver menos' : 'Ver más' }}
-          </button>
-        </div>
-
         <button (click)="editarPaseo(resultado['Document ID'])"
           style="font-size: 16px; background-color: #4caf50; color: #fff; font-family: 'Montserrat', sans-serif;"
           class="btn btn-primary">Editar</button>
