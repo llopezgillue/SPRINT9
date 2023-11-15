@@ -1,14 +1,21 @@
+.nombre {
+  font-weight: bold;
+}
+
 .description {
   font-size: 16px;
-  color: #0d0d0d;
+  color: #fefefe;
   font-family: 'Montserrat', sans-serif;
 }
 
+.card-body {
+  color: #030303;
+}
+
 .card {
-  background: linear-gradient(to bottom, rgb(150, 217, 237), rgb(126, 161, 145));
-  border: 1px solid rgb(194, 239, 250);
+  background: linear-gradient(to bottom, rgb(114, 114, 121), rgb(160, 160, 161));
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(11, 11, 11, 0.2);
+  box-shadow: 0 5px 20px rgba(11, 11, 11, 0.2);
   transition: transform 0.3s;
 }
 
@@ -17,7 +24,6 @@
 }
 
 .card-title {
-  color: #030303;
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
 }
@@ -47,7 +53,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 .nombre-enlace {
-  color:  brown;
+  color:  rgb(3, 3, 3);
   text-decoration: none;
 }
 
