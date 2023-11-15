@@ -27,9 +27,16 @@
   min-height: 150px;
 }
 
-.custom-button {
-  background-color:  #0a0da7e4;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;;
+.btn-primary {
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color: #0a0da7e4;
+  border: none;
+  color: white;
+  border-radius: 15px;
 
+}
+.btn-primary:hover {
+  background-color: #2a72c0;
+  color: rgb(245, 245, 245);
 }

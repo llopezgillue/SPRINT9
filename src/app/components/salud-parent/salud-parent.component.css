@@ -51,6 +51,12 @@
   border-radius: 15px;
   background-color: #0a0da7e4;
   color:rgb(245, 245, 245);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; 
+  color: rgb(245, 245, 245);
 }
 
 

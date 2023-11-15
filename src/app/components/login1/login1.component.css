@@ -1,29 +1,17 @@
-
 .login-form button.btn-primary {
-  font-size: 16px;
+  font-size: 18px;
   padding: 8px 16px;
   background-color: #0a0da7e4;
   border: none;
   color: white;
   border-radius: 15px;
-
+  transition: background-color 0.3s, color 0.3s;
 }
 
-
-.custom-link {
-  display: inline-block;
-  background-color: #266ab3;
-  color: rgb(2, 2, 2);
-  padding: 5.5px;
-  border: 1px solid darkgray;
-  border-radius: 7px;
-  font-family: 'Montserrat', sans-serif;
-  width: auto;
-  height: auto;
-  font-size: 18px;
-
+.login-form button.btn-primary:hover {
+  background-color: #0056b3; 
+  color: white;
 }
-
 
 .custom-button {
   font-family: 'Montserrat', sans-serif;
@@ -32,7 +20,7 @@
 }
 
 .main {
-  color:  brown;;
+  color: brown;
   font-size: 24px;
 }
 
@@ -53,7 +41,6 @@
   margin-top: 8px;
 }
 
-
 @media (max-width: 768px) {
   .custom-button {
     font-size: 16px;
@@ -62,6 +49,7 @@
 
   .main {
     font-size: 24px;
+  }
 
   .transparent-background {
     padding: 10px;
@@ -75,4 +63,3 @@
     margin-top: 6px;
   }
 }
- }

@@ -5,9 +5,14 @@
   border-radius: 15px;
   background-color: #0a0da7e4;
   color: rgb(247, 247, 247);
-
+  transition: background-color 0.3s, color 0.3s;
 }
-.main{
 
+.custom-button:hover {
+  background-color: #2a7ad0;
+  color: rgb(247, 247, 247);
+}
+
+.main {
   color: brown;
 }

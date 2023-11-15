@@ -2,7 +2,6 @@
   margin-bottom: -55px;
   width: 360px;
   height: 110px;
-
 }
 
 .container-fluid {
@@ -13,7 +12,6 @@
 .login-signup-container {
   margin-left: auto;
 }
-
 
 .navbar {
   display: flex;
@@ -26,7 +24,6 @@
   flex-grow: 1;
 }
 
-
 .login-button,
 .signup-button {
   text-decoration: none;
@@ -37,24 +34,25 @@
   border: none;
   color: white;
 }
+
 .login-button:hover,
 .signup-button:hover {
   background-color: #4c7eb4;
   color: white;
 }
 
-.logged-in-username {
-  color: black;
-  font-size: 18px;
-}
-
-.btn-primary {
+.btn-primary,
+.btn-primary:hover {
   font-size: 18px;
   padding: 8px 16px;
-  background-color:  #0a0da7e4;
+  background-color: #0a0da7e4;
   border: none;
   color: rgb(255, 255, 255);
-   border-radius: 15px;
+  border-radius: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #4c7eb4;
 }
 
 .user-name {
@@ -74,7 +72,6 @@
   height: auto;
   font-size: 18px;
 }
-
 
 @media (max-width: 768px) {
   .logo {
@@ -96,7 +93,8 @@
     font-size: 16px;
   }
 
-  .btn-primary {
+  .btn-primary,
+  .btn-primary:hover {
     font-size: 18px;
     padding: 8px 16px;
     margin-right: 8px;

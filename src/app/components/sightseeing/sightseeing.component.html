@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-md-4">
-      <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary ml-auto" style="font-size: 16px;background-color: #0a0da7e4; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Buscar</button>
+      <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary ml-auto" style="font-size: 16px; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Buscar</button>
     </div>
   </div>
 
@@ -39,15 +39,15 @@
 
 
         <button (click)="editarPaseo(resultado['Document ID'])"
-          style="font-size: 16px; background-color: #4caf50; color: #fff; font-family: 'Montserrat', sans-serif;"
-          class="btn btn-primary">Editar</button>
+          style="font-size: 16px; color: #fff; font-family: 'Montserrat', sans-serif;"
+          class="btn-edit">Editar</button>
         <button (click)="eliminarPaseo(resultado['Document ID'])"
-          style="font-size: 16px; background-color: #d9534f; color: #fff; font-family: 'Montserrat', sans-serif; margin-left: 10px;"
-          class="btn btn-primary">Eliminar</button>
+          style="font-size: 16px;color: #fff; font-family: 'Montserrat', sans-serif; margin-left: 10px;"
+          class="btn-delete">Eliminar</button>
       </div>
     </ng-container>
   </div>
 
   <button (click)="navigateToAddSightseeing()" class="btn btn-primary"
-    style="font-size: 16px; background-color: #0a0da7e4; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 30px;margin-left:20px;">Añadir Paseo</button>
+    style="font-size: 16px; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 30px;margin-left:20px;">Añadir Paseo</button>
 </div>

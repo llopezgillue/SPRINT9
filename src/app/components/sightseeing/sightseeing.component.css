@@ -51,7 +51,39 @@
   border-radius: 15px;
 
 }
+.btn-primary:hover {
+  background-color: #2a72c0;
+  color: rgb(245, 245, 245);
+}
 
+.btn-edit{
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color: rgb(32, 154, 21);
+  border: none;
+  color: white;
+  border-radius: 15px;
+
+}
+
+.btn-edit:hover {
+  background-color: #4caf50;
+  color: rgb(245, 245, 245);
+}
+.btn-delete{
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color:  #e6423d;
+  border: none;
+  color: white;
+  border-radius: 15px;
+
+}
+
+.btn-delete:hover {
+  background-color: #af654c;
+  color: rgb(245, 245, 245);
+}
 
 @media (max-width: 768px) {
   .postik {
