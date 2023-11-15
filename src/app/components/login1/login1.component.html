@@ -19,7 +19,7 @@
 
         </form>
 
-       
+        <!-- Mensaje de error para mostrar debajo del botón de inicio de sesión -->
         <div class="text-center mt-3" *ngIf="userService.errorMessage">
           <div class="alert alert-danger">
             {{ userService.errorMessage }}
@@ -31,7 +31,7 @@
         </div>
 
         <div class="text-center mt-3">
-          <p style="font-size: 20px;">No tienes cuenta? <a routerLink="/register">Regístrate</a></p>
+          <p style="font-size: 20px;">No tienes cuenta? <a routerLink="/register" style="color: blue;">Regístrate</a></p>
         </div>
       </div>
     </div>

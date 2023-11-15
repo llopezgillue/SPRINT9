@@ -13,6 +13,7 @@ export class SightseeingComponent implements OnInit {
   selectedPoblacion: string = '';
   selectedFecha: string = '';
   personasAgregadas: number[] = [];
+   mostrarComentariosCompleto: boolean[] = [];
 
   constructor(private sightseeingService: SightseeingService, private router: Router) {}
 
@@ -120,5 +121,9 @@ export class SightseeingComponent implements OnInit {
     } else {
       console.error('ID de paseo no válido');
     }
+  }
+  toggleComentarios(index: number) {
+
+    this.resultados[index].mostrarComentarios = !this.resultados[index].mostrarComentarios;
   }
   }

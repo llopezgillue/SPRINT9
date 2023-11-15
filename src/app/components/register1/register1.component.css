@@ -3,9 +3,11 @@
   font-size: 17px;
   padding: 10px 20px;
   border-radius: 15px;
+  background-color: rgb(230, 220, 42);
+  color: black;
 
 }
 .main{
 
-  color: brown;
+  color: rgb(6, 5, 5);
 }

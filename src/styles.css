@@ -1,5 +1,5 @@
 html, body, app-root {
-  background: linear-gradient(to bottom, rgb(144, 189, 247), rgb(167, 224, 245), rgb(153, 191, 240));
+  background: linear-gradient(to right, #525050, #babfba, #e1e8ed);
   background-repeat: repeat;
   margin: 0;
   padding: 0;

@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group d-flex align-items-end">
-        <label for="poblacion" class="col-form-label mr-2" style="color: #040404; font-size: 20px;">Selecciona una población:</label>
+        <label for="poblacion" class="col-form-label mr-2" style="color: #040404; font-size: 20px; margin-bottom: -21px;">Selecciona una población:</label>
         <select id="poblacion" [(ngModel)]="selectedPoblacion" class="form-control" style="font-size: 16px; max-width: 200px;">
           <option value="" class="font-family-styles">Todas</option>
           <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion" class="font-family-styles">{{ poblacion }}</option>
@@ -14,20 +14,20 @@
 
     <div class="col-md-4">
       <div class="form-group d-flex align-items-end">
-        <label for="fecha" class="col-form-label mr-2" style="color: #070707; font-size: 20px; margin-top: 10px;">Selecciona una fecha:</label>
-        <input type="date" id="fecha" [(ngModel)]="selectedFecha" class="form-control" style="font-size: 16px; max-width: 200px;">
+        <label for="fecha" class="col-form-label mr-2" style="color: #070707; font-size: 20px; margin-top: 10px; margin-bottom: 0;">Selecciona una fecha:</label>
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="date" id="fecha" [(ngModel)]="selectedFecha" class="form-control" style="font-size: 16px; max-width: 200px;">
       </div>
     </div>
 
     <div class="col-md-4">
-      <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary ml-auto" style="font-size: 16px; background-color: #007bff; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Buscar</button>
+      <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary ml-auto" style="font-size: 16px;background-color: #0a0da7e4; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Buscar</button>
     </div>
   </div>
 
   <div class="postik-container">
     <ng-container *ngFor="let resultado of resultados; let i = index">
       <div class="postik"
-        style="font-size:20px; background-color: rgb(228, 250, 103); border: 1px solid #ddd; padding: 10px; margin: 10px; border-radius: 5px;">
+        style="font-size:20px; background-color: rgb(250, 252, 86); border: 1px solid #ddd; padding: 10px; margin: 10px; border-radius: 5px;margin-top:50px;">
         <h3 style="color: #010101;"><strong>Población:</strong> {{ resultado.poblacion }}</h3>
         <p style="color: #000000;"><strong>Hora de quedada:</strong> {{ resultado.hora }}</p>
         <p style="color: #010101;"><strong>Nombre:</strong> {{ resultado.Nombre }}</p>
@@ -35,8 +35,14 @@
         <p style="color: #030303;"><strong>Personas añadidas:</strong> {{ resultado.apuntados}}</p>
         <button (click)="agregarPersona(i)" class="btn btn-primary">+</button>&nbsp;
         <button (click)="restarPersona(i)" class="btn btn-primary">-</button>
-        <p class="comentarios" style="color: #060606; font-style: italic;"><strong>Comentarios:</strong> {{
-          resultado.comentarios }}</p>
+        <p class="comentarios" style="color: #060606; font-style: italic;"><strong>Comentarios:</strong> {{ resultado.comentarios }}</p>
+
+
+        <div *ngIf="resultado.comentarios && resultado.comentarios.length > 50">
+          <button (click)="resultado.mostrarComentarios = !resultado.mostrarComentarios" class="btn btn-primary">
+            {{ resultado.mostrarComentarios ? 'Ver menos' : 'Ver más' }}
+          </button>
+        </div>
 
         <button (click)="editarPaseo(resultado['Document ID'])"
           style="font-size: 16px; background-color: #4caf50; color: #fff; font-family: 'Montserrat', sans-serif;"
@@ -46,9 +52,8 @@
           class="btn btn-primary">Eliminar</button>
       </div>
     </ng-container>
-
   </div>
-  <button (click)="navigateToAddSightseeing()" class="btn btn-primary"
-    style="font-size: 16px; background-color: #007bff; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 20px;margin-left:20px;">Añadir
-    Paseo</button>
 
+  <button (click)="navigateToAddSightseeing()" class="btn btn-primary"
+    style="font-size: 16px; background-color: #0a0da7e4; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 30px;margin-left:20px;">Añadir Paseo</button>
+</div>
