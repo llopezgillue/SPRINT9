@@ -12,4 +12,17 @@ background-color: rgb(96, 96, 223);
 
 }
 
+.card{
+
+  background: linear-gradient(to right, #525050, #babfba, #727475);
+
+}
+
+.list-group-item{
+
+  background: linear-gradient(to right, #525050, #babfba, #727475);
+
+
+}
+
 
