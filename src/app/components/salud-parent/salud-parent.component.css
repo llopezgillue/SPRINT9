@@ -23,7 +23,7 @@
 }
 
 .overlay {
-  margin-top: 60px;
+  margin-top: 80px;
   width: 50%;
   padding: 20px;
   text-align: left;
@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
+
 }
 
 
@@ -55,7 +56,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
   color: rgb(245, 245, 245);
 }
 
@@ -79,11 +80,13 @@
   .consejos-container {
     width: 100%;
     top: 50px;
+
   }
 
   .btn-primary {
     right: 20px;
     top: 20px;
+
   }
 }
 
