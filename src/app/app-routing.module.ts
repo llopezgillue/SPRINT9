@@ -20,16 +20,16 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'login', component: Login1Component },
-  { path: 'register', component: Register1Component},
-  { path: 'salud', component: SaludParentComponent,canActivate: [AuthGuard]},
-  { path: 'salud', component: SaludChildComponent,canActivate: [AuthGuard]},
-  { path: 'followme', component: FollowMeComponent,canActivate: [AuthGuard]},
+  { path: 'register', component: Register1Component },
+  { path: 'salud', component: SaludParentComponent, canActivate: [AuthGuard] },
+  { path: 'salud', component: SaludChildComponent, canActivate: [AuthGuard] },
+  { path: 'followme', component: FollowMeComponent, canActivate: [AuthGuard] },
   { path: 'formulario', component: FormularioComponent },
   { path: 'perfil/:username', component: UserProfileComponent },
   { path: 'profile-data', component: ProfileDataComponent },
-  { path: 'sightseeing', component: SightseeingComponent,canActivate: [AuthGuard]},
-   {path: 'editar-paseo/:id', component: EditarPaseoComponent,},
-  { path: 'sightseeing-form', component: SightseeingFormComponent},
+  { path: 'sightseeing', component: SightseeingComponent, canActivate: [AuthGuard] },
+  { path: 'editar-paseo/:id', component: EditarPaseoComponent, },
+  { path: 'sightseeing-form', component: SightseeingFormComponent },
 
 
 

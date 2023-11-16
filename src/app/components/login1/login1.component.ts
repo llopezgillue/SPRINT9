@@ -21,7 +21,7 @@ export class Login1Component {
 
   onSubmit() {
     this.userService.login(this.formLogin.value)
-      .then((response:any )=> {
+      .then((response: any) => {
 
         if (this.userService.isLoggedIn) {
           this.userService.setSuccessMessage('Inicio de sesión exitoso.');
@@ -31,7 +31,7 @@ export class Login1Component {
           this.router.navigate(['/welcome']);
         }
       })
-      .catch((error:any) => {
+      .catch((error: any) => {
 
         this.userService.setErrorMessage('Error al iniciar sesión. Asegúrate de que el correo electrónico y la contraseña sean correctos.');
         setTimeout(() => {
@@ -44,7 +44,7 @@ export class Login1Component {
 
   onClick() {
     this.userService.loginWithGoogle()
-      .then((response:any )=> {
+      .then((response: any) => {
 
         if (this.userService.isLoggedIn) {
           this.userService.setSuccessMessage('Inicio de sesión con Google exitoso.');
@@ -54,13 +54,13 @@ export class Login1Component {
           this.router.navigate(['/welcome']);
         }
       })
-      .catch((response:any ) => {
+      .catch((response: any) => {
 
         this.userService.setErrorMessage('Error al iniciar sesión con Google.');
         setTimeout(() => {
           this.userService.clearMessages();
         }, 3000);
-    
+
       });
   }
 }

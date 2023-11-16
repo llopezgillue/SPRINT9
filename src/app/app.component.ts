@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   updateLoginStatus(): void {
     this.isLoggedIn = this.userService.isLoggedInUser();
     this.loggedInUserName = this.userService.getLoggedInUserName();
-   
+
   }
 
   logout(): void {

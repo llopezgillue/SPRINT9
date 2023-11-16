@@ -16,9 +16,9 @@ export class SightseeingFormComponent implements OnInit {
     fecha: '',
   };
 
-  constructor(private firestore: AngularFirestore, private router: Router) {}
+  constructor(private firestore: AngularFirestore, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   navigateToAddSightseeing() {
     this.router.navigate(['/sightseeing-form']);

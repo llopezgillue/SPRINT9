@@ -10,7 +10,7 @@ export class FormularioComponent {
     nombre: '',
     apellidos: '',
     edad: '',
-    horasDeseadas:'',
+    horasDeseadas: '',
     comentarios: ''
   };
 
@@ -21,11 +21,10 @@ export class FormularioComponent {
     this.solicitud = {
       nombre: '',
       apellidos: '',
-      edad:'',
+      edad: '',
       horasDeseadas: '',
       comentarios: ''
 
-
-}
-}
+    }
+  }
 }

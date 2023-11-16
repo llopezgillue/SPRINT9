@@ -1,6 +1,6 @@
-.container{
+.container {
 
-  margin-left:680px;
+  margin-left: 680px;
 
 }
 
@@ -9,10 +9,12 @@
   padding: 5px 10px;
   width: 150px;
 }
+
 .wide-input {
   width: 30%;
-  height:4vw;
+  height: 4vw;
 }
+
 .custom-heading {
   font-size: 36px;
   color: brown;
@@ -22,6 +24,7 @@
   font-size: 23px;
   color: black;
 }
+
 .btn-primary {
   font-family: 'Montserrat', sans-serif;
   font-size: 16p;
@@ -30,9 +33,8 @@
 
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
 
-background-color: rgb(96, 96, 223);
+  background-color: rgb(96, 96, 223);
 
 }
-

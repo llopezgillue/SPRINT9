@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(public titleService: Title) {}
+  constructor(public titleService: Title) { }
 
   mostrarConsejosSalud = false;
 

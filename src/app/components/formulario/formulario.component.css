@@ -1,11 +1,11 @@
-.form-label{
+.form-label {
 
-  color:black;
+  color: black;
 }
 
-.text-center{
+.text-center {
 
-  color:brown;
+  color: brown;
 }
 
 .btn-primary {
@@ -17,13 +17,15 @@
   border-radius: 15px;
 
 }
+
 .btn-primary:hover {
   background-color: #2a72c0;
   color: rgb(245, 245, 245);
 }
-.card-rounded{
-background:linear-gradient(to right, #828c92, #c6cbcc,#a1a4a5);
-border-radius: 20px;
-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+
+.card-rounded {
+  background: linear-gradient(to right, #828c92, #c6cbcc, #a1a4a5);
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 
 }

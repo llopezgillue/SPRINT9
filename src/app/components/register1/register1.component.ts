@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register1',
   templateUrl: './register1.component.html',
- styleUrls: ['./register1.component.css']
+  styleUrls: ['./register1.component.css']
 })
 export class Register1Component {
   isRegistered: boolean = true;
@@ -24,12 +24,12 @@ export class Register1Component {
   onSubmit() {
     this.userService.register(this.formReg.value)
       .then(() => {
-        // Redirige al usuario a la página de inicio después de un registro exitoso
+
         this.router.navigate(['/welcome']);
       })
-      .catch((error: any)=> {
-        // Manejar el error aquí
-        this.isUserAlreadyRegistered = true; // Marcar al usuario como ya registrado
+      .catch((error: any) => {
+
+        this.isUserAlreadyRegistered = true;
         this.errorMessage = 'Error: No se pudo completar el registro. Por favor, verifica tus datos e inténtalo de nuevo.';
 
       });

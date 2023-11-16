@@ -1,4 +1,3 @@
-
 .container-con-video {
   width: 100%;
   height: 39vw;
@@ -51,7 +50,7 @@
   margin-top: 30px;
   border-radius: 15px;
   background-color: #0a0da7e4;
-  color:rgb(245, 245, 245);
+  color: rgb(245, 245, 245);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -89,7 +88,6 @@
 
   }
 }
-
 
 @media (max-width: 576px) {
   .container-con-video {

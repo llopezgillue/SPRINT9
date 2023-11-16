@@ -11,7 +11,7 @@ export class FollowMeComponent {
   resultados: any[] = [];
   poblacionesDisponibles: string[] = [];
 
-  constructor(private AcompanantesService: AcompanantesService) {}
+  constructor(private AcompanantesService: AcompanantesService) { }
 
   ngOnInit(): void {
     this.obtenerPoblaciones();
@@ -30,7 +30,7 @@ export class FollowMeComponent {
         }
       );
     } else {
-     
+
       this.AcompanantesService.obtenerAcompanantes().subscribe(
         (data: any[]) => {
           console.log('Datos recibidos:', data);

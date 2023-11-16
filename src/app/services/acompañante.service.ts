@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AcompanantesService {
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) { }
 
   obtenerAcompanantes(): Observable<any[]> {
     return this.firestore.collection('cuidadores').valueChanges();
@@ -22,7 +22,7 @@ export class AcompanantesService {
     return this.firestore.collection('cuidadores').valueChanges()
       .pipe(
         map((cuidadores: any[]) => {
-          // Extraer poblaciones únicas de la colección
+
           const poblaciones = [...new Set(cuidadores.map(cuidadores => cuidadores.poblacion))];
           return poblaciones;
         })

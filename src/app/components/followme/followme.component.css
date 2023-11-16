@@ -14,7 +14,7 @@
 }
 
 .card {
-  background: linear-gradient(to bottom,#828c92,#a1a4a5);
+  background: linear-gradient(to bottom, #828c92, #a1a4a5);
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(11, 11, 11, 0.2);
   transition: transform 0.3s;
@@ -35,7 +35,7 @@
 }
 
 .btn-primary {
-  background-color:#0a0da7e4;
+  background-color: #0a0da7e4;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   border-radius: 15px;
@@ -53,13 +53,14 @@
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
 }
+
 .nombre-enlace {
-  color:  rgb(14, 14, 14);
+  color: rgb(14, 14, 14);
   text-decoration: none;
   font-weight: bold;
 }
 
 .nombre-enlace:hover {
   text-decoration: underline;
-  color:  #0a0da7e4;
+  color: #0a0da7e4;
 }

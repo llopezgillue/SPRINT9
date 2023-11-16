@@ -6,7 +6,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   providedIn: 'root'
 })
 export class ProfileService {
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) { }
 
   saveProfileData(data: any, userId: string) {
     return this.firestore.collection('profiles').doc(userId).set(data);

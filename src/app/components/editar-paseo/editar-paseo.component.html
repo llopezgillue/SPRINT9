@@ -1,5 +1,5 @@
 <div class="container mt-5 d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
-  <h1 class="custom-heading"style="margin-top:30px;">Editar Paseo</h1>
+  <h1 class="custom-heading" style="margin-top:30px;">Editar Paseo</h1>
 
   <div class="custom-input-container mt-3">
     <label for="Nombre" class="custom-label mb-3">Nombre:</label>
@@ -10,11 +10,12 @@
   <div class="custom-input-container">
     <label for="fecha" class="custom-label mb-3">Fecha:</label>
     <br>
-    <input type="date" id="fecha" [(ngModel)]="fechaDelPaseo" class="custom-input form-control" style="margin-right:70px">
+    <input type="date" id="fecha" [(ngModel)]="fechaDelPaseo" class="custom-input form-control"
+      style="margin-right:70px">
   </div>
 
   <div class="custom-input-container">
-    <label for ="hora" class="custom-label mb-3">Hora:</label>
+    <label for="hora" class="custom-label mb-3">Hora:</label>
     <br>
     <input type="text" id="hora" [(ngModel)]="horaDelPaseo" class="custom-input form-control">
   </div>
@@ -22,8 +23,10 @@
   <div class="custom-input-container">
     <label for="comentarios" class="custom-label mb-3">Comentarios:</label>
     <br>
-    <textarea id="comentarios" [(ngModel)]="comentariosDelPaseo" class="custom-input custom-textarea form-control"style="margin-right:25px"></textarea>
+    <textarea id="comentarios" [(ngModel)]="comentariosDelPaseo" class="custom-input custom-textarea form-control"
+      style="margin-right:25px"></textarea>
   </div>
 
-  <button (click)="guardarCambios()" class="btn btn-primary" style=" font-family: 'Montserrat', sans-serif; font-size: 18px;">Guardar Cambios</button>
+  <button (click)="guardarCambios()" class="btn btn-primary"
+    style=" font-family: 'Montserrat', sans-serif; font-size: 18px;">Guardar Cambios</button>
 </div>

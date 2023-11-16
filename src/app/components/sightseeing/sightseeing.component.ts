@@ -44,7 +44,7 @@ export class SightseeingComponent implements OnInit {
         }
       );
     } else {
-      
+
       this.sightseeingService.obtenerSightseeing().subscribe(
         (data: any[]) => {
           this.resultados = data;

@@ -86,7 +86,7 @@ export class SaludParentComponent {
   @Output() consejosCambiados: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   obtenerConsejos() {
-    
+
     const consejosAleatorios = this.shuffleArray(this.consejosSalud).slice(0, this.consejosPorPagina);
     this.consejosMostrados = consejosAleatorios;
     this.consejosCambiados.emit(this.consejosMostrados);

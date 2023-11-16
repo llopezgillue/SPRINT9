@@ -6,23 +6,21 @@
 
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
 
-background-color: rgb(96, 96, 223);
+  background-color: rgb(96, 96, 223);
 
 }
 
-.card{
+.card {
 
   background: linear-gradient(to right, #525050, #babfba, #727475);
 
 }
 
-.list-group-item{
+.list-group-item {
 
   background: linear-gradient(to right, #525050, #babfba, #727475);
 
 
 }
-
-

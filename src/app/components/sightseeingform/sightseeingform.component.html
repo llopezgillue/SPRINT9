@@ -4,32 +4,39 @@
     <form (ngSubmit)="agregarPaseo()">
       <div class="form-group mb-3 mt-4">
         <label for="nuevaPoblacion" style="color: #050505; font-size: 20px;">Población:</label>
-        <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required class="text-right rounded form-control">
+        <input id="nuevaPoblacion" name="poblacion" [(ngModel)]="nuevoPaseo.poblacion" required
+          class="text-right rounded form-control">
       </div>
 
       <div class="form-group mb-3">
         <label for="nuevaHora" style="color: #070707; font-size: 20px;">Hora de quedada:</label>
-        <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required class="text-right rounded form-control">
+        <input id="nuevaHora" name="hora" [(ngModel)]="nuevoPaseo.hora" required
+          class="text-right rounded form-control">
       </div>
 
       <div class="form-group mb-3">
         <label for="nuevoNombre" style="color: #010101; font-size: 20px;">Nombre:</label>
-        <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required class="text-right rounded form-control">
+        <input id="nuevoNombre" name="Nombre" [(ngModel)]="nuevoPaseo.Nombre" required
+          class="text-right rounded form-control">
       </div>
 
       <div class="form-group mb-3">
         <label for="nuevosComentarios" style="color: #040404; font-size: 20px;">Comentarios:</label>
-        <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios" class="text-right rounded form-control"></textarea>
+        <textarea id="nuevosComentarios" name="comentarios" [(ngModel)]="nuevoPaseo.comentarios"
+          class="text-right rounded form-control"></textarea>
       </div>
 
       <div class="form-group mb-3">
         <label for="nuevaFecha" style="color: #040404; font-size: 20px;">Fecha (YYYY-MM-DD):</label>
-        <input id="nuevaFecha" name="fecha" [(ngModel)]="nuevoPaseo.fecha" required pattern="\d{4}-\d{2}-\d{2}" class="text-right rounded form-control">
+        <input id="nuevaFecha" name="fecha" [(ngModel)]="nuevoPaseo.fecha" required pattern="\d{4}-\d{2}-\d{2}"
+          class="text-right rounded form-control">
       </div>
 
       <div class="mt-4 d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary" style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px;">Guardar</button>
-        <button type="button" class="btn btn-secondary" (click)="cancelarFormulario()" style=" color: #fff; font-family: Arial, sans-serif; font-size: 16px; margin-left: 10px;">Cancelar</button>
+        <button type="submit" class="btn btn-primary"
+          style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px;">Guardar</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelarFormulario()"
+          style=" color: #fff; font-family: Arial, sans-serif; font-size: 16px; margin-left: 10px;">Cancelar</button>
       </div>
     </form>
   </div>
