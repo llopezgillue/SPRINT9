@@ -13,9 +13,9 @@ export class SightseeingComponent implements OnInit {
   selectedPoblacion: string = '';
   selectedFecha: string = '';
   personasAgregadas: number[] = [];
-   mostrarComentariosCompleto: boolean[] = [];
+  mostrarComentariosCompleto: boolean[] = [];
 
-  constructor(private sightseeingService: SightseeingService, private router: Router) {}
+  constructor(private sightseeingService: SightseeingService, private router: Router) { }
 
   navigateToAddSightseeing() {
     this.router.navigate(['/sightseeing-form']);
@@ -28,9 +28,10 @@ export class SightseeingComponent implements OnInit {
   buscarPorPoblacionYFecha(): void {
     console.log("Función buscarPorPoblacionYFecha llamada. Población:", this.selectedPoblacion, "Fecha:", this.selectedFecha);
 
-    const fechaFormateada = this.selectedFecha;
+    if (this.selectedFecha || (this.selectedPoblacion && this.selectedPoblacion !== 'Todas')) {
 
-    if (fechaFormateada) {
+      const fechaFormateada = this.selectedFecha;
+
       this.sightseeingService.obtenerSightseeing().subscribe(
         (data: any[]) => {
           this.resultados = data.filter(resultado => this.coincidePoblacionYFecha(resultado, fechaFormateada));
@@ -43,15 +44,31 @@ export class SightseeingComponent implements OnInit {
         }
       );
     } else {
-      console.error('Fecha seleccionada no válida.');
+      
+      this.sightseeingService.obtenerSightseeing().subscribe(
+        (data: any[]) => {
+          this.resultados = data;
+          this.personasAgregadas = Array(this.resultados.length).fill(0);
+          console.log("Resultados sin filtrar:", this.resultados);
+        },
+        (error) => {
+          console.error('Error al buscar:', error);
+          this.resultados = [];
+        }
+      );
     }
   }
 
   coincidePoblacionYFecha(resultado: any, fechaSeleccionada: string): boolean {
     const poblacionCoincide = !this.selectedPoblacion || resultado.poblacion === this.selectedPoblacion;
+
+    if (!fechaSeleccionada && this.selectedPoblacion === 'Todas') {
+
+      return true;
+    }
+
     return poblacionCoincide && resultado.fecha === fechaSeleccionada;
   }
-
   obtenerPoblaciones(): void {
     this.sightseeingService.obtenerPoblacionesDisponibles().subscribe(
       (poblaciones: string[]) => {
@@ -122,4 +139,4 @@ export class SightseeingComponent implements OnInit {
     }
   }
 
-  }
+}

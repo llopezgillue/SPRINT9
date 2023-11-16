@@ -27,10 +27,7 @@
   border-radius: 10px;
 }
 
-.navbar .separator {
-  color: white;
-  font-size: 28px;
-}
+
 
 .navbar a.active {
   background-color: #ddd;

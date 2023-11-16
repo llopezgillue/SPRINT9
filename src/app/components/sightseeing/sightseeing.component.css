@@ -7,16 +7,17 @@
 .postik {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 100px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 15px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
   font-size: 20px;
   color: #333;
-  width: calc(33.33% - 20px);
+  width: calc(33.33% - 40px); 
   min-width: 300px;
 }
+
 .postik:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
@@ -42,47 +43,42 @@
   overflow: visible;
   width: 100%;
 }
-.btn-primary {
+
+.btn-primary,
+.btn-edit,
+.btn-delete {
   font-size: 18px;
   padding: 8px 16px;
-  background-color: #0a0da7e4;
   border: none;
-  color: white;
   border-radius: 15px;
-
+  cursor: pointer;
 }
+
+.btn-primary {
+  background-color: #0a0da7e4;
+  color: white;
+}
+
+.btn-edit {
+  background-color: rgb(32, 154, 21);
+  color: white;
+}
+
+.btn-delete {
+  background-color: #e6423d;
+  color: white;
+}
+
 .btn-primary:hover {
   background-color: #2a72c0;
-  color: rgb(245, 245, 245);
-}
-
-.btn-edit{
-  font-size: 18px;
-  padding: 8px 16px;
-  background-color: rgb(32, 154, 21);
-  border: none;
-  color: white;
-  border-radius: 15px;
-
 }
 
 .btn-edit:hover {
   background-color: #4caf50;
-  color: rgb(245, 245, 245);
-}
-.btn-delete{
-  font-size: 18px;
-  padding: 8px 16px;
-  background-color:  #e6423d;
-  border: none;
-  color: white;
-  border-radius: 15px;
-
 }
 
 .btn-delete:hover {
   background-color: #af654c;
-  color: rgb(245, 245, 245);
 }
 
 @media (max-width: 768px) {
@@ -90,7 +86,6 @@
     width: calc(50% - 20px);
   }
 }
-
 
 @media (max-width: 576px) {
   .postik {
