@@ -8,26 +8,26 @@ body {
   margin: 0;
 }
 
-/* Logo */
+
 .logo {
-  margin-bottom: -55px;
+  margin-bottom: -80px;
   width: 360px;
   height: 110px;
 }
 
-/* Barra de navegación */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+
 }
 
 .flex-spacer {
   flex-grow: 1;
 }
 
-/* Botones de inicio de sesión y registro */
+
 .login-button,
 .signup-button {
   text-decoration: none;
@@ -38,6 +38,7 @@ body {
   border: none;
   color: white;
   border-radius: 15px;
+  margin-top:30px;
 }
 
 .login-button:hover,
@@ -46,7 +47,6 @@ body {
   color: white;
 }
 
-/* Botón de cerrar sesión */
 .btn-primary,
 .btn-primary:hover {
   font-size: 18px;
@@ -61,13 +61,13 @@ body {
   background-color: #4c7eb4;
 }
 
-/* Nombre de usuario logueado */
+
 .user-name {
   font-size: 26px;
   color: brown;
 }
 
-/* Enlace personalizado */
+
 .custom-link {
   display: inline-block;
   background-color: #c2ba19;
@@ -81,20 +81,20 @@ body {
   font-size: 18px;
 }
 
-/* Estilos para pantallas más pequeñas (hasta 768px) */
+
 @media (max-width: 768px) {
-  /* Logo */
+
   .logo {
-    width: 150px;
+    width: 250px;
     height: 90px;
   }
 
-  /* Contenedor principal */
+
   .container-fluid {
     padding: 0 10px;
   }
 
-  /* Tamaño de fuente ajustado para botones y enlaces */
+
   .login-button,
   .signup-button {
     font-size: 16px;
@@ -108,7 +108,7 @@ body {
     margin-right: 8px;
   }
 
-  /* Ajuste de tamaño de fuente para otros elementos */
+
   .user-name {
     font-size: 22px;
   }
@@ -116,4 +116,20 @@ body {
   .custom-link {
     font-size: 22px;
   }
+}
+@media (max-width: 425px) {
+
+  .logo {
+    width: 200px;
+    height: 90px;
+    margin-left:-20px;
+  }
+
+  .login-button,
+  .signup-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    
+  }
+
 }

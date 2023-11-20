@@ -1,65 +1,54 @@
 <div class="container mt-5">
-  <h1 style="color: #ffffff; font-family: Arial, sans-serif; font-size: 40px; text-align: center; margin-bottom: 70px;">
+  <h1 class="text-center" style="color: #ffffff; font-family: Arial, sans-serif; font-size: 40px; margin-bottom: 70px;">
     Buscar paseo</h1>
 
   <div class="row">
-    <div class="col-md-4">
-      <div class="form-group d-flex align-items-center">
-        <label for="poblacion" class="col-form-label"
-          style="color: #040404; font-weight: bold; font-size: 20px; margin-bottom: 0; margin-right: 0px;margin-left:40px;margin-top:10px;">Selecciona
-          una población:</label>
-        <select id="poblacion" [(ngModel)]="selectedPoblacion" class="form-select"
-          style="font-size: 16px; max-width: 200px;margin-top:10px;">
-          <option value="" class="font-family-styles">Todas</option>
-          <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion" class="font-family-styles">{{
-            poblacion }}</option>
-        </select>
-      </div>
+    <div class="col-md-4 mb-3">
+      <label for="poblacion" class="form-label"
+        style="color: #040404; font-weight: bold; font-size: 20px; margin-bottom: 10px;">Selecciona una población:</label>
+      <select id="poblacion" [(ngModel)]="selectedPoblacion" class="form-select" style="font-size: 16px;">
+        <option value="" class="font-family-styles">Todas</option>
+        <option *ngFor="let poblacion of poblacionesDisponibles" [value]="poblacion" class="font-family-styles">{{
+          poblacion }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="fecha" class="form-label"
+        style="color: #070707; font-weight: bold; font-size: 20px; margin-top: 10px; margin-bottom: 10px;">Selecciona una
+        fecha:</label>
+      <input type="date" id="fecha" [(ngModel)]="selectedFecha" class="form-control" style="font-size: 16px;">
     </div>
 
     <div class="col-md-4">
-      <div class="form-group d-flex align-items-center">
-        <label for="fecha" class="col-form-label"
-          style="color: #070707; font-weight: bold; font-size: 20px; margin-top: 10px; margin-bottom: 90px; margin-right: 0px;margin-left:40px;">Selecciona
-          una fecha:</label>
-        <input type="date" id="fecha" [(ngModel)]="selectedFecha" class="form-control"
-          style="font-size: 16px; max-width: 200px; margin-left:20px; margin-top:-90px;">
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary"
-        style="font-size: 16px; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 20px;margin-bottom:70px;">Buscar</button>
+      <button (click)="buscarPorPoblacionYFecha()" class="btn btn-primary btn-block"
+        style="font-size: 16px; color: #fff; font-family: 'Montserrat', sans-serif; margin-top: 10px;">Buscar</button>
     </div>
   </div>
 </div>
 
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <ng-container *ngFor="let resultado of resultados; let i = index">
+        <div class="postik mb-3 p-3">
+          <h3 style="color: #010101;"><strong>Población:</strong> {{ resultado.poblacion }}</h3>
+          <p style="color: #000000;"><strong>Hora de quedada:</strong> {{ resultado.hora }}</p>
+          <p style="color: #010101;"><strong>Nombre:</strong> {{ resultado.Nombre }}</p>
+          <p style="color: #030303;"><strong>Fecha:</strong> {{ resultado.fecha }}</p>
+          <p style="color: #030303;"><strong>Personas añadidas:</strong> {{ resultado.apuntados }}</p>
+          <button (click)="agregarPersona(i)" class="btn btn-primary">+</button>&nbsp;
+          <button (click)="restarPersona(i)" class="btn btn-primary">-</button>
+          <p class="comentarios" style="color: #060606; font-style: italic;"><strong>Comentarios:</strong>
+            {{ resultado.comentarios }}</p>
 
-
-<div class="postik-container">
-  <ng-container *ngFor="let resultado of resultados; let i = index">
-    <div class="postik"
-      style="font-size:20px; ; padding: 20px; margin: 10px; border-radius: 5px;margin-top:-20px;margin-left:90px; margin-bottom:50px;margin-right:110px;">
-      <h3 style="color: #010101;"><strong>Población:</strong> {{ resultado.poblacion }}</h3>
-      <p style="color: #000000;"><strong>Hora de quedada:</strong> {{ resultado.hora }}</p>
-      <p style="color: #010101;"><strong>Nombre:</strong> {{ resultado.Nombre }}</p>
-      <p style="color: #030303;"><strong>Fecha:</strong> {{ resultado.fecha }}</p>
-      <p style="color: #030303;"><strong>Personas añadidas:</strong> {{ resultado.apuntados}}</p>
-      <button (click)="agregarPersona(i)" class="btn btn-primary">+</button>&nbsp;
-      <button (click)="restarPersona(i)" class="btn btn-primary">-</button>
-      <p class="comentarios" style="color: #060606; font-style: italic;"><strong>Comentarios:</strong> {{
-        resultado.comentarios }}</p>
-
-
-      <button (click)="editarPaseo(resultado['Document ID'])"
-        style="font-size: 16px; color: #fff; font-family: 'Montserrat', sans-serif;" class="btn-edit">Editar</button>
-      <button (click)="eliminarPaseo(resultado['Document ID'])"
-        style="font-size: 16px;color: #fff; font-family: 'Montserrat', sans-serif; margin-left: 10px;"
-        class="btn-delete">Eliminar</button>
+          <button (click)="editarPaseo(resultado['Document ID'])" class="btn btn-primary btn-sm">Editar</button>
+          <button (click)="eliminarPaseo(resultado['Document ID'])" class="btn btn-danger btn-sm ml-2">Eliminar</button>
+        </div>
+      </ng-container>
     </div>
-  </ng-container>
+  </div>
 </div>
 
-<button (click)="navigateToAddSightseeing()" class="btn btn-primary"
-  style="font-size: 16px; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 25px;margin-left:150px;">Añadir
-  Paseo</button>
+<button (click)="navigateToAddSightseeing()" class="btn btn-primary btn-block"
+  style="font-size: 16px; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 10px;">Añadir Paseo</button>
