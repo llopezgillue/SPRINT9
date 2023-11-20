@@ -17,3 +17,21 @@
   font-weight: bold;
   margin-bottom: 40px;
 }
+
+@media (max-width:768px){
+  .consejo{
+
+    font-size:17px;
+
+  }
+
+  .consejos-container{
+
+    margin-right:10px;
+    margin-top: 160px;
+
+
+  }
+
+
+}

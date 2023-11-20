@@ -129,7 +129,27 @@ body {
   .signup-button {
     font-size: 14px;
     padding: 8px 12px;
-    
+
+  }
+  .login-button:hover,
+.signup-button:hover {
+  background-color: #4c7eb4;
+  color: white;
+  font-size: 14px;
+    padding: 8px 12px;
+}
+
+@media (max-width: 425px) {
+
+  .logo{
+
+    width: 170px;
+    height: 90px;
+    margin-left:-20px;
+    margin-top:-40px;
+  }
+
   }
 
 }
+
