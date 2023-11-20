@@ -1,7 +1,6 @@
-.logo {
-  margin-bottom: -55px;
-  width: 360px;
-  height: 110px;
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
 }
 
 .container-fluid {
@@ -9,10 +8,14 @@
   margin: 0;
 }
 
-.login-signup-container {
-  margin-left: auto;
+/* Logo */
+.logo {
+  margin-bottom: -55px;
+  width: 360px;
+  height: 110px;
 }
 
+/* Barra de navegación */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -24,6 +27,7 @@
   flex-grow: 1;
 }
 
+/* Botones de inicio de sesión y registro */
 .login-button,
 .signup-button {
   text-decoration: none;
@@ -33,6 +37,7 @@
   background-color: #6b7784;
   border: none;
   color: white;
+  border-radius: 15px;
 }
 
 .login-button:hover,
@@ -41,6 +46,7 @@
   color: white;
 }
 
+/* Botón de cerrar sesión */
 .btn-primary,
 .btn-primary:hover {
   font-size: 18px;
@@ -55,11 +61,13 @@
   background-color: #4c7eb4;
 }
 
+/* Nombre de usuario logueado */
 .user-name {
   font-size: 26px;
   color: brown;
 }
 
+/* Enlace personalizado */
 .custom-link {
   display: inline-block;
   background-color: #c2ba19;
@@ -73,24 +81,24 @@
   font-size: 18px;
 }
 
+/* Estilos para pantallas más pequeñas (hasta 768px) */
 @media (max-width: 768px) {
+  /* Logo */
   .logo {
     width: 150px;
     height: 90px;
   }
 
+  /* Contenedor principal */
   .container-fluid {
     padding: 0 10px;
   }
 
+  /* Tamaño de fuente ajustado para botones y enlaces */
   .login-button,
   .signup-button {
     font-size: 16px;
     padding: 8px 12px;
-  }
-
-  .logged-in-username {
-    font-size: 16px;
   }
 
   .btn-primary,
@@ -100,6 +108,7 @@
     margin-right: 8px;
   }
 
+  /* Ajuste de tamaño de fuente para otros elementos */
   .user-name {
     font-size: 22px;
   }
