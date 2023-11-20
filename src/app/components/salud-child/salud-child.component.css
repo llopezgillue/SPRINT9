@@ -30,8 +30,18 @@
     margin-right:10px;
     margin-top: 160px;
 
+  }
+}
+  @media (max-width:425px){
+
+    .consejo{
+
+      font-size:15px;
+      margin-bottom: 20px;
+    }
 
   }
 
+  
 
-}
+
