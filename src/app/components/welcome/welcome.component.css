@@ -3,6 +3,12 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
+.lead1{
+  font-size: 26px;
+  color: black;
+
+}
+
 .content-container {
   padding: 20px;
 }
@@ -36,7 +42,7 @@ body {
   color: brown;
 }
 
-video-container {
+.video-container {
   width: 100%;
   text-align: center;
 }
@@ -83,7 +89,7 @@ video-container {
 @media (max-width: 768px) {
 
   .cta-content h2 {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .image-laugh {
@@ -117,4 +123,40 @@ video-container {
     border-radius: 15px;
   }
 
+}
+
+@media (max-width:375px){
+
+  .lead1{
+
+    font-size:19px;
+
+  }
+}
+@media (max-width:320px){
+
+  .lead1{
+
+    font-size:16px;
+
+  }
+  .display-1{
+
+    font-size:32px;
+  }
+
+  .h2{
+
+    font-size:18px;
+  }
+
+  .image-laugh {
+    width: 140%;
+    max-width: 140%;
+    height: 50%;
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    margin-top:-70px;
+    margin-right:30%;
+  }
 }

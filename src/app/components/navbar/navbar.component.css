@@ -45,11 +45,51 @@
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
+    width:110%;
+    
+  }
+
+  .navbar a {
+    font-size: 16px;
+    padding: 8px 12px;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 425px) {
+  .navbar {
+    justify-content: space-between;
     padding: 0 10px;
   }
 
   .navbar a {
     font-size: 16px;
+    padding: 8px 12px;
+    letter-spacing: 3px;
+  }
+}
+@media (max-width: 375px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  .navbar a {
+    font-size: 13px;
+    padding: 8px 12px;
+    letter-spacing: 3px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  .navbar a {
+    font-size: 11px;
     padding: 8px 12px;
     letter-spacing: 3px;
   }
