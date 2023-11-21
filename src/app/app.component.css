@@ -84,9 +84,6 @@ body {
 
 @media (max-width: 768px) {
 
-  .user-name {
-    font-size: 15px;
-  }
 
   .logo {
     width: 250px;
@@ -114,12 +111,10 @@ body {
 
 
 
-  .user-name {
-    font-size: 22px;
-  }
+
 
   .custom-link {
-    font-size: 22px;
+    font-size: 16px;
   }
 }
 
