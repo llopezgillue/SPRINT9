@@ -30,6 +30,7 @@
 
 .login-form {
   text-align: center;
+  max-width: 300px;
 }
 
 .login-form button {
@@ -40,25 +41,61 @@
   margin-top: 8px;
 }
 
-@media (max-width: 768px) {
-  .custom-button {
-    font-size: 16px;
-    padding: 6px 12px;
+.form-control {
+  font-size: 20px;
+  width: 80%;
+  align-items: center;
+
+
+}
+@media (max-width: 425px) {
+  .login-form {
+    max-width: 100%; /* Asegura que el formulario ocupe el ancho completo */
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .main {
-    font-size: 24px;
+  .form-control {
+    width: 100%; /* Asegura que el ancho del input sea del 100% */
+  }
+}
+
+/* Tamaño de pantalla entre 426px y 768px */
+@media (min-width: 426px) and (max-width: 768px) {
+  .login-form {
+    max-width: 100%; /* Asegura que el formulario ocupe el ancho completo */
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .transparent-background {
-    padding: 10px;
+  .form-control {
+    width: 100%; /* Asegura que el ancho del input sea del 100% */
+  }
+}
+
+/* Tamaño de pantalla entre 769px y 375px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-form {
+    max-width: 600px; /* Tamaño original del formulario */
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .login-form button {
-    margin-right: 6px;
+  .form-control {
+    width: 80%; /* Ancho del input del 80% */
+  }
+}
+
+/* Tamaño de pantalla menor o igual a 320px */
+@media (max-width: 320px) {
+  .login-form {
+    max-width: 100%; /* Asegura que el formulario ocupe el ancho completo */
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .alert {
-    margin-top: 6px;
+  .form-control {
+    width: 100%; /* Asegura que el ancho del input sea del 100% */
   }
+
 }
