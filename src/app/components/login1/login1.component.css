@@ -50,52 +50,58 @@
 }
 @media (max-width: 425px) {
   .login-form {
-    max-width: 100%; /* Asegura que el formulario ocupe el ancho completo */
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
+    font-size:12px;
   }
 
   .form-control {
-    width: 100%; /* Asegura que el ancho del input sea del 100% */
+    width: 100%;
   }
 }
 
-/* Tamaño de pantalla entre 426px y 768px */
+
 @media (min-width: 426px) and (max-width: 768px) {
   .login-form {
-    max-width: 100%; /* Asegura que el formulario ocupe el ancho completo */
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .form-control {
-    width: 100%; /* Asegura que el ancho del input sea del 100% */
+    width: 100%;
   }
 }
 
-/* Tamaño de pantalla entre 769px y 375px */
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .login-form {
-    max-width: 600px; /* Tamaño original del formulario */
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .form-control {
-    width: 80%; /* Ancho del input del 80% */
+    width: 80%;
   }
 }
 
-/* Tamaño de pantalla menor o igual a 320px */
+
 @media (max-width: 320px) {
   .login-form {
-    max-width: 100%; /* Asegura que el formulario ocupe el ancho completo */
+    max-width:80%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .form-control {
-    width: 100%; /* Asegura que el ancho del input sea del 100% */
+    width: 100%;
+  }
+
+  .main{
+
+    font-size:18px;
   }
 
 }
