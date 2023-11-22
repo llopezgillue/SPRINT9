@@ -24,3 +24,10 @@
 
 
 }
+
+@media (max-width: 425px) {
+
+  .card-body{
+    font-size: 10px;
+  }
+}
