@@ -1,3 +1,31 @@
+.form-select {
+
+  font-size: 16px;
+  max-width: 200px;
+  margin-top: 10px
+}
+
+.col-form-label {
+
+  color: #040404;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0;
+  margin-right: 20px;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+
+.form-control {
+
+  font-size: 16px;
+  max-width: 200px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+
 .postik-container {
   display: flex;
   flex-wrap: wrap;
@@ -7,14 +35,15 @@
 .postik {
   background: linear-gradient(to right, rgb(232, 232, 129), rgb(230, 230, 57), rgb(218, 218, 85));
   padding: 20px;
-  margin: 20px;
-  border-radius: 45px;
+  margin: 10px;
+  border-radius: 25px;
   box-shadow: 10px 60px 70px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
   font-size: 20px;
   color: #060101;
   width: calc(33.33% - 40px);
   min-width: 300px;
+  margin-top:30px;
 }
 
 .postik:hover {
@@ -56,6 +85,7 @@
 .btn-primary {
   background-color: #0a0da7e4;
   color: white;
+  margin-top:30px;
 }
 
 .btn-edit {
@@ -84,6 +114,69 @@
   .postik {
     width: calc(50% - 20px);
   }
+
+  .col-form-label {
+
+    color: #040404;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    margin-left: 40px;
+    margin-top: 10px;
+
+  }
+
+  .form-select {
+
+    font-size: 16px;
+    max-width: 100px;
+    margin-top: 10px;
+    width: 150px;
+  }
+
+  .custom-date-input {
+    font-size: 16px;
+    max-width: 100px;
+    margin-left: 20px;
+    margin-top: 40px;
+    width: 150px;
+  }
+
+
+  .btn-primary {
+    background-color: #0a0da7e4;
+    color: white;
+    margin-left:70px;
+    margin-top:30px;
+  }
+
+  .postik {
+    background: linear-gradient(to right, rgb(232, 232, 129), rgb(230, 230, 57), rgb(218, 218, 85));
+    padding: 20px;
+    margin: 20px;
+    border-radius: 45px;
+    box-shadow: 10px 60px 70px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    font-size: 5px;
+    color: #060101;
+    width: 300px;
+  }
+
+  .postik-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top:30px;
+    width:calc(100% - 20px);
+  }
+
+  .postik h3 {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
 }
 
 @media (max-width: 576px) {
