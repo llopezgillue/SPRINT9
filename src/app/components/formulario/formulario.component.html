@@ -3,47 +3,45 @@
     <div class="col-md-6">
       <div class="card-rounded">
         <div class="card-body p-3">
-          <h2 class="text-center mt-3" style="font-size: 28px;">Formulario de solicitud de acompañante</h2>
+          <h2 class="text-center mt-3">Formulario de solicitud de acompañante</h2>
           <form #formulario="ngForm" (ngSubmit)="enviarFormulario()">
             <div class="mb-3 mt-4 text-center">
-              <label for="nombre" class="form-label" style="font-size: 20px; text-align: right;">Nombre:</label>
+              <label for="nombre" class="form-label">Nombre:</label>
               <div class="d-flex justify-content-center">
                 <input type="text" id="nombre" name="nombre" class="form-control" [(ngModel)]="solicitud.nombre"
-                  required style="width: 250px;">
+                  required>
               </div>
             </div>
 
             <div class="mb-3 text-center">
-              <label for="apellidos" class="form-label" style="font-size: 20px; text-align: right;">Apellidos:</label>
+              <label for="apellidos" class="form-label">Apellidos:</label>
               <div class="d-flex justify-content-center">
                 <input type="text" id="apellidos" name="apellidos" class="form-control"
-                  [(ngModel)]="solicitud.apellidos" required style="width: 250px;">
+                  [(ngModel)]="solicitud.apellidos" required>
               </div>
             </div>
 
             <div class="mb-3 text-center">
-              <label for="edad" class="form-label" style="font-size: 20px; text-align: right;">Edad:</label>
+              <label for="edad" class="form-label">Edad:</label>
               <div class="d-flex justify-content-center">
-                <input type="number" id="edad" name="edad" class="form-control" [(ngModel)]="solicitud.edad" required
-                  style="width: 250px;">
+                <input type="number" id="edad" name="edad" class="form-control" [(ngModel)]="solicitud.edad" required>
               </div>
             </div>
 
             <div class="mb-3 text-center">
-              <label for="horasDeseadas" class="form-label" style="font-size: 20px; text-align: right;">Horas
+              <label for="horasDeseadas" class="form-label">Horas
                 Deseadas:</label>
               <div class="d-flex justify-content-center">
                 <input type="number" id="horasDeseadas" name="horasDeseadas" class="form-control"
-                  [(ngModel)]="solicitud.horasDeseadas" required style="width: 250px;">
+                  [(ngModel)]="solicitud.horasDeseadas" required>
               </div>
             </div>
 
             <div class="mb-3 text-center">
-              <label for="comentarios" class="form-label"
-                style="font-size: 20px; text-align: right;">Comentarios:</label>
+              <label for="comentarios" class="form-label">Comentarios:</label>
               <div class="d-flex justify-content-center">
                 <textarea id="comentarios" name="comentarios" class="form-control" [(ngModel)]="solicitud.comentarios"
-                  rows="3" required style="width: 250px;"></textarea>
+                  rows="3" required></textarea>
               </div>
             </div>
 

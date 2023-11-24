@@ -80,6 +80,7 @@
   @media (max-width: 768px) {
     .login-form button.btn-primary {
       font-size: 15px !important;
+      font-family: 'Montserrat', sans-serif;
     }
   }
   .main {
@@ -87,6 +88,7 @@
   }
   .custom-google-button {
     font-size: 15px !important;
+    font-family: 'Montserrat', sans-serif;
   }
 }
 

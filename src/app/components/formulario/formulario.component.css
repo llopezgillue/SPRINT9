@@ -1,11 +1,14 @@
 .form-label {
 
   color: black;
+  font-size: 20px;
+  text-align: right;
 }
 
 .text-center {
 
   color: brown;
+  font-size: 28px;
 }
 
 .btn-primary {
@@ -27,5 +30,79 @@
   background: linear-gradient(to right, #828c92, #c6cbcc, #a1a4a5);
   border-radius: 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin: auto;
 
 }
+
+.form-control {
+
+  width: 250px;
+
+
+
+}
+
+@media (max-width: 768px) {
+
+  .card-rounded {
+    width: 500px;
+    border-radius: 20px;
+    margin-left: -80px;
+  }
+
+  .btn-primary {
+
+    font-size: 15px;
+
+    font-family: 'Montserrat', sans-serif;
+  }
+
+
+}
+
+@media (max-width: 425px) {
+
+  .card-rounded {
+    width: 350px;
+    border-radius: 20px;
+    margin-left: 16px;
+    font-size: 15px;
+  }
+
+  .text-center {
+
+    font-size: 20px;
+  }
+
+  .form-label {
+
+    font-size: 15px;
+  }
+
+  .btn-primary {
+
+    font-size: 13px;
+
+    font-family: 'Montserrat', sans-serif;
+  }
+
+}
+
+@media (max-width: 375px) {
+
+  .card-rounded{
+
+    margin-left:-1px;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .card-rounded{
+
+    width:300px;
+    margin-left:-1px;
+  }
+}
+

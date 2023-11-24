@@ -27,7 +27,7 @@
 
 .btn-primary {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16p;
+  font-size: 16px;
   background-color: #0a0da7e4;
   border-radius: 15px;
 
@@ -44,7 +44,13 @@
   .container {
 
     margin-left: 250px;
+  }
 
+  .btn-primary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    background-color: #0a0da7e4;
+    border-radius: 15px;
 
   }
 
