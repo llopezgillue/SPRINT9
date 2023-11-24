@@ -38,3 +38,36 @@
   background-color: rgb(96, 96, 223);
 
 }
+
+@media (max-width: 768px) {
+
+  .container {
+
+    margin-left: 250px;
+
+
+  }
+
+}
+
+@media (max-width: 425px) {
+
+  .container {
+
+    margin-left: 78px;
+
+  }
+
+  .form-label {
+
+    font-size: 20px;
+  }
+
+  .custom-heading {
+
+    font-size: 29px;
+
+  }
+
+
+}

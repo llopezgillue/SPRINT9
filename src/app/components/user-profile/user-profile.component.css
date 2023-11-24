@@ -21,6 +21,10 @@
 .list-group-item {
 
   background: linear-gradient(to right, #686565, #babfba, #727475);
+  font-size: 24px;
+  border: none;
+  white-space: pre-wrap;
+
 
 
 }
@@ -29,5 +33,14 @@
 
   .card-body{
     font-size: 10px;
+    width:110%;
+  }
+
+  .list-group-item{
+
+    font-size:20px;
+    width:90%;
+
+
   }
 }

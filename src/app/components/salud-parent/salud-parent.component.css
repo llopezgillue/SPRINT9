@@ -13,7 +13,7 @@
   height: 100vh;
   overflow: hidden;
   box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);;
-  
+
 }
 
 .video-bg {
@@ -110,7 +110,7 @@
   .btn-primary {
     right: 20px;
     top: 20px;
-    font-size: 14px;
+    font-size: 15px;
     margin-top:-22px;
     margin-right:100px;
   }

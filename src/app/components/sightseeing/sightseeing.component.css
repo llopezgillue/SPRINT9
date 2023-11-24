@@ -35,13 +35,13 @@
 .postik {
   background: linear-gradient(to right, rgb(232, 232, 129), rgb(230, 230, 57), rgb(218, 218, 85));
   padding: 20px;
-  margin: 10px;
+  margin: 20px;
   border-radius: 25px;
   box-shadow: 10px 60px 70px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
   font-size: 20px;
   color: #060101;
-  width: calc(33.33% - 40px);
+  width: calc(33.33% - 100px);
   min-width: 300px;
   margin-top:30px;
 }
@@ -86,7 +86,24 @@
   background-color: #0a0da7e4;
   color: white;
   margin-top:30px;
+  font-family:'Montserrat'
 }
+
+.btn-primary-add,
+.btn-primary-less{
+
+  background-color: #0a0da7e4;
+  color: white;
+
+}
+
+.btn-primary-add:hover {
+  background-color: #2a72c0;
+}
+.btn-primary-less:hover {
+  background-color: #2a72c0;
+}
+
 
 .btn-edit {
   background-color: rgb(32, 154, 21);
@@ -149,6 +166,7 @@
     color: white;
     margin-left:70px;
     margin-top:30px;
+    font-size:15px;
   }
 
   .postik {

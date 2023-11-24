@@ -6,6 +6,7 @@ body {
 .container-fluid {
   padding: 0;
   margin: 0;
+
 }
 
 
@@ -55,6 +56,7 @@ body {
   border: none;
   color: rgb(255, 255, 255);
   border-radius: 15px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-primary:hover {
@@ -91,10 +93,6 @@ body {
   }
 
 
-  .container-fluid {
-    padding: 0 10px;
-  }
-
 
   .login-button,
   .signup-button {
@@ -111,10 +109,14 @@ body {
 
 
 
-
-
   .custom-link {
     font-size: 16px;
+  }
+
+  .container-fluid {
+    padding: 0;
+    margin: 0;
+
   }
 }
 

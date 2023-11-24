@@ -38,8 +38,8 @@
       <p style="color: #010101;"><strong>Nombre:</strong> {{ resultado.Nombre }}</p>
       <p style="color: #030303;"><strong>Fecha:</strong> {{ resultado.fecha }}</p>
       <p style="color: #030303;"><strong>Personas añadidas:</strong> {{ resultado.apuntados}}</p>
-      <button (click)="agregarPersona(i)" class="btn btn-primary">+</button>&nbsp;
-      <button (click)="restarPersona(i)" class="btn btn-primary">-</button>
+      <button (click)="agregarPersona(i)" class="btn btn-primary-add">+</button>&nbsp;
+      <button (click)="restarPersona(i)" class="btn btn-primary-less">-</button>
       <p class="comentarios" style="color: #060606; font-style: italic;"><strong>Comentarios:</strong> {{
         resultado.comentarios }}</p>
 
@@ -54,5 +54,5 @@
 </div>
 
 <button (click)="navigateToAddSightseeing()" class="btn btn-primary"
-  style="font-size: 16px; color: #fff; font-family:'Montserrat', sans-serif; margin-top: 25px;margin-left:150px;">Añadir
+  style="color: #fff; font-family:'Montserrat', sans-serif; margin-top: 25px;margin-left:150px;">Añadir
   Paseo</button>

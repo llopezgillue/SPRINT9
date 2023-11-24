@@ -65,20 +65,33 @@
 }
 
 
-@media (min-width: 426px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .login-form {
-    max-width: 100%;
+    max-width: 70%;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
   }
 
   .form-control {
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    .login-form button.btn-primary {
+      font-size: 15px !important;
+    }
+  }
+  .main {
+    font-size: 24px;
+  }
+  .custom-google-button {
+    font-size: 15px !important;
+  }
 }
 
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 425px){
   .login-form {
     max-width: 600px;
     margin-left: auto;
