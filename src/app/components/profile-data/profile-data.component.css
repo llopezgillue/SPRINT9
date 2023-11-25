@@ -4,6 +4,40 @@
 
 }
 
+.form-control-name{
+
+
+margin-left:20px;
+
+}
+
+.form-control-surname{
+
+  margin-left:10px;
+
+
+}
+
+.form-control-age{
+
+  margin-left: 50px;
+
+
+}
+
+.form-control-poblation {
+
+  margin-left:5px;
+
+}
+
+.form-control-aficiones{
+
+  margin-left:10px;
+
+
+}
+
 .short-input {
   font-size: 20px;
   padding: 5px 10px;
@@ -66,13 +100,84 @@
 
   .form-label {
 
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .custom-heading {
 
     font-size: 29px;
 
+  }
+  .btn-primary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    background-color: #0a0da7e4;
+    border-radius: 20px;
+
+  }
+
+
+}
+@media (max-width: 375px) {
+
+  .container {
+
+    margin-left: 78px;
+
+  }
+
+  .form-label {
+
+    font-size: 15px;
+  }
+
+  .custom-heading {
+
+    font-size: 25px;
+
+  }
+  .btn-primary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    background-color: #0a0da7e4;
+    border-radius: 20px;
+
+  }
+
+
+}
+
+@media (max-width: 320px) {
+
+  .container {
+
+    margin-left: 78px;
+
+  }
+
+  .form-label {
+
+    font-size: 15px;
+    margin-left:-40px;
+  }
+
+  .custom-heading {
+
+    font-size: 23px;
+
+  }
+  .btn-primary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    background-color: #0a0da7e4;
+    border-radius: 20px;
+
+  }
+
+  .form-control{
+
+    margin-left:-30px;
+    width:30%;
   }
 
 
