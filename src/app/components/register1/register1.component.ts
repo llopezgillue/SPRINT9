@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
@@ -16,22 +16,35 @@ export class Register1Component {
 
   constructor(public userService: UserService, private router: Router) {
     this.formReg = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required)
     });
   }
 
   onSubmit() {
-    this.userService.register(this.formReg.value)
-      .then(() => {
+    const emailControl = this.formReg.get('email');
+    if (emailControl && emailControl.value) {
+      const emailValue = emailControl.value;
+      if (!this.isEmail(emailValue)) {
+        emailControl.setErrors({ invalidEmail: true });
+        return;
+      }
+    }
 
-        this.router.navigate(['/welcome']);
-      })
-      .catch((error: any) => {
+    if (this.formReg.valid) {
+      this.userService.register(this.formReg.value)
+        .then(() => {
+          this.router.navigate(['/welcome']);
+        })
+        .catch((error: any) => {
+          this.isUserAlreadyRegistered = true;
+          this.errorMessage = 'Error: No se pudo completar el registro. Por favor, verifica tus datos e inténtalo de nuevo.';
+        });
+    }
+  }
 
-        this.isUserAlreadyRegistered = true;
-        this.errorMessage = 'Error: No se pudo completar el registro. Por favor, verifica tus datos e inténtalo de nuevo.';
-
-      });
+  private isEmail(value: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
   }
 }
