@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ export class Register1Component {
   isUserAlreadyRegistered: boolean = false;
   errorMessage: string = '';
 
-  constructor(public userService: UserService, private router: Router) {
+  constructor(public userService: UserService, private router: Router, private ngZone: NgZone) {
     this.formReg = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
@@ -27,6 +27,12 @@ export class Register1Component {
       const emailValue = emailControl.value;
       if (!this.isEmail(emailValue)) {
         emailControl.setErrors({ invalidEmail: true });
+        this.ngZone.run(() => {
+          setTimeout(() => {
+            this.isUserAlreadyRegistered = false;
+            this.errorMessage = '';
+          }, 5000); // Oculta el mensaje después de 5 segundos
+        });
         return;
       }
     }
@@ -39,6 +45,12 @@ export class Register1Component {
         .catch((error: any) => {
           this.isUserAlreadyRegistered = true;
           this.errorMessage = 'Error: No se pudo completar el registro. Por favor, verifica tus datos e inténtalo de nuevo.';
+          this.ngZone.run(() => {
+            setTimeout(() => {
+              this.isUserAlreadyRegistered = false;
+              this.errorMessage = '';
+            }, 5000); 
+          });
         });
     }
   }
