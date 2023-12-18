@@ -13,6 +13,7 @@ export class Register1Component {
   formReg: FormGroup;
   isUserAlreadyRegistered: boolean = false;
   errorMessage: string = '';
+  hideErrorMessage: boolean = true;
 
   constructor(public userService: UserService, private router: Router, private ngZone: NgZone) {
     this.formReg = new FormGroup({
@@ -27,12 +28,7 @@ export class Register1Component {
       const emailValue = emailControl.value;
       if (!this.isEmail(emailValue)) {
         emailControl.setErrors({ invalidEmail: true });
-        this.ngZone.run(() => {
-          setTimeout(() => {
-            this.isUserAlreadyRegistered = false;
-            this.errorMessage = '';
-          }, 5000); // Oculta el mensaje después de 5 segundos
-        });
+        this.hideErrorMessageAfterDelay();
         return;
       }
     }
@@ -43,20 +39,29 @@ export class Register1Component {
           this.router.navigate(['/welcome']);
         })
         .catch((error: any) => {
-          this.isUserAlreadyRegistered = true;
-          this.errorMessage = 'Error: No se pudo completar el registro. Por favor, verifica tus datos e inténtalo de nuevo.';
-          this.ngZone.run(() => {
-            setTimeout(() => {
-              this.isUserAlreadyRegistered = false;
-              this.errorMessage = '';
-            }, 5000); 
-          });
+          this.handleError(error);
         });
     }
+  }
+
+  private handleError(error: any) {
+    this.isUserAlreadyRegistered = true;
+    this.errorMessage = 'Error: No se pudo completar el registro. Por favor, verifica tus datos e inténtalo de nuevo.';
+    this.hideErrorMessageAfterDelay();
   }
 
   private isEmail(value: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(value);
+  }
+
+  private hideErrorMessageAfterDelay(): void {
+    this.hideErrorMessage = false;
+    setTimeout(() => {
+      this.ngZone.run(() => {
+        this.hideErrorMessage = true;
+        this.errorMessage = '';
+      });
+    }, 5000);
   }
 }

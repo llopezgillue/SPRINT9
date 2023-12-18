@@ -13,6 +13,13 @@
   color: rgb(247, 247, 247);
 }
 
+.text-danger{
+font-size: 20px;
+color:red;
+
+
+}
+
 .main {
   color: brown;
   font-size: 26px;
